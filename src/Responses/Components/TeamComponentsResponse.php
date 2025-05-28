@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Turker\FigmaAPI\Responses\Components;
+
+use Turker\FigmaAPI\Responses\BaseResponse;
+use Turker\FigmaAPI\Types\Common\CursorType;
+use Turker\FigmaAPI\Types\Component\ComponentType;
+
+final class TeamComponentsResponse extends BaseResponse
+{
+    public readonly int $status;
+    public readonly bool $error;
+    public readonly ?array $meta;
+
+    public function __construct(array $data)
+    {
+
+        $this->status = intval($data['status']);
+        $this->error = boolval($data['error']);
+        $meta = null;
+        if (!empty($data['meta'])) {
+            $meta['cursor'] = null;
+            if (!empty($data['meta']['cursor'])) {
+                $meta['cursor'] = new CursorType($data['meta']['cursor']);
+            }
+            if (!empty($data['meta']['components'])) {
+                $meta['components'] = [];
+                foreach ($data['meta']['components'] as $components) {
+                    $meta['components'][] = new ComponentType($components);
+                }
+            }
+        }
+
+        $this->meta = $meta;
+        return $this;
+    }
+}

@@ -1,0 +1,14 @@
+test.php
+/.env*
+/*.log
+/*.cache
+/.phpstorm.meta.php
+/_ide_helper.php
+/.fleet
+/.vscode
+/.buildpath
+/.project
+/.settings
+/.idea
+/vendor
+

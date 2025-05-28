@@ -1,0 +1,13 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Turker\FigmaAPI\Types\File;
+
+class GroupNodeType extends FrameNodeType
+{
+    public function __construct(array $data)
+    {
+        parent::__construct($data);
+    }
+}

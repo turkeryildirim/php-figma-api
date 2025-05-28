@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Turker\FigmaAPI\Types\File;
+
+use Turker\FigmaAPI\Types\AbstractType;
+
+class MeasurementOffsetOuterType extends AbstractType
+{
+    public readonly string $type;
+    public readonly int|float $fixed;
+
+    public function __construct(array $data)
+    {
+        $this->type = 'OUTER';
+        $this->fixed = $data['fixed'];
+    }
+}
