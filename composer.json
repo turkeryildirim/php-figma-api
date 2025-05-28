@@ -6,7 +6,8 @@
     "php",
     "figma",
     "api",
-    "library"
+    "library",
+    "rest"
   ],
   "license": "MIT",
   "authors": [
