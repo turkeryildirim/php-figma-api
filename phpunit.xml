@@ -7,7 +7,7 @@
 >
     <testsuites>
         <testsuite name="PHP Figma API Test Suite">
-            <directory>tests</directory>
+            <directory>test</directory>
         </testsuite>
     </testsuites>
 
