@@ -12,7 +12,24 @@ Due to inconsistencies in property naming across various endpoints (e.g., style_
 conventions used within this library have been standardized to camel case, rather than adhering to the existing
 inconsistent naming in the API.
 
-You can find detailed explanations and examples in the "How to Use" section.
+## Supported API endpoints
+* Comments
+* Reactions
+* Components
+* Component Sets
+* Files
+* Projects
+* Styles
+* Users
+* Version history
+
+## Disregarded API endpoints
+* Webhooks
+* Activity logs
+* Payments
+* Variables
+* Dev resources
+* Library analytics
 
 ## Installation
 
@@ -32,7 +49,19 @@ You will then need to:
 You can read more details about API endpoints and properties
 from [official Figma rest api  documentation](https://www.figma.com/developers/api).
 
+All fields are populated with response data received from the API endpoint, ensuring consistency with the designated 
+data type. For instance, if a field is defined as a boolean, but the response data from the endpoint returns it as a 
+string (e.g., "remote": "false"), it will still be converted to a boolean data type.
+
+All empty fields in the response data (whether null or empty) are converted to null, regardless of the field’s original 
+type. For example, the children field is defined as an array but if the response data returns an empty array, this 
+field will be marked as null.
+
+Fields that are defined for the relevant response but are absent from the response data will also be marked as null 
+(e.g., user email).
+
 ## How to use
+Just check out [samples](https://github.com/turkeryildirim/php-figma-api/tree/main/samples) directory.
 
 ###
 
