@@ -23,13 +23,8 @@ final class FileStylesResponse extends BaseResponse
         $this->error  = Helper::makeBoolean($data['error']);
 
         $meta = null;
-        if (!empty($data['meta'])) {
-            if (!empty($data['meta']['styles'])) {
-                $meta['styles'] = [];
-                foreach ($data['meta']['styles'] as $style) {
-                    $meta['styles'][] = new StyleType($style);
-                }
-            }
+        if (!empty($data['meta']) && !empty($data['meta']['styles'])) {
+            $meta['styles'] = Helper::makeArrayOfObjects($data['meta']['styles'], StyleType::class);
         }
         $this->meta = $meta;
         return $this;

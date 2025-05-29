@@ -6,6 +6,7 @@ namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Enums\File\LineTypesEnum;
 use Turker\FigmaAPI\Traits\CharactersTrait;
+use Turker\FigmaAPI\Util\Helper;
 
 class TextNodeType extends VectorNodeType
 {
@@ -24,14 +25,7 @@ class TextNodeType extends VectorNodeType
         $this->characterStyleOverrides = $data['characterStyleOverrides'] ?? null;
         $this->lineIndentations        = $data['lineIndentations'] ?? null;
 
-        $styleOverrideTable = null;
-        if (!empty($data['styleOverrideTable']) && is_array($data['styleOverrideTable'])) {
-            $styleOverrideTable = [];
-            foreach ($data['styleOverrideTable'] as $k => $v) {
-                $styleOverrideTable[$k] = new TypeStyleType($v);
-            }
-        }
-        $this->styleOverrideTable = $styleOverrideTable;
+        $this->styleOverrideTable = Helper::makeArrayOfObjects($data['styleOverrideTable'], TypeStyleType::class, true);
 
         $this->lineTypes = ( !empty($data['lineTypes']) && LineTypesEnum::hasValue($data['lineTypes']) )
             ? LineTypesEnum::tryFrom($data['lineTypes']) : null;

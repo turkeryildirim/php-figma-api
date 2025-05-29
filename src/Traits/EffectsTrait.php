@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Traits;
 
 use Turker\FigmaAPI\Types\File\EffectType;
+use Turker\FigmaAPI\Util\Helper;
 
 trait EffectsTrait
 {
@@ -14,13 +15,6 @@ trait EffectsTrait
     public readonly ?array $effects;
     final protected function __effects(array $data): void
     {
-        $effects = null;
-        if (!empty($data['effects']) && is_array($data['effects'])) {
-            $effects = [];
-            foreach ($data['effects'] as $effect) {
-                $effects[] = new EffectType($effect);
-            }
-        }
-        $this->effects = $effects;
+        $this->effects = Helper::makeArrayOfObjects($data['effects'], EffectType::class);
     }
 }

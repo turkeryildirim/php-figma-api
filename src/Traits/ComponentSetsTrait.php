@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Traits;
 
 use Turker\FigmaAPI\Types\File\ComponentSetType;
+use Turker\FigmaAPI\Util\Helper;
 
 trait ComponentSetsTrait
 {
@@ -14,13 +15,6 @@ trait ComponentSetsTrait
     public readonly ?array $componentSets;
     final protected function __componentSets(array $data): void
     {
-        $componentSets = null;
-        if (!empty($data['componentSets']) && is_array($data['componentSets'])) {
-            $componentSets = [];
-            foreach ($data['componentSets'] as $key => $componentSet) {
-                $componentSets[$key] = new ComponentSetType($componentSet);
-            }
-        }
-        $this->componentSets = $componentSets;
+        $this->componentSets = Helper::makeArrayOfObjects($data['componentSets'], ComponentSetType::class, true);
     }
 }

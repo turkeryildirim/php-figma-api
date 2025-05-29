@@ -6,6 +6,7 @@ namespace Turker\FigmaAPI\Responses\Projects;
 
 use Turker\FigmaAPI\Responses\BaseResponse;
 use Turker\FigmaAPI\Types\Project\ProjectType;
+use Turker\FigmaAPI\Util\Helper;
 
 final class ProjectsResponse extends BaseResponse
 {
@@ -17,16 +18,7 @@ final class ProjectsResponse extends BaseResponse
 
     public function __construct(array $data)
     {
-        $this->name = $data['name'];
-
-        $projects = null;
-        if (!empty($data['projects'])) {
-            $projects = [];
-            foreach ($data['projects'] as $project) {
-                $projects[] = new ProjectType($project);
-            }
-        }
-        $this->projects = $projects;
-        return $this;
+        $this->name     = $data['name'];
+        $this->projects = Helper::makeArrayOfObjects($data['projects'], ProjectType::class);
     }
 }

@@ -92,15 +92,19 @@ final class Helper
         }
         return $default;
     }
-    public static function makeArrayOfObjects($data, $class): ?array
+    public static function makeArrayOfObjects($data, string $class, bool $preserveKeys = false): ?array
     {
-        if (empty($data) || !is_array($data)) {
+        if (empty($data) || !is_array($data) || empty($class)) {
             return null;
         }
 
         $array = [];
-        foreach ($data as $sub) {
-            $array[] = new $class($sub);
+        foreach ($data as $key => $sub) {
+            if (!$preserveKeys) {
+                $array[] = new $class($sub);
+            } else {
+                $array[$key] = new $class($sub);
+            }
         }
 
         return $array;

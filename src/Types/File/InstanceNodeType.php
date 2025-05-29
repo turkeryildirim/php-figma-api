@@ -30,22 +30,8 @@ class InstanceNodeType extends FrameNodeType
         $this->isExposedInstance = Helper::makeBoolean($data['isExposedInstance'], false);
         $this->exposedInstances  = $data['exposedInstances'] ?? null;
 
-        $componentProperties = null;
-        if (!empty($data['componentProperties']) && is_array($data['componentProperties'])) {
-            $componentProperties = [];
-            foreach ($data['componentProperties'] as $v) {
-                $componentProperties[] = new ComponentPropertyType($v);
-            }
-        }
-        $this->componentProperties = $componentProperties;
+        $this->componentProperties = Helper::makeArrayOfObjects($data['componentProperties'], ComponentPropertyType::class);
 
-        $overrides = null;
-        if (!empty($data['overrides']) && is_array($data['overrides'])) {
-            $overrides = [];
-            foreach ($data['overrides'] as $v) {
-                $overrides[] = new OverridesType($v);
-            }
-        }
-        $this->overrides = $overrides;
+        $this->overrides = Helper::makeArrayOfObjects($data['overrides'], OverridesType::class);
     }
 }

@@ -11,6 +11,7 @@ use Turker\FigmaAPI\Traits\NameTrait;
 use Turker\FigmaAPI\Traits\ScrollBehaviorTrait;
 use Turker\FigmaAPI\Traits\TypeTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class CanvasNodeType extends AbstractType
 {
@@ -42,13 +43,6 @@ class CanvasNodeType extends AbstractType
         $this->prototypeDevice = (!empty($data['prototypeDevice'])) ?
             new PrototypeDeviceType($data['prototypeDevice']) : null;
 
-        $measurements = null;
-        if (!empty($data['measurements']) && is_array($data['measurements'])) {
-            $measurements = [];
-            foreach ($data['measurements'] as $measurement) {
-                $measurements[] = new MeasurementType($measurement);
-            }
-        }
-        $this->measurements = $measurements;
+        $this->measurements = Helper::makeArrayOfObjects($data['measurements'], MeasurementType::class);
     }
 }

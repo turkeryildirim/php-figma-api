@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Turker\FigmaAPI\Types\File;
 
+use Turker\FigmaAPI\Util\Helper;
+
 class ComponentNodeType extends FrameNodeType
 {
     /**
@@ -15,13 +17,6 @@ class ComponentNodeType extends FrameNodeType
     {
         parent::__construct($data);
 
-        $componentPropertyDefinitions = null;
-        if (!empty($data['componentPropertyDefinitions']) && is_array($data['componentPropertyDefinitions'])) {
-            $componentPropertyDefinitions = [];
-            foreach ($data['componentPropertyDefinitions'] as $value) {
-                $componentPropertyDefinitions[] = new ComponentPropertyDefinitionType($value);
-            }
-        }
-        $this->componentPropertyDefinitions = $componentPropertyDefinitions;
+        $this->componentPropertyDefinitions = Helper::makeArrayOfObjects($data['componentPropertyDefinitions'], ComponentPropertyDefinitionType::class);
     }
 }

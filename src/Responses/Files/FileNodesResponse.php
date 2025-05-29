@@ -6,6 +6,7 @@ namespace Turker\FigmaAPI\Responses\Files;
 
 use Turker\FigmaAPI\Responses\BaseResponse;
 use Turker\FigmaAPI\Types\File\FileNodeType;
+use Turker\FigmaAPI\Util\Helper;
 
 final class FileNodesResponse extends BaseResponse
 {
@@ -15,13 +16,6 @@ final class FileNodesResponse extends BaseResponse
     public readonly ?array $nodes;
     public function __construct(array $data)
     {
-        $nodes = null;
-        if (!empty($data['nodes'])) {
-            $nodes = [];
-            foreach ($data['nodes'] as $node) {
-                $nodes[] = new FileNodeType($node);
-            }
-        }
-        $this->nodes = $nodes;
+        $this->nodes = Helper::makeArrayOfObjects($data['nodes'], FileNodeType::class);
     }
 }

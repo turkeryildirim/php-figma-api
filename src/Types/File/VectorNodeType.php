@@ -86,31 +86,10 @@ class VectorNodeType extends AbstractType
         $this->individualStrokeWeights = !empty($data['individualStrokeWeights']) ?
             new StrokeWeightsType($data['individualStrokeWeights']) : null;
 
-        $fillGeometry = null;
-        if (!empty($data['fillGeometry']) && is_array($data['fillGeometry'])) {
-            $fillGeometry = [];
-            foreach ($data['fillGeometry'] as $fill) {
-                $fillGeometry[] = new PathType($fill);
-            }
-        }
-        $this->fillGeometry = $fillGeometry;
+        $this->fillGeometry = Helper::makeArrayOfObjects($data['fillGeometry'], PathType::class);
 
-        $fillOverrideTable = null;
-        if (!empty($data['fillOverrideTable']) && is_array($data['fillOverrideTable'])) {
-            $fillOverrideTable = [];
-            foreach ($data['fillOverrideTable'] as $fill) {
-                $fillOverrideTable[] = new PaintOverrideType($fill);
-            }
-        }
-        $this->fillOverrideTable = $fillOverrideTable;
+        $this->fillOverrideTable = Helper::makeArrayOfObjects($data['fillOverrideTable'], PaintOverrideType::class);
 
-        $strokeGeometry = null;
-        if (!empty($data['strokeGeometry']) && is_array($data['strokeGeometry'])) {
-            $strokeGeometry = [];
-            foreach ($data['strokeGeometry'] as $stroke) {
-                $strokeGeometry[] = new PathType($stroke);
-            }
-        }
-        $this->strokeGeometry = $strokeGeometry;
+        $this->strokeGeometry = Helper::makeArrayOfObjects($data['strokeGeometry'], PathType::class);
     }
 }

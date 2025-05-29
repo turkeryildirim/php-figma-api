@@ -172,22 +172,8 @@ class FrameNodeType extends AbstractType
         $this->targetAspectRatio = !empty($data['targetAspectRatio']) ?
             new VectorType($data['targetAspectRatio']) : null;
 
-        $interactions = null;
-        if (!empty($data['interactions']) && is_array($data['interactions'])) {
-            $interactions = [];
-            foreach ($data['interactions'] as $interaction) {
-                $interactions[] = new InteractionType($interaction);
-            }
-        }
-        $this->interactions = $interactions;
+        $this->interactions = Helper::makeArrayOfObjects($data['interactions'], InteractionType::class);
 
-        $layoutGrids = null;
-        if (!empty($data['layoutGrids']) && is_array($data['layoutGrids'])) {
-            $layoutGrids = [];
-            foreach ($data['layoutGrids'] as $layoutGrid) {
-                $layoutGrids[] = new LayoutGridType($layoutGrid);
-            }
-        }
-        $this->layoutGrids = $layoutGrids;
+        $this->layoutGrids = Helper::makeArrayOfObjects($data['layoutGrids'], LayoutGridType::class);
     }
 }

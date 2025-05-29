@@ -49,23 +49,9 @@ class PaintType extends AbstractType
         $this->runTraitMethods($data);
         $this->type = PaintTypeEnum::from($data['type']);
 
-        $gradientHandlePositions = null;
-        if (!empty($data['gradientHandlePositions']) && is_array($data['gradientHandlePositions'])) {
-            $gradientHandlePositions = [];
-            foreach ($data['gradientHandlePositions'] as $vector) {
-                $gradientHandlePositions[] = new VectorType($vector);
-            }
-        }
-        $this->gradientHandlePositions = $gradientHandlePositions;
+        $this->gradientHandlePositions = Helper::makeArrayOfObjects($data['gradientHandlePositions'], VectorType::class);
 
-        $gradientStops = null;
-        if (!empty($data['gradientStops']) && is_array($data['gradientStops'])) {
-            $gradientStops = [];
-            foreach ($data['gradientStops'] as $color) {
-                $gradientStops[] = new ColorStopType($color);
-            }
-        }
-        $this->gradientStops = $gradientStops;
+        $this->gradientStops = Helper::makeArrayOfObjects($data['gradientStops'], ColorStopType::class);
 
         $this->scaleMode = ( !empty($data['scaleMode']) && PaintSolidScaleModeEnum::hasValue($data['scaleMode']) )
             ? PaintSolidScaleModeEnum::tryFrom($data['scaleMode']) : null;
@@ -77,14 +63,6 @@ class PaintType extends AbstractType
         $this->rotation      = Helper::makeInteger($data['rotation']);
         $this->imageRef      = $data['imageRef'] ?? null;
         $this->gifRef        = $data['gifRef'] ?? null;
-
-        $filters = null;
-        if (!empty($data['filters']) && is_array($data['filters'])) {
-            $filters = [];
-            foreach ($data['filters'] as $filter) {
-                $filters[] = new ImageFiltersType($filter);
-            }
-        }
-        $this->filters = $filters;
+        $this->filters = Helper::makeArrayOfObjects($data['filters'], ImageFiltersType::class);
     }
 }

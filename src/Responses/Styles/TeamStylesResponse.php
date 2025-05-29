@@ -27,16 +27,10 @@ final class TeamStylesResponse extends BaseResponse
         if (!empty($data['meta'])) {
             $meta           = [];
             $meta['cursor'] = null;
-            $meta['styles'] = null;
             if (!empty($data['meta']['cursor'])) {
                 $meta['cursor'] = new CursorType($data['meta']['cursor']);
             }
-            if (!empty($data['meta']['styles'])) {
-                $meta['styles'] = [];
-                foreach ($data['meta']['styles'] as $style) {
-                    $meta['styles'][] = new StyleType($style);
-                }
-            }
+            $meta['styles'] = Helper::makeArrayOfObjects($data['meta']['styles'], StyleType::class);
         }
         $this->meta = $meta;
 

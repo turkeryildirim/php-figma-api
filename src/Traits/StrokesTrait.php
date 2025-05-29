@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Traits;
 
 use Turker\FigmaAPI\Types\File\PaintType;
+use Turker\FigmaAPI\Util\Helper;
 
 trait StrokesTrait
 {
@@ -14,13 +15,6 @@ trait StrokesTrait
     public readonly ?array $strokes;
     final protected function __strokes(array $data): void
     {
-        $strokes = null;
-        if (!empty($data['strokes']) && is_array($data['strokes'])) {
-            $strokes = [];
-            foreach ($data['strokes'] as $stroke) {
-                $strokes[] = new PaintType($stroke);
-            }
-        }
-        $this->strokes = $strokes;
+        $this->strokes = Helper::makeArrayOfObjects($data['strokes'], PaintType::class);
     }
 }

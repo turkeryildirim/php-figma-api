@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Turker\FigmaAPI\Traits;
 
+use Turker\FigmaAPI\Util\Helper;
+
 trait DocumentationLinksTrait
 {
     public readonly ?array $documentationLinks;
