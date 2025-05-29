@@ -60,6 +60,12 @@ field will be marked as null.
 Fields that are defined for the relevant response but are absent from the response data will also be marked as null 
 (e.g., user email).
 
+By default all GET responses are stored into array cache driver for 5 minutes. You can pass your own cache driver, 
+just check out samples folder.
+
+Also almost every action are stored as a log with default Monolog driver and ErrorLogHandler. You can pass your own 
+driver, just check out samples folder.
+
 ## How to use
 Just check out [samples](https://github.com/turkeryildirim/php-figma-api/tree/main/samples) 
 and [tests](https://github.com/turkeryildirim/php-figma-api/tree/main/test)
