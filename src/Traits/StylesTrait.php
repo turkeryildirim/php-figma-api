@@ -15,6 +15,6 @@ trait StylesTrait
     public readonly ?array $styles;
     final protected function __styles(array $data): void
     {
-        $this->styles = Helper::makeArray($data['styles'], StyleType::class);
+        $this->styles = Helper::makeArrayOfObjects($data['styles'], StyleType::class);
     }
 }

@@ -27,12 +27,7 @@ final class TeamComponentsResponse extends BaseResponse
             if (!empty($data['meta']['cursor'])) {
                 $meta['cursor'] = new CursorType($data['meta']['cursor']);
             }
-            if (!empty($data['meta']['components'])) {
-                $meta['components'] = [];
-                foreach ($data['meta']['components'] as $components) {
-                    $meta['components'][] = new ComponentType($components);
-                }
-            }
+            $meta['components'] = Helper::makeArrayOfObjects($data['meta']['components'], ComponentType::class);
         }
 
         $this->meta = $meta;

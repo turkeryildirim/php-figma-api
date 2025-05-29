@@ -29,12 +29,7 @@ final class TeamComponentSetsResponse extends BaseResponse
             if (!empty($data['meta']['cursor'])) {
                 $meta['cursor'] = new CursorType($data['meta']['cursor']);
             }
-            if (!empty($data['meta']['component_sets'])) {
-                $meta['componentSets'] = [];
-                foreach ($data['meta']['component_sets'] as $set) {
-                    $meta['componentSets'][] = new ComponentSetType($set);
-                }
-            }
+            $meta['componentSets'] = Helper::makeArrayOfObjects($data['meta']['component_sets'], ComponentSetType::class);
         }
 
         $this->meta = $meta;

@@ -7,6 +7,7 @@ namespace Turker\FigmaAPI\Responses\Comments;
 use Turker\FigmaAPI\Responses\BaseResponse;
 use Turker\FigmaAPI\Types\Comment\ReactionType;
 use Turker\FigmaAPI\Types\Common\PaginationType;
+use Turker\FigmaAPI\Util\Helper;
 
 final class GetReactionsResponse extends BaseResponse
 {
@@ -18,14 +19,7 @@ final class GetReactionsResponse extends BaseResponse
 
     public function __construct(array $data)
     {
-        $reactions = null;
-        if (!empty($data['reactions'])) {
-            $reactions = [];
-            foreach ($data['reactions'] as $reaction) {
-                $reactions[] = new ReactionType($reaction);
-            }
-        }
-        $this->reactions = $reactions;
+        $this->reactions = Helper::makeArrayOfObjects($data['reactions'], ReactionType::class);
 
         $pagination = null;
         if (!empty($data['pagination'])) {

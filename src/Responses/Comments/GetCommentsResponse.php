@@ -6,6 +6,7 @@ namespace Turker\FigmaAPI\Responses\Comments;
 
 use Turker\FigmaAPI\Responses\BaseResponse;
 use Turker\FigmaAPI\Types\Comment\CommentType;
+use Turker\FigmaAPI\Util\Helper;
 
 final class GetCommentsResponse extends BaseResponse
 {
@@ -16,13 +17,6 @@ final class GetCommentsResponse extends BaseResponse
 
     public function __construct(array $data)
     {
-        $comments = null;
-        if (!empty($data['comments'])) {
-            $comments = [];
-            foreach ($data['comments'] as $comment) {
-                $comments[] = new CommentType($comment);
-            }
-        }
-        $this->comments = $comments;
+        $this->comments = Helper::makeArrayOfObjects($data['comments'], CommentType::class);
     }
 }

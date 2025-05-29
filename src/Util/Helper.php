@@ -76,7 +76,7 @@ final class Helper
         }
         return $default;
     }
-    public static function makeBoolean($value, $default = null): bool|null
+    public static function makeBoolean($value, $default = null): ?bool
     {
         if (is_bool($value)) {
             return boolval($value);
@@ -92,15 +92,17 @@ final class Helper
         }
         return $default;
     }
-    public static function makeArray($data, $class)
+    public static function makeArrayOfObjects($data, $class): ?array
     {
-        $array = null;
-        if (!empty($data) && is_array($data)) {
-            $array = [];
-            foreach ($data as $sub) {
-                $array[] = new $class($sub);
-            }
+        if (empty($data) || !is_array($data)) {
+            return null;
         }
+
+        $array = [];
+        foreach ($data as $sub) {
+            $array[] = new $class($sub);
+        }
+
         return $array;
     }
 }
