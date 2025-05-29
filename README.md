@@ -61,7 +61,8 @@ Fields that are defined for the relevant response but are absent from the respon
 (e.g., user email).
 
 ## How to use
-Just check out [samples](https://github.com/turkeryildirim/php-figma-api/tree/main/samples) directory.
+Just check out [samples](https://github.com/turkeryildirim/php-figma-api/tree/main/samples) 
+and [tests](https://github.com/turkeryildirim/php-figma-api/tree/main/test)
 
 ###
 
