@@ -14,18 +14,17 @@ $fileKey = 'my-file-key';
 $fc = FigmaClient::factory()->getWithApiKey('key');
 
 // Init Version history endpoint.
-$history = new VersionHistoryEndpoint($fc);
+$endpoint = new VersionHistoryEndpoint($fc);
 
 // Fetch all versions belongs to the file.
-$allHistory = $history->fetchAll($fileKey);
+$allHistory = $endpoint->fetchAll($fileKey);
 
 // Get versions.
 $versions = $allHistory->versions;
 
-// All fields will be populated with proper data. If no data returns from endpoint, props will be set
-// to default values which is defined in the official API documentation.
-// If there is no default value all missing props set as NULL.
-// e.g This endpoint does not return user email so it'll be set as NULL.
+// All fields will be populated with proper data. If no data returns from the endpoint, props will be set
+// to default value which is defined in the official API documentation.
+// If there is no default value then all missing or empty props set as NULL.
 foreach ($versions as $version) {
     $id          = $version->id;
     $description = $version->description;
