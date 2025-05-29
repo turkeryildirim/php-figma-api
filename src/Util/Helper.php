@@ -69,4 +69,12 @@ final class Helper
 
         return array_chunk($identityMatrixString, 3);
     }
+
+    public static function makeInteger($value, $default = null): int|float|null
+    {
+        if (is_numeric($value)) {
+            return floatval($value);
+        }
+        return $default;
+    }
 }

@@ -8,6 +8,7 @@ use Turker\FigmaAPI\Traits\BoundVariablesTrait;
 use Turker\FigmaAPI\Traits\ColorTrait;
 use Turker\FigmaAPI\Traits\VisibleTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class LayoutGridType extends AbstractType
 {
@@ -26,10 +27,10 @@ class LayoutGridType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->count       = $data['count'];
-        $this->offset      = $data['offset'];
-        $this->gutterSize  = $data['gutterSize'];
-        $this->sectionSize = $data['sectionSize'];
+        $this->count       = Helper::makeInteger($data['count']);
+        $this->offset      = Helper::makeInteger($data['offset']);
+        $this->gutterSize  = Helper::makeInteger($data['gutterSize']);
+        $this->sectionSize = Helper::makeInteger($data['sectionSize']);
         $this->pattern     = LayoutGridPatternEnum::tryFrom($data['pattern']);
         $this->alignment   = LayoutGridAlignmentEnum::tryFrom($data['alignment']);
     }

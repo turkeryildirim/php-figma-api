@@ -11,6 +11,7 @@ use Turker\FigmaAPI\Traits\ReactionsTrait;
 use Turker\FigmaAPI\Traits\UserTrait;
 use Turker\FigmaAPI\Types\AbstractType;
 use Turker\FigmaAPI\Types\Common\VectorType;
+use Turker\FigmaAPI\Util\Helper;
 
 class CommentType extends AbstractType
 {
@@ -33,7 +34,7 @@ class CommentType extends AbstractType
         $this->resolvedAt = $data['resolved_at'] ?? null;
         $this->uuid       = $data['uuid'] ?? null;
         $this->message    = $data['message'] ?? null;
-        $this->orderId    = intval($data['order_id'] ?? null);
+        $this->orderId    = Helper::makeInteger($data['order_id'], 0);
         $this->parentId   = $data['parent_id'] ?? null;
         $meta             = new ClientMetaType($data['client_meta']);
         $this->clientMeta = $meta();

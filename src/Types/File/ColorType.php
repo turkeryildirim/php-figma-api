@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class ColorType extends AbstractType
 {
@@ -15,9 +16,9 @@ class ColorType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->r = $data['r'];
-        $this->g = $data['g'];
-        $this->b = $data['b'];
-        $this->a = $data['a'] ?? 1;
+        $this->r = Helper::makeInteger($data['r'], 0);
+        $this->g = Helper::makeInteger($data['g'], 0);
+        $this->b = Helper::makeInteger($data['b'], 0);
+        $this->a = Helper::makeInteger($data['a'], 1);
     }
 }

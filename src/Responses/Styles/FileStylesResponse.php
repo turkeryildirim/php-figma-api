@@ -6,6 +6,7 @@ namespace Turker\FigmaAPI\Responses\Styles;
 
 use Turker\FigmaAPI\Responses\BaseResponse;
 use Turker\FigmaAPI\Types\Style\StyleType;
+use Turker\FigmaAPI\Util\Helper;
 
 final class FileStylesResponse extends BaseResponse
 {
@@ -18,7 +19,7 @@ final class FileStylesResponse extends BaseResponse
 
     public function __construct(array $data)
     {
-        $this->status = intval($data['status']);
+        $this->status = Helper::makeInteger($data['status']);
         $this->error  = boolval($data['error']);
 
         $meta = null;

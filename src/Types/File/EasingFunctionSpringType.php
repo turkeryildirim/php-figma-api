@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class EasingFunctionSpringType extends AbstractType
 {
@@ -14,8 +15,8 @@ class EasingFunctionSpringType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->mass      = $data['mass'];
-        $this->stiffness = $data['stiffness'];
-        $this->damping   = $data['damping'];
+        $this->mass      = Helper::makeInteger($data['mass']);
+        $this->stiffness = Helper::makeInteger($data['stiffness']);
+        $this->damping   = Helper::makeInteger($data['damping']);
     }
 }

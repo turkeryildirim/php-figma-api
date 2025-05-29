@@ -7,6 +7,7 @@ namespace Turker\FigmaAPI\Types\File;
 use Turker\FigmaAPI\Traits\BoundVariablesTrait;
 use Turker\FigmaAPI\Traits\ColorTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class ColorStopType extends AbstractType
 {
@@ -18,6 +19,6 @@ class ColorStopType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->position = $data['position'];
+        $this->position = Helper::makeInteger($data['position']);
     }
 }

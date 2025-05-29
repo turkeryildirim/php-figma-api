@@ -8,6 +8,7 @@ use Turker\FigmaAPI\Enums\File\MediaActionTypeEnum;
 use Turker\FigmaAPI\Traits\DestinationIdTrait;
 use Turker\FigmaAPI\Traits\TypeTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class UpdateMediaRuntimeActionType extends AbstractType
 {
@@ -24,7 +25,7 @@ class UpdateMediaRuntimeActionType extends AbstractType
         $this->mediaAction = ( !empty($data['mediaAction']) && MediaActionTypeEnum::hasValue($data['mediaAction']) )
             ? MediaActionTypeEnum::tryFrom($data['mediaAction']) : null;
 
-        $this->amountToSkip = $data['amountToSkip'] ?? null;
-        $this->newTimestamp = $data['newTimestamp'] ?? null;
+        $this->amountToSkip = Helper::makeInteger($data['amountToSkip']);
+        $this->newTimestamp = Helper::makeInteger($data['newTimestamp']);
     }
 }

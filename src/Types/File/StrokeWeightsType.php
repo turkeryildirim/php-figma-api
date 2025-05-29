@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class StrokeWeightsType extends AbstractType
 {
@@ -15,9 +16,9 @@ class StrokeWeightsType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->top    = $data['top'];
-        $this->right  = $data['right'];
-        $this->bottom = $data['bottom'];
-        $this->left   = $data['left'];
+        $this->top    = Helper::makeInteger($data['top']);
+        $this->right  = Helper::makeInteger($data['right']);
+        $this->bottom = Helper::makeInteger($data['bottom']);
+        $this->left   = Helper::makeInteger($data['left']);
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class MeasurementOffsetOuterType extends AbstractType
 {
@@ -14,6 +15,6 @@ class MeasurementOffsetOuterType extends AbstractType
     public function __construct(array $data)
     {
         $this->type  = 'OUTER';
-        $this->fixed = $data['fixed'];
+        $this->fixed = Helper::makeInteger($data['fixed']);
     }
 }

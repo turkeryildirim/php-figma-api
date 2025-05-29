@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class EasingFunctionCubicBezierType extends AbstractType
 {
@@ -15,9 +16,9 @@ class EasingFunctionCubicBezierType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->x1 = $data['x1'];
-        $this->x2 = $data['x2'];
-        $this->y1 = $data['y1'];
-        $this->y2 = $data['y2'];
+        $this->x1 = Helper::makeInteger($data['x1']);
+        $this->x2 = Helper::makeInteger($data['x2']);
+        $this->y1 = Helper::makeInteger($data['y1']);
+        $this->y2 = Helper::makeInteger($data['y2']);
     }
 }

@@ -7,6 +7,7 @@ namespace Turker\FigmaAPI\Responses\Components;
 use Turker\FigmaAPI\Responses\BaseResponse;
 use Turker\FigmaAPI\Types\Common\CursorType;
 use Turker\FigmaAPI\Types\Component\ComponentType;
+use Turker\FigmaAPI\Util\Helper;
 
 final class TeamComponentsResponse extends BaseResponse
 {
@@ -17,7 +18,7 @@ final class TeamComponentsResponse extends BaseResponse
     public function __construct(array $data)
     {
 
-        $this->status = intval($data['status']);
+        $this->status = Helper::makeInteger($data['status']);
         $this->error  = boolval($data['error']);
 
         $meta = null;

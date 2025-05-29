@@ -41,6 +41,7 @@ use Turker\FigmaAPI\Traits\TransitionEasingTrait;
 use Turker\FigmaAPI\Traits\TransitionNodeIDTrait;
 use Turker\FigmaAPI\Types\AbstractType;
 use Turker\FigmaAPI\Types\Common\VectorType;
+use Turker\FigmaAPI\Util\Helper;
 
 class FrameNodeType extends AbstractType
 {
@@ -115,22 +116,22 @@ class FrameNodeType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->minWidth                = $data['minWidth'] ?? null;
-        $this->maxWidth                = $data['maxWidth'] ?? null;
-        $this->minHeight               = $data['minHeight'] ?? null;
-        $this->maxHeight               = $data['maxHeight'] ?? null;
+        $this->minWidth                = Helper::makeInteger($data['minWidth']);
+        $this->maxWidth                = Helper::makeInteger($data['maxWidth']);
+        $this->minHeight               = Helper::makeInteger($data['minHeight']);
+        $this->maxHeight               = Helper::makeInteger($data['maxHeight']) ;
         $this->isMaskOutline           = $data['isMaskOutline'] ?? false;
         $this->clipsContent            = $data['clipsContent'] ?? false;
         $this->itemReverseZIndex       = $data['itemReverseZIndex'] ?? false;
         $this->strokesIncludedInLayout = $data['strokesIncludedInLayout'] ?? false;
-        $this->paddingLeft             = $data['paddingLeft'] ?? 0;
-        $this->paddingRight            = $data['paddingRight'] ?? 0;
-        $this->paddingTop              = $data['paddingTop'] ?? 0;
-        $this->paddingBottom           = $data['paddingBottom'] ?? 0;
-        $this->horizontalPadding       = $data['horizontalPadding'] ?? 0;
-        $this->verticalPadding         = $data['verticalPadding'] ?? 0;
-        $this->itemSpacing             = $data['itemSpacing'] ?? 0;
-        $this->counterAxisSpacing      = $data['counterAxisSpacing'] ?? 0;
+        $this->paddingLeft             = Helper::makeInteger($data['paddingLeft'], 0);
+        $this->paddingRight            = Helper::makeInteger($data['paddingRight'], 0);
+        $this->paddingTop              = Helper::makeInteger($data['paddingTop'], 0);
+        $this->paddingBottom           = Helper::makeInteger($data['paddingBottom'], 0);
+        $this->horizontalPadding       = Helper::makeInteger($data['horizontalPadding'], 0);
+        $this->verticalPadding         = Helper::makeInteger($data['verticalPadding'], 0);
+        $this->itemSpacing             = Helper::makeInteger($data['itemSpacing'], 0);
+        $this->counterAxisSpacing      = Helper::makeInteger($data['counterAxisSpacing'], 0);
 
         $mode                    = $data['overflowDirection'] ?? 'NONE';
         $this->overflowDirection = OverflowDirectionEnum::from($mode);

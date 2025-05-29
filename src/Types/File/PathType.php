@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class PathType extends AbstractType
 {
@@ -16,6 +17,6 @@ class PathType extends AbstractType
     {
         $this->path        = $data['path'];
         $this->windingRule = $data['windingRule'] ?? null;
-        $this->overrideID  = $data['overrideID'] ?? null;
+        $this->overrideID  = Helper::makeInteger($data['overrideID']);
     }
 }

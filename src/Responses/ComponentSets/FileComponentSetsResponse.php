@@ -6,6 +6,7 @@ namespace Turker\FigmaAPI\Responses\ComponentSets;
 
 use Turker\FigmaAPI\Responses\BaseResponse;
 use Turker\FigmaAPI\Types\ComponentSet\ComponentSetType;
+use Turker\FigmaAPI\Util\Helper;
 
 final class FileComponentSetsResponse extends BaseResponse
 {
@@ -18,7 +19,7 @@ final class FileComponentSetsResponse extends BaseResponse
 
     public function __construct(array $data)
     {
-        $this->status = intval($data['status']);
+        $this->status = Helper::makeInteger($data['status']);
         $this->error  = boolval($data['error']);
 
         $meta = null;

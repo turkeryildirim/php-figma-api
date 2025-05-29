@@ -17,6 +17,7 @@ use Turker\FigmaAPI\Enums\File\TextTruncationEnum;
 use Turker\FigmaAPI\Traits\BoundVariablesTrait;
 use Turker\FigmaAPI\Traits\FillsTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class TypeStyleType extends AbstractType
 {
@@ -58,19 +59,19 @@ class TypeStyleType extends AbstractType
     {
         $this->runTraitMethods($data);
         $this->fontFamily                = $data['fontFamily'];
-        $this->fontWeight                = $data['fontWeight'];
-        $this->fontSize                  = $data['fontSize'];
-        $this->lineHeightPx              = $data['lineHeightPx'];
+        $this->fontWeight                = Helper::makeInteger($data['fontWeight']);
+        $this->fontSize                  = Helper::makeInteger($data['fontSize']);
+        $this->lineHeightPx              = Helper::makeInteger($data['lineHeightPx']);
         $this->fontPostScriptName        = $data['fontPostScriptName'] ?? null;
         $this->fontStyle                 = $data['fontStyle'] ?? null;
-        $this->paragraphSpacing          = $data['paragraphSpacing'] ?? 0;
-        $this->paragraphIndent           = $data['paragraphIndent'] ?? 0;
-        $this->listSpacing               = $data['listSpacing'] ?? 0;
+        $this->paragraphSpacing          = Helper::makeInteger($data['paragraphSpacing'], 0);
+        $this->paragraphIndent           = Helper::makeInteger($data['paragraphIndent'], 0);
+        $this->listSpacing               = Helper::makeInteger($data['listSpacing'], 0);
         $this->italic                    = $data['italic'] ?? false;
-        $this->maxLines                  = $data['maxLines'] ?? null;
-        $this->letterSpacing             = $data['letterSpacing'] ?? null;
-        $this->lineHeightPercent         = $data['lineHeightPercent'] ?? 100;
-        $this->lineHeightPercentFontSize = $data['lineHeightPercentFontSize'] ?? null;
+        $this->maxLines                  = Helper::makeInteger($data['maxLines']);
+        $this->letterSpacing             = Helper::makeInteger($data['letterSpacing']);
+        $this->lineHeightPercent         = Helper::makeInteger($data['lineHeightPercent'], 100);
+        $this->lineHeightPercentFontSize = Helper::makeInteger($data['lineHeightPercentFontSize']);
         $this->isOverrideOverTextStyle   = $data['isOverrideOverTextStyle'] ?? false;
 
         $this->textCase = ( !empty($data['textCase']) && TextCaseEnum::hasValue($data['textCase']) )

@@ -30,6 +30,9 @@ use Turker\FigmaAPI\Types\File\WashiTapeNodeType;
 
 trait ChildrenTrait
 {
+    /**
+     * @var GroupNodeType[]|StarNodeType[]|RectangleNodeType[]|TextNodeType[]|ComponentNodeType[]|ComponentSetNodeType[]|EllipseNodeType[]|DocumentNodeType[]|InstanceNodeType[]|TableNodeType[]|StickyNodeType[]|WashiTapeNodeType[]|LineNodeType[]|ShapeNodeType[]|ConnectorNodeType[]|RegularPolygonNodeType[]|TableCellNodeType[]|FrameNodeType[]|BooleanOperationNodeType[]|SliceNodeType[]|SectionNodeType[]|CanvasNodeType[]|VectorNodeType[]||null
+     */
     public readonly ?array $children;
     final protected function __children(array $data): void
     {

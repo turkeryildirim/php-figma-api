@@ -7,6 +7,7 @@ namespace Turker\FigmaAPI\Types\File;
 use Turker\FigmaAPI\Traits\XTrait;
 use Turker\FigmaAPI\Traits\YTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class RectangleType extends AbstractType
 {
@@ -19,7 +20,7 @@ class RectangleType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->width  = $data['width'];
-        $this->height = $data['height'];
+        $this->width  = Helper::makeInteger($data['width']);
+        $this->height = Helper::makeInteger($data['height']);
     }
 }

@@ -73,8 +73,8 @@ class PaintType extends AbstractType
         $this->imageTransform = !empty($data['imageTransform']) ?
             Helper::toArrayMatrix($data['imageTransform']) : null;
 
-        $this->scalingFactor = !empty($data['scalingFactor']) ? $data['scalingFactor'] : null;
-        $this->rotation      = !empty($data['rotation']) ? $data['rotation'] : null;
+        $this->scalingFactor = Helper::makeInteger($data['scalingFactor']);
+        $this->rotation      = Helper::makeInteger($data['rotation']);
         $this->imageRef      = $data['imageRef'] ?? null;
         $this->gifRef        = $data['gifRef'] ?? null;
 

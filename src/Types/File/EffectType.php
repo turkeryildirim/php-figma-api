@@ -12,6 +12,7 @@ use Turker\FigmaAPI\Traits\ColorTrait;
 use Turker\FigmaAPI\Traits\VisibleTrait;
 use Turker\FigmaAPI\Types\AbstractType;
 use Turker\FigmaAPI\Types\Common\VectorType;
+use Turker\FigmaAPI\Util\Helper;
 
 class EffectType extends AbstractType
 {
@@ -32,9 +33,9 @@ class EffectType extends AbstractType
         $this->runTraitMethods($data);
 
         $this->type                 = EffectTypeEnum::from($data['type']);
-        $this->radius               = $data['radius'];
+        $this->radius               = Helper::makeInteger($data['radius']);
         $this->showShadowBehindNode = $data['showShadowBehindNode'] ?? false;
         $this->offset               = !empty($data['offset']) ? new VectorType($data['offset']) : null;
-        $this->spread               = intval($data['spread']) ?? 0;
+        $this->spread               = Helper::makeInteger($data['spread'], 0);
     }
 }

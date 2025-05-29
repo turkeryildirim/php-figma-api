@@ -29,6 +29,7 @@ use Turker\FigmaAPI\Traits\TransitionDurationTrait;
 use Turker\FigmaAPI\Traits\TransitionEasingTrait;
 use Turker\FigmaAPI\Traits\TransitionNodeIDTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class VectorNodeType extends AbstractType
 {
@@ -79,7 +80,7 @@ class VectorNodeType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->layoutGrow       = $data['layoutGrow'] ?? 0;
+        $this->layoutGrow       = Helper::makeInteger($data['layoutGrow'], 0);
         $this->strokeMiterAngle = $data['strokeMiterAngle'] ?? null;
 
         $this->individualStrokeWeights = !empty($data['individualStrokeWeights']) ?
