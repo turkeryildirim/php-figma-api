@@ -34,7 +34,7 @@ class EffectType extends AbstractType
 
         $this->type                 = EffectTypeEnum::from($data['type']);
         $this->radius               = Helper::makeInteger($data['radius']);
-        $this->showShadowBehindNode = $data['showShadowBehindNode'] ?? false;
+        $this->showShadowBehindNode = Helper::makeBoolean($data['showShadowBehindNode'], false);
         $this->offset               = !empty($data['offset']) ? new VectorType($data['offset']) : null;
         $this->spread               = Helper::makeInteger($data['spread'], 0);
     }

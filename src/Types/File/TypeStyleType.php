@@ -67,12 +67,12 @@ class TypeStyleType extends AbstractType
         $this->paragraphSpacing          = Helper::makeInteger($data['paragraphSpacing'], 0);
         $this->paragraphIndent           = Helper::makeInteger($data['paragraphIndent'], 0);
         $this->listSpacing               = Helper::makeInteger($data['listSpacing'], 0);
-        $this->italic                    = $data['italic'] ?? false;
+        $this->italic                    = Helper::makeBoolean($data['italic'], false);
         $this->maxLines                  = Helper::makeInteger($data['maxLines']);
         $this->letterSpacing             = Helper::makeInteger($data['letterSpacing']);
         $this->lineHeightPercent         = Helper::makeInteger($data['lineHeightPercent'], 100);
         $this->lineHeightPercentFontSize = Helper::makeInteger($data['lineHeightPercentFontSize']);
-        $this->isOverrideOverTextStyle   = $data['isOverrideOverTextStyle'] ?? false;
+        $this->isOverrideOverTextStyle   = Helper::makeBoolean($data['isOverrideOverTextStyle'], false);
 
         $this->textCase = ( !empty($data['textCase']) && TextCaseEnum::hasValue($data['textCase']) )
             ? TextCaseEnum::tryFrom($data['textCase']) : TextCaseEnum::ORIGINAL;

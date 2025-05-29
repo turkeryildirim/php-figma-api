@@ -120,10 +120,10 @@ class FrameNodeType extends AbstractType
         $this->maxWidth                = Helper::makeInteger($data['maxWidth']);
         $this->minHeight               = Helper::makeInteger($data['minHeight']);
         $this->maxHeight               = Helper::makeInteger($data['maxHeight']) ;
-        $this->isMaskOutline           = $data['isMaskOutline'] ?? false;
-        $this->clipsContent            = $data['clipsContent'] ?? false;
-        $this->itemReverseZIndex       = $data['itemReverseZIndex'] ?? false;
-        $this->strokesIncludedInLayout = $data['strokesIncludedInLayout'] ?? false;
+        $this->isMaskOutline           = Helper::makeBoolean($data['isMaskOutline'], false);
+        $this->clipsContent            = Helper::makeBoolean($data['clipsContent'], false);
+        $this->itemReverseZIndex       = Helper::makeBoolean($data['itemReverseZIndex'], false);
+        $this->strokesIncludedInLayout = Helper::makeBoolean($data['strokesIncludedInLayout'], false);
         $this->paddingLeft             = Helper::makeInteger($data['paddingLeft'], 0);
         $this->paddingRight            = Helper::makeInteger($data['paddingRight'], 0);
         $this->paddingTop              = Helper::makeInteger($data['paddingTop'], 0);

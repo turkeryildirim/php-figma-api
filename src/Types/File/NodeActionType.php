@@ -8,6 +8,7 @@ use Turker\FigmaAPI\Traits\DestinationIdTrait;
 use Turker\FigmaAPI\Traits\TypeTrait;
 use Turker\FigmaAPI\Types\AbstractType;
 use Turker\FigmaAPI\Types\Common\VectorType;
+use Turker\FigmaAPI\Util\Helper;
 
 class NodeActionType extends AbstractType
 {
@@ -25,10 +26,10 @@ class NodeActionType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->resetInteractiveComponents = $data['resetInteractiveComponents'] ?? false;
-        $this->resetScrollPosition        = $data['resetScrollPosition'] ?? false;
-        $this->resetVideoPosition         = $data['resetVideoPosition'] ?? false;
-        $this->preserveScrollPosition     = $data['preserveScrollPosition'] ?? false;
+        $this->resetInteractiveComponents = Helper::makeBoolean($data['resetInteractiveComponents'], false);
+        $this->resetScrollPosition        = Helper::makeBoolean($data['resetScrollPosition'], false);
+        $this->resetVideoPosition         = Helper::makeBoolean($data['resetVideoPosition'], false);
+        $this->preserveScrollPosition     = Helper::makeBoolean($data['preserveScrollPosition'], false);
 
         $this->overlayRelativePosition = (!empty($data['overlayRelativePosition'])) ?
             new VectorType($data['overlayRelativePosition']) : null;

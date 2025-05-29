@@ -27,7 +27,7 @@ class TriggerType extends AbstractType
         $this->type              = TriggerTypeEnum::tryFrom($data['type']);
         $this->timeout           = Helper::makeInteger($data['timeout']);
         $this->delay             = Helper::makeInteger($data['delay']);
-        $this->deprecatedVersion = $data['deprecatedVersion'] ?? false;
+        $this->deprecatedVersion = Helper::makeBoolean($data['deprecatedVersion'], false);
         $this->mediaHitTime      = Helper::makeInteger($data['mediaHitTime']);
         $this->device            = ( !empty($data['device']) && DeviceTypeEnum::hasValue($data['device']) )
             ? DeviceTypeEnum::tryFrom($data['device']) : null;

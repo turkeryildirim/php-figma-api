@@ -9,6 +9,7 @@ use Turker\FigmaAPI\Enums\File\DirectionEnum;
 use Turker\FigmaAPI\Traits\DurationTrait;
 use Turker\FigmaAPI\Traits\EasingTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class DirectionalTransitionType extends AbstractType
 {
@@ -24,6 +25,6 @@ class DirectionalTransitionType extends AbstractType
         $this->runTraitMethods($data);
         $this->type        = DirectionalTransitionTypeEnum::tryFrom($data['type']);
         $this->direction   = DirectionEnum::tryFrom($data['direction']);
-        $this->matchLayers = $data['matchLayers'] ?? false;
+        $this->matchLayers = Helper::makeBoolean($data['matchLayers'], false);
     }
 }

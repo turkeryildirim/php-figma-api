@@ -14,6 +14,7 @@ use Turker\FigmaAPI\Traits\StrokeAlignTrait;
 use Turker\FigmaAPI\Traits\StrokesTrait;
 use Turker\FigmaAPI\Traits\StrokeWeightTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class SectionNodeType extends AbstractType
 {
@@ -33,6 +34,6 @@ class SectionNodeType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->sectionContentsHidden = $data['sectionContentsHidden'] ?? false;
+        $this->sectionContentsHidden = Helper::makeBoolean($data['sectionContentsHidden'], false);
     }
 }

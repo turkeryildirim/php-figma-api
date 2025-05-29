@@ -15,6 +15,7 @@ use Turker\FigmaAPI\Traits\LockedTrait;
 use Turker\FigmaAPI\Traits\OpacityTrait;
 use Turker\FigmaAPI\Traits\RelativeTransformTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class StickyNodeType extends AbstractType
 {
@@ -34,6 +35,6 @@ class StickyNodeType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->authorVisible = $data['authorVisible'] ?? false;
+        $this->authorVisible = Helper::makeBoolean($data['authorVisible'], false);
     }
 }

@@ -19,7 +19,7 @@ final class TeamComponentsResponse extends BaseResponse
     {
 
         $this->status = Helper::makeInteger($data['status']);
-        $this->error  = boolval($data['error']);
+        $this->error  = Helper::makeBoolean($data['error']);
 
         $meta = null;
         if (!empty($data['meta'])) {

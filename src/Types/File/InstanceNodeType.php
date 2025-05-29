@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Turker\FigmaAPI\Types\File;
 
+use Turker\FigmaAPI\Util\Helper;
+
 class InstanceNodeType extends FrameNodeType
 {
     public readonly string $componentId;
@@ -25,7 +27,7 @@ class InstanceNodeType extends FrameNodeType
     {
         parent::__construct($data);
         $this->componentId       = $data['componentId'];
-        $this->isExposedInstance = $data['isExposedInstance'] ?? false;
+        $this->isExposedInstance = Helper::makeBoolean($data['isExposedInstance'], false);
         $this->exposedInstances  = $data['exposedInstances'] ?? null;
 
         $componentProperties = null;
