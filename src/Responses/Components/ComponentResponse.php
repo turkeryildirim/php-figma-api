@@ -10,7 +10,7 @@ use Turker\FigmaAPI\Util\Helper;
 
 final class ComponentResponse extends BaseResponse
 {
-    public readonly int $status;
+    public readonly int|float $status;
     public readonly bool $error;
     public readonly ?ComponentType $meta;
 

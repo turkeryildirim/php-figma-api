@@ -88,12 +88,12 @@ final class EffectTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidShowShadowBehindNode(): void
     {
-        $this->expectException(TypeError::class);
-        new EffectType([
+        $class = new EffectType([
             'type' => 'INNER_SHADOW',
             'radius' => 55,
             'showShadowBehindNode' => 'a'
         ]);
+        $this->assertFalse($class->showShadowBehindNode);
     }
     public function testInvalidOffset(): void
     {

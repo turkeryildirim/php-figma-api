@@ -23,29 +23,29 @@ final class EasingFunctionSpringTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidMass(): void
     {
-        $this->expectException(TypeError::class);
-        new EasingFunctionSpringType([
-            'mass' => '10',
+        $class = new EasingFunctionSpringType([
+            'mass' => 'aa',
             'stiffness' => 20,
             'damping' => 30,
         ]);
+        $this->assertNull($class->mass);
     }
     public function testInvalidStiffness(): void
     {
-        $this->expectException(TypeError::class);
-        new EasingFunctionSpringType([
+        $class = new EasingFunctionSpringType([
             'mass' => 10,
-            'stiffness' => '20',
+            'stiffness' => 'aa',
             'damping' => 30,
         ]);
+        $this->assertNull($class->stiffness);
     }
     public function testInvalidDamping(): void
     {
-        $this->expectException(TypeError::class);
-        new EasingFunctionSpringType([
+        $class = new EasingFunctionSpringType([
             'mass' => 10,
             'stiffness' => 20,
-            'damping' => '30',
+            'damping' => 'aa',
         ]);
+        $this->assertNull($class->damping);
     }
 }

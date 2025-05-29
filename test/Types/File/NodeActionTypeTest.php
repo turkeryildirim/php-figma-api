@@ -74,23 +74,23 @@ final class NodeActionTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidResetInteractiveComponents(): void
     {
-        $this->expectException(TypeError::class);
-        new NodeActionType(['type' => 'type','resetInteractiveComponents' => 5]);
+        $class = new NodeActionType(['type' => 'type','resetInteractiveComponents' => 5]);
+        $this->assertFalse($class->resetInteractiveComponents);
     }
     public function testInvalidResetScrollPosition(): void
     {
-        $this->expectException(TypeError::class);
-        new NodeActionType(['type' => 'type','resetScrollPosition' => 5]);
+        $class = new NodeActionType(['type' => 'type','resetScrollPosition' => 5]);
+        $this->assertFalse($class->resetScrollPosition);
     }
     public function testInvalidResetVideoPosition(): void
     {
-        $this->expectException(TypeError::class);
-        new NodeActionType(['type' => 'type','resetVideoPosition' => 5]);
+        $class = new NodeActionType(['type' => 'type','resetVideoPosition' => 5]);
+        $this->assertFalse($class->resetVideoPosition);
     }
     public function testInvalidPreserveScrollPosition(): void
     {
-        $this->expectException(TypeError::class);
-        new NodeActionType(['type' => 'type','preserveScrollPosition' => 5]);
+        $class = new NodeActionType(['type' => 'type','preserveScrollPosition' => 5]);
+        $this->assertFalse($class->preserveScrollPosition);
     }
     public function testInvalidOverlayRelativePosition(): void
     {

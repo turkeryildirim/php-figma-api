@@ -9,9 +9,9 @@ use Turker\FigmaAPI\Util\Helper;
 
 class ArcDataType extends AbstractType
 {
-    public readonly int|float $startingAngle;
-    public readonly int|float $endingAngle;
-    public readonly int|float $innerRadius;
+    public readonly int|float|null $startingAngle;
+    public readonly int|float|null $endingAngle;
+    public readonly int|float|null $innerRadius;
 
     public function __construct(array $data)
     {

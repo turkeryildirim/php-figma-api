@@ -9,10 +9,10 @@ use Turker\FigmaAPI\Util\Helper;
 
 class EasingFunctionCubicBezierType extends AbstractType
 {
-    public readonly int|float $x1;
-    public readonly int|float $x2;
-    public readonly int|float $y1;
-    public readonly int|float $y2;
+    public readonly int|float|null $x1;
+    public readonly int|float|null $x2;
+    public readonly int|float|null $y1;
+    public readonly int|float|null $y2;
 
     public function __construct(array $data)
     {

@@ -40,7 +40,7 @@ final class PathTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidOverrideID(): void
     {
-        $this->expectException(TypeError::class);
-        new PathType(['path' => 'path','overrideID' => 'overrideID']);
+        $class = new PathType(['path' => 'path','overrideID' => 'overrideID']);
+        $this->assertNull($class->overrideID);
     }
 }

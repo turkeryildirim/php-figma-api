@@ -45,20 +45,20 @@ final class TriggerTypeTest extends AbstractBaseTestCase
         $this->expectException(TypeError::class);
         new TriggerType(['type' => 'type']);
     }
-    public function testInvalidTimeout(): void
+    public function testInvalidTimeout()
     {
-        $this->expectException(TypeError::class);
-        new TriggerType(['type' => 'ON_HOVER', 'timeout' => 'timeout']);
+        $class = new TriggerType(['type' => 'ON_HOVER', 'timeout' => 'timeout']);
+        $this->assertNull($class->timeout);
     }
-    public function testInvalidDelay(): void
+    public function testInvalidDelay()
     {
-        $this->expectException(TypeError::class);
-        new TriggerType(['type' => 'ON_HOVER', 'delay' => 'delay']);
+        $class = new TriggerType(['type' => 'ON_HOVER', 'delay' => 'delay']);
+        $this->assertNull($class->delay);
     }
-    public function testInvalidMediaHitTime(): void
+    public function testInvalidMediaHitTime()
     {
-        $this->expectException(TypeError::class);
-        new TriggerType(['type' => 'ON_HOVER', 'mediaHitTime' => 'mediaHitTime']);
+        $class = new TriggerType(['type' => 'ON_HOVER', 'mediaHitTime' => 'mediaHitTime']);
+        $this->assertNull($class->mediaHitTime);
     }
     public function testInvalidDevice(): void
     {
@@ -70,9 +70,9 @@ final class TriggerTypeTest extends AbstractBaseTestCase
         $this->expectException(TypeError::class);
         new TriggerType(['type' => 'ON_HOVER', 'keyCodes' => 'keyCodes']);
     }
-    public function testInvalidDeprecatedVersion(): void
+    public function testInvalidDeprecatedVersion()
     {
-        $this->expectException(TypeError::class);
-        new TriggerType(['type' => 'ON_HOVER', 'deprecatedVersion' => 'deprecatedVersion']);
+        $class = new TriggerType(['type' => 'ON_HOVER', 'deprecatedVersion' => 'deprecatedVersion']);
+        $this->assertFalse($class->deprecatedVersion);
     }
 }

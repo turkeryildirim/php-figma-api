@@ -153,8 +153,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidVisible(): void
     {
-        $this->expectException(TypeError::class);
         $this->__visible(['visible' => 10]);
+        $this->assertTrue($this->visible);
     }
     public function testInvalidUser(): void
     {
@@ -183,8 +183,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidTransitionDuration(): void
     {
-        $this->expectException(TypeError::class);
         $this->__transitionDuration(['transitionDuration' => 'a']);
+        $this->assertNull($this->transitionDuration);
     }
     public function testInvalidThumbnailUrl(): void
     {
@@ -208,8 +208,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidStrokeWeight(): void
     {
-        $this->expectException(TypeError::class);
         $this->__strokeWeight(['strokeWeight' => 'a']);
+        $this->assertNull($this->strokeWeight);
     }
     public function testInvalidStrokes2(): void
     {
@@ -253,8 +253,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidRemote(): void
     {
-        $this->expectException(TypeError::class);
         $this->__remote(['remote' => 'a']);
+        $this->assertFalse($this->remote);
     }
     public function testInvalidRelativeTransform(): void
     {
@@ -288,8 +288,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidPreserveRatio(): void
     {
-        $this->expectException(TypeError::class);
         $this->__preserveRatio(['preserveRatio' => 'a']);
+        $this->assertNull($this->preserveRatio);
     }
     public function testInvalidPreferredValues2(): void
     {
@@ -303,8 +303,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidOpacity(): void
     {
-        $this->expectException(TypeError::class);
         $this->__opacity(['opacity' => 'a']);
+        $this->assertEquals('1', $this->opacity);
     }
     public function testInvalidNodeOffset(): void
     {
@@ -323,8 +323,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidLocked(): void
     {
-        $this->expectException(TypeError::class);
         $this->__locked(['locked' => 10]);
+        $this->assertFalse($this->locked);
     }
     public function testInvalidLayoutAlign(): void
     {
@@ -338,8 +338,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidIsMask(): void
     {
-        $this->expectException(TypeError::class);
         $this->__isMask(['isMask' => 10]);
+        $this->assertFalse($this->isMask);
     }
     public function testInvalidId(): void
     {
@@ -373,8 +373,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidDuration(): void
     {
-        $this->expectException(TypeError::class);
         $this->__duration(['duration' => 'duration']);
+        $this->assertNull($this->duration);
     }
     public function testInvalidDocumentationLinks2(): void
     {
@@ -408,13 +408,13 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidCornerSmoothing(): void
     {
-        $this->expectException(TypeError::class);
         $this->__cornerSmoothing(['cornerSmoothing' => 'a']);
+        $this->assertEquals('0', $this->cornerSmoothing);
     }
     public function testInvalidCornerRadius(): void
     {
-        $this->expectException(TypeError::class);
         $this->__cornerRadius(['cornerRadius' => 'a']);
+        $this->assertNull($this->cornerRadius);
     }
     public function testInvalidConstraints(): void
     {

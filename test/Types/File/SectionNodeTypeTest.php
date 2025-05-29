@@ -177,7 +177,7 @@ final class SectionNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidSectionContentsHidden()
     {
-        $this->expectException(TypeError::class);
-        new SectionNodeType(['id' => 'id', 'sectionContentsHidden' => 'a']);
+        $class = new SectionNodeType(['id' => 'id', 'sectionContentsHidden' => 'a']);
+        $this->assertFalse($class->sectionContentsHidden);
     }
 }

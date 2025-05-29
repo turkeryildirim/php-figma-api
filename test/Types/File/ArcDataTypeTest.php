@@ -23,29 +23,29 @@ final class ArcDataTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidStartingAngle(): void
     {
-        $this->expectException(TypeError::class);
-        new ArcDataType([
-            'startingAngle' => 'a',
+        $class = new ArcDataType([
+            'startingAngle' => 'aaa',
             'endingAngle' => 20,
             'innerRadius' => 30,
         ]);
+        $this->assertNull($class->startingAngle);
     }
     public function testInvalidEndingAngle(): void
     {
-        $this->expectException(TypeError::class);
-        new ArcDataType([
+        $class = new ArcDataType([
             'startingAngle' => 10,
-            'endingAngle' => '20',
+            'endingAngle' => 'aaaa',
             'innerRadius' => 30,
         ]);
+        $this->assertNull($class->endingAngle);
     }
     public function testInvalidInnerRadius(): void
     {
-        $this->expectException(TypeError::class);
-        new ArcDataType([
+        $class = new ArcDataType([
             'startingAngle' => 10,
             'endingAngle' => 20,
-            'innerRadius' => '30',
+            'innerRadius' => 'aaa',
         ]);
+        $this->assertNull($class->innerRadius);
     }
 }

@@ -144,7 +144,7 @@ final class StickyNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidAuthorVisible()
     {
-        $this->expectException(TypeError::class);
-        new StickyNodeType(['id' => 'id', 'characters' => 'characters', 'authorVisible' => 5]);
+        $class = new StickyNodeType(['id' => 'id', 'characters' => 'characters', 'authorVisible' => 5]);
+        $this->assertFalse($class->authorVisible);
     }
 }

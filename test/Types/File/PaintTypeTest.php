@@ -169,20 +169,20 @@ final class PaintTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidRotation()
     {
-        $this->expectException(TypeError::class);
-        new PaintType([
+        $class = new PaintType([
             'type' => 'GRADIENT_RADIAL',
             'scalingFactor' => 5,
             'rotation' => 'a'
         ]);
+        $this->assertNull($class->rotation);
     }
     public function testInvalidScalingFactor()
     {
-        $this->expectException(TypeError::class);
-        new PaintType([
+        $class = new PaintType([
             'type' => 'GRADIENT_RADIAL',
             'scalingFactor' => 'scalingFactor',
             'rotation' => 5,
         ]);
+        $this->assertNull($class->scalingFactor);
     }
 }

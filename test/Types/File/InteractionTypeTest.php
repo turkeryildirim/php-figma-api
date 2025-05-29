@@ -58,36 +58,6 @@ final class InteractionTypeTest extends AbstractBaseTestCase
             ]
         ]);
     }
-    public function testInvalidTimeout()
-    {
-        $this->expectException(TypeError::class);
-        new InteractionType([
-            'trigger' => [
-                'type' => 'ON_HOVER',
-                'timeout' => 'timeout',
-            ]
-        ]);
-    }
-    public function testInvalidDelay()
-    {
-        $this->expectException(TypeError::class);
-        new InteractionType([
-            'trigger' => [
-                'type' => 'ON_HOVER',
-                'delay' => 'delay',
-            ]
-        ]);
-    }
-    public function testInvalidMediaHitTime()
-    {
-        $this->expectException(TypeError::class);
-        new InteractionType([
-            'trigger' => [
-                'type' => 'ON_HOVER',
-                'mediaHitTime' => 'mediaHitTime',
-            ]
-        ]);
-    }
     public function testInvalidDevice()
     {
         $class = new InteractionType([
@@ -97,16 +67,6 @@ final class InteractionTypeTest extends AbstractBaseTestCase
             ]
         ]);
         $this->assertNull($class->trigger->device);
-    }
-    public function testInvalidDeprecatedVersion()
-    {
-        $this->expectException(TypeError::class);
-        new InteractionType([
-            'trigger' => [
-                'type' => 'ON_HOVER',
-                'deprecatedVersion' => 'deprecatedVersion',
-            ]
-        ]);
     }
     public function testInvalidKeyCodes()
     {

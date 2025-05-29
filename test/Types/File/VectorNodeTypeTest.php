@@ -395,11 +395,11 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidLayoutGrow()
     {
-        $this->expectException(TypeError::class);
-        new VectorNodeType([
+        $class = new VectorNodeType([
             'id' => 'id',
             'layoutGrow' => 'aa'
         ]);
+        $this->assertEquals('0', $class->layoutGrow);
     }
     public function testInvalidFillGeometry()
     {

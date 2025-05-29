@@ -9,9 +9,9 @@ use Turker\FigmaAPI\Util\Helper;
 
 class EasingFunctionSpringType extends AbstractType
 {
-    public readonly int|float $mass;
-    public readonly int|float $stiffness;
-    public readonly int|float $damping;
+    public readonly int|float|null $mass;
+    public readonly int|float|null $stiffness;
+    public readonly int|float|null $damping;
 
     public function __construct(array $data)
     {

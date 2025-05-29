@@ -72,11 +72,11 @@ final class DirectionalTransitionTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidMatchLayers(): void
     {
-        $this->expectException(TypeError::class);
-        new DirectionalTransitionType([
+        $class = new DirectionalTransitionType([
             'type' => 'MOVE_IN',
             'direction' => 'RIGHT',
             'matchLayers' => 'RIGHT',
         ]);
+        $this->assertFalse($class->matchLayers);
     }
 }

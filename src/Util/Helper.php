@@ -92,4 +92,15 @@ final class Helper
         }
         return $default;
     }
+    public static function makeArray($data, $class)
+    {
+        $array = null;
+        if (!empty($data) && is_array($data)) {
+            $array = [];
+            foreach ($data as $sub) {
+                $array[] = new $class($sub);
+            }
+        }
+        return $array;
+    }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Traits;
 
 use Turker\FigmaAPI\Types\File\StyleType;
+use Turker\FigmaAPI\Util\Helper;
 
 trait StylesTrait
 {
@@ -14,13 +15,6 @@ trait StylesTrait
     public readonly ?array $styles;
     final protected function __styles(array $data): void
     {
-        $styles = null;
-        if (!empty($data['styles']) && is_array($data['styles'])) {
-            $styles = [];
-            foreach ($data['styles'] as $style) {
-                $styles[] = new StyleType($style);
-            }
-        }
-        $this->styles = $styles;
+        $this->styles = Helper::makeArray($data['styles'], StyleType::class);
     }
 }

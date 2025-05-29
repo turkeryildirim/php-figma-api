@@ -36,19 +36,19 @@ final class UpdateMediaRuntimeActionTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidAmountToSkip(): void
     {
-        $this->expectException(TypeError::class);
-        new UpdateMediaRuntimeActionType([
+        $class = new UpdateMediaRuntimeActionType([
             'type' => 'type',
             'amountToSkip' => 'amountToSkip',
         ]);
+        $this->assertNull($class->amountToSkip);
     }
     public function testInvalidNewTimestamp(): void
     {
-        $this->expectException(TypeError::class);
-        new UpdateMediaRuntimeActionType([
+        $class = new UpdateMediaRuntimeActionType([
             'type' => 'type',
             'newTimestamp' => 'newTimestamp',
         ]);
+        $this->assertNull($class->newTimestamp);
     }
     public function testInvalidMediaAction(): void
     {

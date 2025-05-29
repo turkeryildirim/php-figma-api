@@ -412,99 +412,99 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidPaddingLeft()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'paddingLeft' => 'a',
         ]);
+        $this->assertEquals('0', $class->paddingLeft);
     }
     public function testInvalidPaddingRight()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'paddingRight' => 'a',
         ]);
+        $this->assertEquals('0', $class->paddingRight);
     }
     public function testInvalidPaddingTop()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'paddingTop' => 'a',
         ]);
+        $this->assertEquals('0', $class->paddingTop);
     }
     public function testInvalidPaddingBottom()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'paddingBottom' => 'a',
         ]);
+        $this->assertEquals('0', $class->paddingBottom);
     }
     public function testInvalidHorizontalPadding()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'horizontalPadding' => 'a',
         ]);
+        $this->assertEquals('0', $class->horizontalPadding);
     }
     public function testInvalidVerticalPadding()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'verticalPadding' => 'a',
         ]);
+        $this->assertEquals('0', $class->verticalPadding);
     }
     public function testInvalidItemSpacing()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'itemSpacing' => 'a',
         ]);
+        $this->assertEquals('0', $class->itemSpacing);
     }
     public function testInvalidCounterAxisSpacing()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'counterAxisSpacing' => 'a',
         ]);
+        $this->assertEquals('0', $class->counterAxisSpacing);
     }
     public function testInvalidIsMaskOutline()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'isMaskOutline' => 'a',
         ]);
+        $this->assertFalse($class->isMaskOutline);
     }
     public function testInvalidStrokesIncludedInLayout()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'strokesIncludedInLayout' => 'a',
         ]);
+        $this->assertFalse($class->strokesIncludedInLayout);
     }
     public function testInvalidItemReverseZIndex()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'itemReverseZIndex' => 'a',
         ]);
+        $this->assertFalse($class->itemReverseZIndex);
     }
     public function testInvalidClipsContent()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'clipsContent' => 'a',
         ]);
+        $this->assertFalse($class->clipsContent);
     }
     public function testInvalidLayoutGrids()
     {
@@ -524,35 +524,35 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidMinHeight()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'minHeight' => 'a',
         ]);
+        $this->assertNull($class->minHeight);
     }
     public function testInvalidMaxHeight()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'maxHeight' => 'a',
         ]);
+        $this->assertNull($class->maxHeight);
     }
     public function testInvalidMinWidth()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'minWidth' => 'a',
         ]);
+        $this->assertNull($class->minWidth);
     }
     public function testInvalidMaxWidth()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'maxWidth' => 'a',
         ]);
+        $this->assertNull($class->maxWidth);
     }
     public function testInvalidOverflowDirection()
     {

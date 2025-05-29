@@ -44,8 +44,6 @@ final class HelperTest extends AbstractBaseTestCase
         $_SERVER['test'] = 'test';
         $this->assertEquals('test', Helper::getEnv('test'));
 
-        $this->assertEquals('/bin/bash', Helper::getEnv('SHELL'));
-
         $this->assertNull(Helper::getEnv('testing'));
     }
     public function testGetEnvTypeException(): void

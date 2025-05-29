@@ -44,18 +44,18 @@ final class EasingTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidEasingFunctionCubicBezier(): void
     {
-        $this->expectException(TypeError::class);
-        new EasingType([
+        $class = new EasingType([
             'type' => 'EASE_OUT',
             'easingFunctionCubicBezier' => ['a' => 1],
         ]);
+        $this->assertNull($class->easingFunctionCubicBezier->x1);
     }
     public function testInvalidEasingFunctionSpring(): void
     {
-        $this->expectException(TypeError::class);
-        new EasingType([
+        $class = new EasingType([
             'type' => 'EASE_OUT',
             'easingFunctionSpring' => ['a' => 1],
         ]);
+        $this->assertNull($class->easingFunctionSpring->mass);
     }
 }

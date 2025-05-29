@@ -42,37 +42,37 @@ final class ImageFiltersTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidExposure(): void
     {
-        $this->expectException(TypeError::class);
-        new ImageFiltersType(['exposure' => '10']);
+        $class = new ImageFiltersType(['exposure' => 'aaa']);
+        $this->assertEquals('0', $class->exposure);
     }
     public function testInvalidContrast(): void
     {
-        $this->expectException(TypeError::class);
-        new ImageFiltersType(['contrast' => '10']);
+        $class = new ImageFiltersType(['contrast' => 'aaa']);
+        $this->assertEquals('0', $class->contrast);
     }
     public function testInvalidSaturation(): void
     {
-        $this->expectException(TypeError::class);
-        new ImageFiltersType(['saturation' => '10']);
+        $class = new ImageFiltersType(['saturation' => 'aaa']);
+        $this->assertEquals('0', $class->saturation);
     }
     public function testInvalidTemperature(): void
     {
-        $this->expectException(TypeError::class);
-        new ImageFiltersType(['temperature' => '10']);
+        $class = new ImageFiltersType(['temperature' => 'aaa']);
+        $this->assertEquals('0', $class->temperature);
     }
     public function testInvalidTint(): void
     {
-        $this->expectException(TypeError::class);
-        new ImageFiltersType(['tint' => '10']);
+        $class = new ImageFiltersType(['tint' => 'aaa']);
+        $this->assertEquals('0', $class->tint);
     }
     public function testInvalidHighlights(): void
     {
-        $this->expectException(TypeError::class);
-        new ImageFiltersType(['highlights' => '10']);
+        $class = new ImageFiltersType(['highlights' => 'aaa']);
+        $this->assertEquals('0', $class->highlights);
     }
     public function testInvalidShadows(): void
     {
-        $this->expectException(TypeError::class);
-        new ImageFiltersType(['shadows' => '10']);
+        $class = new ImageFiltersType(['shadows' => 'aaa']);
+        $this->assertEquals('0', $class->shadows);
     }
 }
