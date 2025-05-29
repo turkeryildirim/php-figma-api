@@ -28,4 +28,3 @@ $endpoint = new VersionHistoryEndpoint($fc);
 $allHistory = $endpoint->fetchAll($fileKey);
 
 $versions = $allHistory->versions;
-

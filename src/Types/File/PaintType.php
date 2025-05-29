@@ -63,6 +63,6 @@ class PaintType extends AbstractType
         $this->rotation      = Helper::makeInteger($data['rotation']);
         $this->imageRef      = $data['imageRef'] ?? null;
         $this->gifRef        = $data['gifRef'] ?? null;
-        $this->filters = Helper::makeArrayOfObjects($data['filters'], ImageFiltersType::class);
+        $this->filters       = Helper::makeArrayOfObjects($data['filters'], ImageFiltersType::class);
     }
 }
