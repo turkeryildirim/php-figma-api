@@ -10,9 +10,9 @@ enum LayoutConstraintVerticalEnum: string
 {
     use EnumArrayTrait;
 
-    case TOP = 'TOP';
-    case BOTTOM = 'BOTTOM';
-    case CENTER = 'CENTER';
+    case TOP        = 'TOP';
+    case BOTTOM     = 'BOTTOM';
+    case CENTER     = 'CENTER';
     case TOP_BOTTOM = 'TOP_BOTTOM';
-    case SCALE = 'SCALE';
+    case SCALE      = 'SCALE';
 }

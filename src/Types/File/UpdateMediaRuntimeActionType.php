@@ -23,6 +23,7 @@ class UpdateMediaRuntimeActionType extends AbstractType
         $this->runTraitMethods($data);
         $this->mediaAction = ( !empty($data['mediaAction']) && MediaActionTypeEnum::hasValue($data['mediaAction']) )
             ? MediaActionTypeEnum::tryFrom($data['mediaAction']) : null;
+
         $this->amountToSkip = $data['amountToSkip'] ?? null;
         $this->newTimestamp = $data['newTimestamp'] ?? null;
     }

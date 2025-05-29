@@ -10,7 +10,7 @@ enum LayoutModeEnum: string
 {
     use EnumArrayTrait;
 
-    case NONE = 'NONE';
+    case NONE       = 'NONE';
     case HORIZONTAL = 'HORIZONTAL';
-    case VERTICAL = 'VERTICAL';
+    case VERTICAL   = 'VERTICAL';
 }

@@ -15,7 +15,7 @@ class ArcDataType extends AbstractType
     public function __construct(array $data)
     {
         $this->startingAngle = $data['startingAngle'];
-        $this->endingAngle = $data['endingAngle'];
-        $this->innerRadius = $data['innerRadius'];
+        $this->endingAngle   = $data['endingAngle'];
+        $this->innerRadius   = $data['innerRadius'];
     }
 }

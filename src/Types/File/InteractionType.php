@@ -17,6 +17,7 @@ class InteractionType extends AbstractType
     public function __construct(array $data)
     {
         $this->trigger = (!empty($data['trigger'])) ? new TriggerType($data['trigger']) : null;
+
         $actions = null;
         if (!empty($data['actions']) && is_array($data['actions'])) {
             foreach ($data['actions'] as $action) {

@@ -31,7 +31,7 @@ final class StylesEndpoint extends BaseEndpoint
             'before' => $before,
             'after' => $after
         ];
-        $data = $this->client->get('teams/' . $teamId . '/styles', $params);
+        $data   = $this->client->get('teams/' . $teamId . '/styles', $params);
         return TeamStylesResponse::build($data);
     }
     public function fetchFileStyles(string $filekey): FileStylesResponse

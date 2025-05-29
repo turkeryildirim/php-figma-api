@@ -11,5 +11,5 @@ enum DevStatusTypeEnum: string
     use EnumArrayTrait;
 
     case READY_FOR_DEV = 'READY_FOR_DEV';
-    case COMPLETED = 'COMPLETED';
+    case COMPLETED     = 'COMPLETED';
 }

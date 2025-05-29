@@ -16,8 +16,10 @@ class EasingType extends AbstractType
     public function __construct(array $data)
     {
         $this->type = EasingTypeEnum::tryFrom($data['type']);
+
         $this->easingFunctionCubicBezier = (!empty($data['easingFunctionCubicBezier'])) ?
             new EasingFunctionCubicBezierType($data['easingFunctionCubicBezier']) : null;
+
         $this->easingFunctionSpring = (!empty($data['easingFunctionSpring'])) ?
             new EasingFunctionSpringType($data['easingFunctionSpring']) : null;
     }

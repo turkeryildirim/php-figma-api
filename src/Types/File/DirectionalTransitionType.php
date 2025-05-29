@@ -22,8 +22,8 @@ class DirectionalTransitionType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->type = DirectionalTransitionTypeEnum::tryFrom($data['type']);
-        $this->direction = DirectionEnum::tryFrom($data['direction']);
+        $this->type        = DirectionalTransitionTypeEnum::tryFrom($data['type']);
+        $this->direction   = DirectionEnum::tryFrom($data['direction']);
         $this->matchLayers = $data['matchLayers'] ?? false;
     }
 }

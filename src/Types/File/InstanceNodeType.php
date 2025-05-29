@@ -24,9 +24,9 @@ class InstanceNodeType extends FrameNodeType
     public function __construct(array $data)
     {
         parent::__construct($data);
-        $this->componentId = $data['componentId'];
+        $this->componentId       = $data['componentId'];
         $this->isExposedInstance = $data['isExposedInstance'] ?? false;
-        $this->exposedInstances = $data['exposedInstances'] ?? null;
+        $this->exposedInstances  = $data['exposedInstances'] ?? null;
 
         $componentProperties = null;
         if (!empty($data['componentProperties']) && is_array($data['componentProperties'])) {

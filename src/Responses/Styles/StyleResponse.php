@@ -16,12 +16,12 @@ final class StyleResponse extends BaseResponse
     public function __construct(array $data)
     {
         $this->status = intval($data['status']);
-        $this->error = boolval($data['error']);
+        $this->error  = boolval($data['error']);
+
         $meta = null;
         if (!empty($data['meta'])) {
             $meta = new StyleType($data['meta']);
         }
-
         $this->meta = $meta;
         return $this;
     }

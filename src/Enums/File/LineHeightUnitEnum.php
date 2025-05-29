@@ -10,7 +10,7 @@ enum LineHeightUnitEnum: string
 {
     use EnumArrayTrait;
 
-    case PIXELS = 'PIXELS';
+    case PIXELS    = 'PIXELS';
     case FONT_SIZE = 'FONT_SIZE_%';
     case INTRINSIC = 'INTRINSIC_%';
 }

@@ -26,11 +26,11 @@ class LayoutGridType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->count = $data['count'];
-        $this->offset = $data['offset'];
-        $this->gutterSize = $data['gutterSize'];
+        $this->count       = $data['count'];
+        $this->offset      = $data['offset'];
+        $this->gutterSize  = $data['gutterSize'];
         $this->sectionSize = $data['sectionSize'];
-        $this->pattern = LayoutGridPatternEnum::tryFrom($data['pattern']);
-        $this->alignment = LayoutGridAlignmentEnum::tryFrom($data['alignment']);
+        $this->pattern     = LayoutGridPatternEnum::tryFrom($data['pattern']);
+        $this->alignment   = LayoutGridAlignmentEnum::tryFrom($data['alignment']);
     }
 }

@@ -13,7 +13,7 @@ class MeasurementOffsetInnerType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->type = 'INNER';
+        $this->type     = 'INNER';
         $this->relative = $data['relative'];
     }
 }

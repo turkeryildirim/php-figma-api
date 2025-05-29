@@ -11,5 +11,5 @@ enum LayoutWrapEnum: string
     use EnumArrayTrait;
 
     case NO_WRAP = 'NO_WRAP';
-    case WRAP = 'WRAP';
+    case WRAP    = 'WRAP';
 }

@@ -14,8 +14,8 @@ class PathType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->path = $data['path'];
+        $this->path        = $data['path'];
         $this->windingRule = $data['windingRule'] ?? null;
-        $this->overrideID = $data['overrideID'] ?? null;
+        $this->overrideID  = $data['overrideID'] ?? null;
     }
 }

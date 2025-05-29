@@ -10,7 +10,7 @@ enum SimpleTransitionTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case DISSOLVE = 'DISSOLVE';
-    case SMART_ANIMATE = 'SMART_ANIMATE';
+    case DISSOLVE       = 'DISSOLVE';
+    case SMART_ANIMATE  = 'SMART_ANIMATE';
     case SCROLL_ANIMATE = 'SCROLL_ANIMATE';
 }

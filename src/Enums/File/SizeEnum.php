@@ -10,6 +10,6 @@ enum SizeEnum: string
 {
     use EnumArrayTrait;
 
-    case WIDTH = 'WIDTH';
+    case WIDTH  = 'WIDTH';
     case HEIGHT = 'HEIGHT';
 }

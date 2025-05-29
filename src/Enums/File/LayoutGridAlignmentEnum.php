@@ -10,8 +10,8 @@ enum LayoutGridAlignmentEnum: string
 {
     use EnumArrayTrait;
 
-    case MIN = 'MIN';
-    case MAX = 'MAX';
-    case CENTER = 'CENTER';
+    case MIN     = 'MIN';
+    case MAX     = 'MAX';
+    case CENTER  = 'CENTER';
     case STRETCH = 'STRETCH';
 }

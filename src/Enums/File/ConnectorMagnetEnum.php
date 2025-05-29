@@ -10,9 +10,9 @@ enum ConnectorMagnetEnum: string
 {
     use EnumArrayTrait;
 
-    case AUTO = 'AUTO';
-    case TOP = 'TOP';
+    case AUTO   = 'AUTO';
+    case TOP    = 'TOP';
     case BOTTOM = 'BOTTOM';
-    case LEFT = 'LEFT';
-    case RIGHT = 'RIGHT';
+    case LEFT   = 'LEFT';
+    case RIGHT  = 'RIGHT';
 }

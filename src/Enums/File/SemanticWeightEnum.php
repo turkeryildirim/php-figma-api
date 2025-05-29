@@ -10,6 +10,6 @@ enum SemanticWeightEnum: string
 {
     use EnumArrayTrait;
 
-    case BOLD = 'BOLD';
+    case BOLD   = 'BOLD';
     case NORMAL = 'NORMAL';
 }

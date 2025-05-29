@@ -10,7 +10,7 @@ enum MaskTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case ALPHA = 'ALPHA';
-    case VECTOR = 'VECTOR';
+    case ALPHA     = 'ALPHA';
+    case VECTOR    = 'VECTOR';
     case LUMINANCE = 'LUMINANCE';
 }

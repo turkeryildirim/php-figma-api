@@ -16,7 +16,7 @@ final class Logger implements LoggerInterface
 
     public function __construct()
     {
-        $logger = new MonologLogger('figma-api');
+        $logger  = new MonologLogger('figma-api');
         $handler = new ErrorLogHandler(0, Level::Debug);
         $logger->pushHandler($handler);
 

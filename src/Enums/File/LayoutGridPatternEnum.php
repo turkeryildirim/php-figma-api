@@ -11,6 +11,6 @@ enum LayoutGridPatternEnum: string
     use EnumArrayTrait;
 
     case COLUMNS = 'COLUMNS';
-    case ROWS = 'ROWS';
-    case GRID = 'GRID';
+    case ROWS    = 'ROWS';
+    case GRID    = 'GRID';
 }

@@ -76,7 +76,9 @@ class ConnectorNodeType extends AbstractType
             ConnectorLineTypeEnum::tryFrom($data['connectorLineType']) : null;
 
         $this->connectorStart = new ConnectorEndpointType($data['connectorStart']);
+
         $this->connectorEnd = new ConnectorEndpointType($data['connectorEnd']);
+
         $this->textBackground = !empty($data['textBackground']) ?
             new ConnectorTextBackgroundType($data['textBackground']) : null;
     }

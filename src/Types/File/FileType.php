@@ -33,8 +33,8 @@ class FileType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->role = $data['role'] ?? null;
-        $this->version = $data['version'] ?? null;
+        $this->role        = $data['role'] ?? null;
+        $this->version     = $data['version'] ?? null;
         $this->mainFileKey = $data['mainFileKey'] ?? null;
     }
 }

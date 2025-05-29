@@ -10,7 +10,7 @@ enum TextDecorationEnum: string
 {
     use EnumArrayTrait;
 
-    case NONE = 'NONE';
+    case NONE          = 'NONE';
     case STRIKETHROUGH = 'STRIKETHROUGH';
-    case UNDERLINE = 'UNDERLINE';
+    case UNDERLINE     = 'UNDERLINE';
 }

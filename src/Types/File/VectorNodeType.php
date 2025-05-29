@@ -79,8 +79,9 @@ class VectorNodeType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->layoutGrow = $data['layoutGrow'] ?? 0;
+        $this->layoutGrow       = $data['layoutGrow'] ?? 0;
         $this->strokeMiterAngle = $data['strokeMiterAngle'] ?? null;
+
         $this->individualStrokeWeights = !empty($data['individualStrokeWeights']) ?
             new StrokeWeightsType($data['individualStrokeWeights']) : null;
 

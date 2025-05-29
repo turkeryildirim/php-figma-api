@@ -19,7 +19,7 @@ class UserType extends AbstractType
     {
         $this->runTraitMethods($data);
         $this->imgUrl = $data['img_url'] ?? null;
-        $this->email = $data['email'] ?? null;
+        $this->email  = $data['email'] ?? null;
         $this->handle = $data['handle'] ?? null;
     }
 }

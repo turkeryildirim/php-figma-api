@@ -19,7 +19,7 @@ class RectangleType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->width = $data['width'];
+        $this->width  = $data['width'];
         $this->height = $data['height'];
     }
 }

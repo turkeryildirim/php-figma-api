@@ -31,11 +31,11 @@ class CommentType extends AbstractType
     {
         $this->runTraitMethods($data);
         $this->resolvedAt = $data['resolved_at'] ?? null;
-        $this->uuid = $data['uuid'] ?? null;
-        $this->message = $data['message'] ?? null;
-        $this->orderId = intval($data['order_id'] ?? null);
-        $this->parentId = $data['parent_id'] ?? null;
-        $meta = new ClientMetaType($data['client_meta']);
+        $this->uuid       = $data['uuid'] ?? null;
+        $this->message    = $data['message'] ?? null;
+        $this->orderId    = intval($data['order_id'] ?? null);
+        $this->parentId   = $data['parent_id'] ?? null;
+        $meta             = new ClientMetaType($data['client_meta']);
         $this->clientMeta = $meta();
     }
 }

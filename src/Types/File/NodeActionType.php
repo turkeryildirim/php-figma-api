@@ -26,11 +26,13 @@ class NodeActionType extends AbstractType
     {
         $this->runTraitMethods($data);
         $this->resetInteractiveComponents = $data['resetInteractiveComponents'] ?? false;
-        $this->resetScrollPosition = $data['resetScrollPosition'] ?? false;
-        $this->resetVideoPosition = $data['resetVideoPosition'] ?? false;
-        $this->preserveScrollPosition = $data['preserveScrollPosition'] ?? false;
+        $this->resetScrollPosition        = $data['resetScrollPosition'] ?? false;
+        $this->resetVideoPosition         = $data['resetVideoPosition'] ?? false;
+        $this->preserveScrollPosition     = $data['preserveScrollPosition'] ?? false;
+
         $this->overlayRelativePosition = (!empty($data['overlayRelativePosition'])) ?
             new VectorType($data['overlayRelativePosition']) : null;
+
         $this->navigation = (!empty($data['navigation'])) ?
             new NavigationType($data['navigation']) : null;
 

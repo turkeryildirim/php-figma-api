@@ -16,7 +16,7 @@ final class FigmaClient
     private ?CacheInterface $cache;
     public function __construct(LoggerInterface $logger = null, CacheInterface $cache = null)
     {
-        $this->cache = $cache;
+        $this->cache  = $cache;
         $this->logger = $logger;
     }
 
@@ -35,8 +35,8 @@ final class FigmaClient
     public function getWithApiKey(string $apiKey): HttpClient
     {
         $this->logger = $this->logger ?? new Logger();
-        $this->cache = $this->cache ?? new ArrayCache();
-        $client = new HttpClient($this->logger, $this->cache);
+        $this->cache  = $this->cache ?? new ArrayCache();
+        $client       = new HttpClient($this->logger, $this->cache);
         $client->setApiKey($apiKey);
         return $client;
     }

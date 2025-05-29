@@ -10,7 +10,7 @@ enum StrokeAlignEnum: string
 {
     use EnumArrayTrait;
 
-    case INSIDE = 'INSIDE';
+    case INSIDE  = 'INSIDE';
     case OUTSIDE = 'OUTSIDE';
-    case CENTER = 'CENTER';
+    case CENTER  = 'CENTER';
 }

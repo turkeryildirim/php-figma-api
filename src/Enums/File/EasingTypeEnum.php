@@ -10,9 +10,9 @@ enum EasingTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case EASE_IN = 'EASE_IN';
-    case EASE_OUT = 'EASE_OUT';
+    case EASE_IN         = 'EASE_IN';
+    case EASE_OUT        = 'EASE_OUT';
     case EASE_IN_AND_OUT = 'EASE_IN_AND_OUT';
-    case LINEAR = 'LINEAR';
-    case GENTLE_SPRING = 'GENTLE_SPRING';
+    case LINEAR          = 'LINEAR';
+    case GENTLE_SPRING   = 'GENTLE_SPRING';
 }

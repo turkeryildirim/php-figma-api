@@ -14,6 +14,7 @@ class LayoutConstraintType extends AbstractType
     {
         $this->vertical = ( isset($data['vertical']) && LayoutConstraintVerticalEnum::hasValue($data['vertical']) )
             ? LayoutConstraintVerticalEnum::tryFrom($data['vertical']) : null;
+
         $this->horizontal = ( isset($data['horizontal']) && LayoutConstraintHorizontalEnum::hasValue($data['horizontal']) )
             ? LayoutConstraintHorizontalEnum::tryFrom($data['horizontal']) : null;
     }

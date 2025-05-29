@@ -10,6 +10,6 @@ enum ConnectorLineTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case ELBOWED = 'ELBOWED';
+    case ELBOWED  = 'ELBOWED';
     case STRAIGHT = 'STRAIGHT';
 }

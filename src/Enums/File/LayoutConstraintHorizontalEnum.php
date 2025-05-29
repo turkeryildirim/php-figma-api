@@ -10,9 +10,9 @@ enum LayoutConstraintHorizontalEnum: string
 {
     use EnumArrayTrait;
 
-    case LEFT = 'LEFT';
-    case RIGHT = 'RIGHT';
-    case CENTER = 'CENTER';
+    case LEFT       = 'LEFT';
+    case RIGHT      = 'RIGHT';
+    case CENTER     = 'CENTER';
     case LEFT_RIGHT = 'LEFT_RIGHT';
-    case SCALE = 'SCALE';
+    case SCALE      = 'SCALE';
 }

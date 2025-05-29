@@ -74,9 +74,9 @@ class PaintType extends AbstractType
             Helper::toArrayMatrix($data['imageTransform']) : null;
 
         $this->scalingFactor = !empty($data['scalingFactor']) ? $data['scalingFactor'] : null;
-        $this->rotation = !empty($data['rotation']) ? $data['rotation'] : null;
-        $this->imageRef = $data['imageRef'] ?? null;
-        $this->gifRef = $data['gifRef'] ?? null;
+        $this->rotation      = !empty($data['rotation']) ? $data['rotation'] : null;
+        $this->imageRef      = $data['imageRef'] ?? null;
+        $this->gifRef        = $data['gifRef'] ?? null;
 
         $filters = null;
         if (!empty($data['filters']) && is_array($data['filters'])) {

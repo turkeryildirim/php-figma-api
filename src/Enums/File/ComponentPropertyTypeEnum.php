@@ -10,8 +10,8 @@ enum ComponentPropertyTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case BOOLEAN = 'BOOLEAN';
+    case BOOLEAN       = 'BOOLEAN';
     case INSTANCE_SWAP = 'INSTANCE_SWAP';
-    case TEXT = 'TEXT';
-    case VARIANT = 'VARIANT';
+    case TEXT          = 'TEXT';
+    case VARIANT       = 'VARIANT';
 }

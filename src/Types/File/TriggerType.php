@@ -23,13 +23,13 @@ class TriggerType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->type = TriggerTypeEnum::tryFrom($data['type']);
-        $this->timeout = $data['timeout'] ?? null;
-        $this->delay = $data['delay'] ?? null;
+        $this->type              = TriggerTypeEnum::tryFrom($data['type']);
+        $this->timeout           = $data['timeout'] ?? null;
+        $this->delay             = $data['delay'] ?? null;
         $this->deprecatedVersion = $data['deprecatedVersion'] ?? false;
-        $this->mediaHitTime = $data['mediaHitTime'] ?? null;
-        $this->device = ( !empty($data['device']) && DeviceTypeEnum::hasValue($data['device']) )
+        $this->mediaHitTime      = $data['mediaHitTime'] ?? null;
+        $this->device            = ( !empty($data['device']) && DeviceTypeEnum::hasValue($data['device']) )
             ? DeviceTypeEnum::tryFrom($data['device']) : null;
-        $this->keyCodes = $data['keyCodes'] ?? null;
+        $this->keyCodes          = $data['keyCodes'] ?? null;
     }
 }

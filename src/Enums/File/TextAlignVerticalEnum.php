@@ -10,7 +10,7 @@ enum TextAlignVerticalEnum: string
 {
     use EnumArrayTrait;
 
-    case TOP = 'TOP';
+    case TOP    = 'TOP';
     case CENTER = 'CENTER';
     case BOTTOM = 'BOTTOM';
 }

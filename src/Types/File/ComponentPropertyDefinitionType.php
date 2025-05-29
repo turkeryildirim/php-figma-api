@@ -22,8 +22,8 @@ class ComponentPropertyDefinitionType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->type = ComponentPropertyTypeEnum::from($data['type']);
-        $this->defaultValue = $data['defaultValue'];
+        $this->type           = ComponentPropertyTypeEnum::from($data['type']);
+        $this->defaultValue   = $data['defaultValue'];
         $this->variantOptions = $data['variantOptions'] ?? null;
     }
 }

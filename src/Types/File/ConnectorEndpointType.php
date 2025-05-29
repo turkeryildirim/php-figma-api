@@ -17,7 +17,7 @@ class ConnectorEndpointType extends AbstractType
     public function __construct(array $data)
     {
         $this->endpointNodeId = $data['endpointNodeId'];
-        $this->position = new VectorType($data['position']);
-        $this->magnet = ConnectorMagnetEnum::tryFrom($data['magnet']);
+        $this->position       = new VectorType($data['position']);
+        $this->magnet         = ConnectorMagnetEnum::tryFrom($data['magnet']);
     }
 }

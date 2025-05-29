@@ -10,9 +10,9 @@ enum NavigationTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case NAVIGATE = 'NAVIGATE';
-    case SWAP = 'SWAP';
-    case OVERLAY = 'OVERLAY';
+    case NAVIGATE  = 'NAVIGATE';
+    case SWAP      = 'SWAP';
+    case OVERLAY   = 'OVERLAY';
     case SCROLL_TO = 'SCROLL_TO';
     case CHANGE_TO = 'CHANGE_TO';
 }

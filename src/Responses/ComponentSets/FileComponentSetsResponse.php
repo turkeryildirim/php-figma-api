@@ -19,7 +19,8 @@ final class FileComponentSetsResponse extends BaseResponse
     public function __construct(array $data)
     {
         $this->status = intval($data['status']);
-        $this->error = boolval($data['error']);
+        $this->error  = boolval($data['error']);
+
         $meta = null;
         if (!empty($data['meta'])) {
             if (!empty($data['meta']['component_sets'])) {

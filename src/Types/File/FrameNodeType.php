@@ -115,27 +115,27 @@ class FrameNodeType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->minWidth = $data['minWidth'] ?? null;
-        $this->maxWidth = $data['maxWidth'] ?? null;
-        $this->minHeight = $data['minHeight'] ?? null;
-        $this->maxHeight = $data['maxHeight'] ?? null;
-        $this->isMaskOutline = $data['isMaskOutline'] ?? false;
-        $this->clipsContent = $data['clipsContent'] ?? false;
-        $this->itemReverseZIndex = $data['itemReverseZIndex'] ?? false;
+        $this->minWidth                = $data['minWidth'] ?? null;
+        $this->maxWidth                = $data['maxWidth'] ?? null;
+        $this->minHeight               = $data['minHeight'] ?? null;
+        $this->maxHeight               = $data['maxHeight'] ?? null;
+        $this->isMaskOutline           = $data['isMaskOutline'] ?? false;
+        $this->clipsContent            = $data['clipsContent'] ?? false;
+        $this->itemReverseZIndex       = $data['itemReverseZIndex'] ?? false;
         $this->strokesIncludedInLayout = $data['strokesIncludedInLayout'] ?? false;
-        $this->paddingLeft = $data['paddingLeft'] ?? 0;
-        $this->paddingRight = $data['paddingRight'] ?? 0;
-        $this->paddingTop = $data['paddingTop'] ?? 0;
-        $this->paddingBottom = $data['paddingBottom'] ?? 0;
-        $this->horizontalPadding = $data['horizontalPadding'] ?? 0;
-        $this->verticalPadding = $data['verticalPadding'] ?? 0;
-        $this->itemSpacing = $data['itemSpacing'] ?? 0;
-        $this->counterAxisSpacing = $data['counterAxisSpacing'] ?? 0;
+        $this->paddingLeft             = $data['paddingLeft'] ?? 0;
+        $this->paddingRight            = $data['paddingRight'] ?? 0;
+        $this->paddingTop              = $data['paddingTop'] ?? 0;
+        $this->paddingBottom           = $data['paddingBottom'] ?? 0;
+        $this->horizontalPadding       = $data['horizontalPadding'] ?? 0;
+        $this->verticalPadding         = $data['verticalPadding'] ?? 0;
+        $this->itemSpacing             = $data['itemSpacing'] ?? 0;
+        $this->counterAxisSpacing      = $data['counterAxisSpacing'] ?? 0;
 
-        $mode = $data['overflowDirection'] ?? 'NONE';
+        $mode                    = $data['overflowDirection'] ?? 'NONE';
         $this->overflowDirection = OverflowDirectionEnum::from($mode);
 
-        $mode = $data['position'] ?? 'AUTO';
+        $mode           = $data['position'] ?? 'AUTO';
         $this->position = PositionEnum::from($mode);
 
         $mode = $data['counterAxisAlignContent'] ?? 'AUTO';
@@ -147,7 +147,7 @@ class FrameNodeType extends AbstractType
         $mode = $data['counterAxisAlignItems'] ?? 'MIN';
         $this->counterAxisAlignItems = AxisAlignModeEnum::from($mode);
 
-        $mode = $data['layoutMode'] ?? 'NONE';
+        $mode             = $data['layoutMode'] ?? 'NONE';
         $this->layoutMode = LayoutModeEnum::from($mode);
 
         $mode = $data['primaryAxisSizingMode'] ?? 'AUTO';

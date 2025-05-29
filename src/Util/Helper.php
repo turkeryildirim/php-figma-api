@@ -60,7 +60,7 @@ final class Helper
             return null;
         }
 
-        $identityMatrixString = str_replace(array('[',']',' '), array('','',''), $identityMatrixString);
+        $identityMatrixString = str_replace(['[',']',' '], ['','',''], $identityMatrixString);
 
         $identityMatrixString = explode(',', $identityMatrixString);
         if (count($identityMatrixString) !== 9) {

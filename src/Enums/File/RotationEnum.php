@@ -10,6 +10,6 @@ enum RotationEnum: string
 {
     use EnumArrayTrait;
 
-    case NONE = 'NONE';
+    case NONE   = 'NONE';
     case CCW_90 = 'CCW_90';
 }

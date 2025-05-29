@@ -31,7 +31,7 @@ final class ComponentsEndpoint extends BaseEndpoint
             'before' => $before,
             'after' => $after
         ];
-        $data = $this->client->get('teams/' . $teamId . '/components', $params);
+        $data   = $this->client->get('teams/' . $teamId . '/components', $params);
         return TeamComponentsResponse::build($data);
     }
     public function fetchFileComponents(string $filekey): FileComponentsResponse

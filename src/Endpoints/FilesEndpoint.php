@@ -39,7 +39,7 @@ final class FilesEndpoint extends BaseEndpoint
             'plugin_data' => $pluginData,
             'branch_data' => $branchData,
         ];
-        $data = $this->client->get('files/' . $key, $params);
+        $data   = $this->client->get('files/' . $key, $params);
         return FilesResponse::build($data);
     }
     public function fetchFileNodes(
@@ -57,7 +57,7 @@ final class FilesEndpoint extends BaseEndpoint
             'geometry' => $geometry,
             'plugin_data' => $pluginData
         ];
-        $data = $this->client->get('files/' . $key . '/nodes', $params);
+        $data   = $this->client->get('files/' . $key . '/nodes', $params);
         return FileNodesResponse::build($data);
     }
     public function fetchImages(
@@ -75,7 +75,7 @@ final class FilesEndpoint extends BaseEndpoint
             'use_absolute_bounds' => $useAbsoluteBounds,
             'version' => $version
         ];
-        $data = $this->client->get('images/' . $key, $params);
+        $data   = $this->client->get('images/' . $key, $params);
         return FileImagesResponse::build($data['images']);
     }
     public function fetchImageFills(string $key): FileImagesResponse

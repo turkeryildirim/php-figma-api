@@ -22,8 +22,8 @@ class FrameInfoType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->pageId = $data['page_id'] ?? $data['pageId'] ?? null;
-        $this->pageName = $data['page_name'] ?? $data['pageName'] ?? null;
+        $this->pageId                 = $data['page_id'] ?? $data['pageId'] ?? null;
+        $this->pageName               = $data['page_name'] ?? $data['pageName'] ?? null;
         $this->containingComponentSet = $data['containing_component_set'] ?? null;
     }
 }

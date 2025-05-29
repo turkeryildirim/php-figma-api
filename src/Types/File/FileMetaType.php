@@ -27,13 +27,13 @@ class FileMetaType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->role = $data['role'] ?? null;
+        $this->role          = $data['role'] ?? null;
         $this->lastTouchedAt = $data['last_touched_at'] ?? null;
-        $this->folderName = $data['folder_name'] ?? null;
-        $this->version = $data['version'] ?? null;
-        $this->linkAccess = $data['link_access'] ?? null;
-        $this->url = $data['url'] ?? null;
-        $this->creator = !empty($data['creator']) ? new UserType($data['creator']) : null;
+        $this->folderName    = $data['folder_name'] ?? null;
+        $this->version       = $data['version'] ?? null;
+        $this->linkAccess    = $data['link_access'] ?? null;
+        $this->url           = $data['url'] ?? null;
+        $this->creator       = !empty($data['creator']) ? new UserType($data['creator']) : null;
         $this->lastTouchedBy = !empty($data['last_touched_by']) ? new UserType($data['last_touched_by']) : null;
     }
 }

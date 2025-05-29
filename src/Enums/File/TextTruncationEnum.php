@@ -11,5 +11,5 @@ enum TextTruncationEnum: string
     use EnumArrayTrait;
 
     case DISABLED = 'DISABLED';
-    case ENDING = 'ENDING';
+    case ENDING   = 'ENDING';
 }

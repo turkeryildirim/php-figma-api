@@ -12,10 +12,10 @@ abstract class AbstractType
 
     final protected function runTraitMethods(array $data): void
     {
-        $rc = new ReflectionClass($this);
-        $traits = $rc->getTraits();
+        $rc           = new ReflectionClass($this);
+        $traits       = $rc->getTraits();
         $parentTraits = $rc->getParentClass()->getTraits();
-        $allTraits = array_merge($traits, $parentTraits);
+        $allTraits    = array_merge($traits, $parentTraits);
         if (empty($allTraits)) {
             return;
         }

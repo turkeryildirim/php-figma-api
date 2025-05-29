@@ -14,8 +14,8 @@ class EasingFunctionSpringType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->mass = $data['mass'];
+        $this->mass      = $data['mass'];
         $this->stiffness = $data['stiffness'];
-        $this->damping = $data['damping'];
+        $this->damping   = $data['damping'];
     }
 }

@@ -10,7 +10,7 @@ enum LineTypesEnum: string
 {
     use EnumArrayTrait;
 
-    case ORDERED = "ORDERED";
+    case ORDERED   = "ORDERED";
     case UNORDERED = "UNORDERED";
-    case NONE = "NONE";
+    case NONE      = "NONE";
 }

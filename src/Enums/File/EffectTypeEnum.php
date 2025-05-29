@@ -10,8 +10,8 @@ enum EffectTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case INNER_SHADOW = 'INNER_SHADOW';
-    case DROP_SHADOW = 'DROP_SHADOW';
-    case LAYER_BLUR = 'LAYER_BLUR';
+    case INNER_SHADOW    = 'INNER_SHADOW';
+    case DROP_SHADOW     = 'DROP_SHADOW';
+    case LAYER_BLUR      = 'LAYER_BLUR';
     case BACKGROUND_BLUR = 'BACKGROUND_BLUR';
 }

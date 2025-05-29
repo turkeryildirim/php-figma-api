@@ -26,7 +26,6 @@ final class ProjectFilesResponse extends BaseResponse
                 $files[] = new ProjectFileType($file);
             }
         }
-
         $this->files = $files;
         return $this;
     }

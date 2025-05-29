@@ -10,10 +10,10 @@ enum AxisAlignModeEnum: string
 {
     use EnumArrayTrait;
 
-    case AUTO = 'AUTO';
-    case MIN = 'MIN';
-    case CENTER = 'CENTER';
-    case MAX = 'MAX';
+    case AUTO          = 'AUTO';
+    case MIN           = 'MIN';
+    case CENTER        = 'CENTER';
+    case MAX           = 'MAX';
     case SPACE_BETWEEN = 'SPACE_BETWEEN';
-    case BASELINE = 'BASELINE';
+    case BASELINE      = 'BASELINE';
 }

@@ -20,9 +20,9 @@ class TextNodeType extends VectorNodeType
     {
         parent::__construct($data);
 
-        $this->style = new TypeStyleType($data['style']);
+        $this->style                   = new TypeStyleType($data['style']);
         $this->characterStyleOverrides = $data['characterStyleOverrides'] ?? null;
-        $this->lineIndentations = $data['lineIndentations'] ?? null;
+        $this->lineIndentations        = $data['lineIndentations'] ?? null;
 
         $styleOverrideTable = null;
         if (!empty($data['styleOverrideTable']) && is_array($data['styleOverrideTable'])) {

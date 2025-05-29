@@ -11,7 +11,7 @@ enum CommentPinCornerEnum: string
     use EnumArrayTrait;
 
     case BOTTOM_RIGHT = 'bottom-right';
-    case BOTTOM_LEFT = 'bottom-left';
-    case TOP_RIGHT = 'top-right';
-    case TOP_LEFT = 'top-left';
+    case BOTTOM_LEFT  = 'bottom-left';
+    case TOP_RIGHT    = 'top-right';
+    case TOP_LEFT     = 'top-left';
 }

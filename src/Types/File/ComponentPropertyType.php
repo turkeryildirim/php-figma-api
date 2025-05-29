@@ -20,7 +20,7 @@ class ComponentPropertyType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->type = ComponentPropertyTypeEnum::from($data['type']);
+        $this->type  = ComponentPropertyTypeEnum::from($data['type']);
         $this->value = $data['value'];
     }
 }

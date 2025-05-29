@@ -10,8 +10,8 @@ enum TextAlignHorizontalEnum: string
 {
     use EnumArrayTrait;
 
-    case LEFT = 'LEFT';
-    case RIGHT = 'RIGHT';
-    case CENTER = 'CENTER';
+    case LEFT      = 'LEFT';
+    case RIGHT     = 'RIGHT';
+    case CENTER    = 'CENTER';
     case JUSTIFIED = 'JUSTIFIED';
 }

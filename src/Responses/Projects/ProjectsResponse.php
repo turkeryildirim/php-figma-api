@@ -18,6 +18,7 @@ final class ProjectsResponse extends BaseResponse
     public function __construct(array $data)
     {
         $this->name = $data['name'];
+
         $projects = null;
         if (!empty($data['projects'])) {
             $projects = [];
@@ -25,7 +26,6 @@ final class ProjectsResponse extends BaseResponse
                 $projects[] = new ProjectType($project);
             }
         }
-
         $this->projects = $projects;
         return $this;
     }

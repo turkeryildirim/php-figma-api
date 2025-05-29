@@ -10,8 +10,8 @@ enum DirectionEnum: string
 {
     use EnumArrayTrait;
 
-    case TOP = 'TOP';
-    case RIGHT = 'RIGHT';
+    case TOP    = 'TOP';
+    case RIGHT  = 'RIGHT';
     case BOTTOM = 'BOTTOM';
-    case LEFT = 'LEFT';
+    case LEFT   = 'LEFT';
 }

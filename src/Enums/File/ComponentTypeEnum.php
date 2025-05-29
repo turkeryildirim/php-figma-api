@@ -10,6 +10,6 @@ enum ComponentTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case COMPONENT = 'COMPONENT';
+    case COMPONENT     = 'COMPONENT';
     case COMPONENT_SET = 'COMPONENT_SET';
 }

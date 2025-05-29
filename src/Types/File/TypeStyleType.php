@@ -57,21 +57,21 @@ class TypeStyleType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->fontFamily = $data['fontFamily'];
-        $this->fontWeight = $data['fontWeight'];
-        $this->fontSize = $data['fontSize'];
-        $this->lineHeightPx = $data['lineHeightPx'];
-        $this->fontPostScriptName = $data['fontPostScriptName'] ?? null;
-        $this->fontStyle = $data['fontStyle'] ?? null;
-        $this->paragraphSpacing = $data['paragraphSpacing'] ?? 0;
-        $this->paragraphIndent = $data['paragraphIndent'] ?? 0;
-        $this->listSpacing = $data['listSpacing'] ?? 0;
-        $this->italic = $data['italic'] ?? false;
-        $this->maxLines = $data['maxLines'] ?? null;
-        $this->letterSpacing = $data['letterSpacing'] ?? null;
-        $this->lineHeightPercent = $data['lineHeightPercent'] ?? 100;
+        $this->fontFamily                = $data['fontFamily'];
+        $this->fontWeight                = $data['fontWeight'];
+        $this->fontSize                  = $data['fontSize'];
+        $this->lineHeightPx              = $data['lineHeightPx'];
+        $this->fontPostScriptName        = $data['fontPostScriptName'] ?? null;
+        $this->fontStyle                 = $data['fontStyle'] ?? null;
+        $this->paragraphSpacing          = $data['paragraphSpacing'] ?? 0;
+        $this->paragraphIndent           = $data['paragraphIndent'] ?? 0;
+        $this->listSpacing               = $data['listSpacing'] ?? 0;
+        $this->italic                    = $data['italic'] ?? false;
+        $this->maxLines                  = $data['maxLines'] ?? null;
+        $this->letterSpacing             = $data['letterSpacing'] ?? null;
+        $this->lineHeightPercent         = $data['lineHeightPercent'] ?? 100;
         $this->lineHeightPercentFontSize = $data['lineHeightPercentFontSize'] ?? null;
-        $this->isOverrideOverTextStyle = $data['isOverrideOverTextStyle'] ?? false;
+        $this->isOverrideOverTextStyle   = $data['isOverrideOverTextStyle'] ?? false;
 
         $this->textCase = ( !empty($data['textCase']) && TextCaseEnum::hasValue($data['textCase']) )
             ? TextCaseEnum::tryFrom($data['textCase']) : TextCaseEnum::ORIGINAL;

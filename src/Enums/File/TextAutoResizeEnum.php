@@ -10,8 +10,8 @@ enum TextAutoResizeEnum: string
 {
     use EnumArrayTrait;
 
-    case NONE = 'NONE';
-    case HEIGHT = 'HEIGHT';
+    case NONE             = 'NONE';
+    case HEIGHT           = 'HEIGHT';
     case WIDTH_AND_HEIGHT = 'WIDTH_AND_HEIGHT';
-    case TRUNCATE = 'TRUNCATE';
+    case TRUNCATE         = 'TRUNCATE';
 }

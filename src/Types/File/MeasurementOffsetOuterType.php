@@ -13,7 +13,7 @@ class MeasurementOffsetOuterType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->type = 'OUTER';
+        $this->type  = 'OUTER';
         $this->fixed = $data['fixed'];
     }
 }

@@ -10,8 +10,8 @@ enum PositionEnum: string
 {
     use EnumArrayTrait;
 
-    case AUTO = 'AUTO';
+    case AUTO     = 'AUTO';
     case ABSOLUTE = 'ABSOLUTE';
     case RELATIVE = 'RELATIVE';
-    case FIXED = 'FIXED';
+    case FIXED    = 'FIXED';
 }

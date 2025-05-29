@@ -10,6 +10,6 @@ enum HyperlinkTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case URL = 'URL';
+    case URL  = 'URL';
     case NODE = 'NODE';
 }

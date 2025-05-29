@@ -10,8 +10,8 @@ enum StyleTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case FILL = 'FILL';
-    case TEXT = 'TEXT';
-    case GRID = 'GRID';
+    case FILL   = 'FILL';
+    case TEXT   = 'TEXT';
+    case GRID   = 'GRID';
     case EFFECT = 'EFFECT';
 }

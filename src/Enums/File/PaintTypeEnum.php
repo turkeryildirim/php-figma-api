@@ -10,12 +10,12 @@ enum PaintTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case SOLID = 'SOLID';
-    case GRADIENT_LINEAR = 'GRADIENT_LINEAR';
-    case GRADIENT_RADIAL = 'GRADIENT_RADIAL';
+    case SOLID            = 'SOLID';
+    case GRADIENT_LINEAR  = 'GRADIENT_LINEAR';
+    case GRADIENT_RADIAL  = 'GRADIENT_RADIAL';
     case GRADIENT_ANGULAR = 'GRADIENT_ANGULAR';
     case GRADIENT_DIAMOND = 'GRADIENT_DIAMOND';
-    case IMAGE = 'IMAGE';
-    case EMOJI = 'EMOJI';
-    case VIDEO = 'VIDEO';
+    case IMAGE            = 'IMAGE';
+    case EMOJI            = 'EMOJI';
+    case VIDEO            = 'VIDEO';
 }

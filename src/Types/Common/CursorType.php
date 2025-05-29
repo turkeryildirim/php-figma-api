@@ -14,6 +14,6 @@ class CursorType extends AbstractType
     public function __construct(array $data)
     {
         $this->before = $data['before'] ?? null;
-        $this->after = $data['after'] ?? null;
+        $this->after  = $data['after'] ?? null;
     }
 }

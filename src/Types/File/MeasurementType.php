@@ -19,8 +19,8 @@ class MeasurementType extends AbstractType
     {
         $this->runTraitMethods($data);
         $this->freeText = $data['freeText'] ?? null;
-        $this->start = (!empty($data['start'])) ? new MeasurementStartEndType($data['start']) : null;
-        $this->offset = array_key_exists('fixed', $data['offset']) ?
+        $this->start    = (!empty($data['start'])) ? new MeasurementStartEndType($data['start']) : null;
+        $this->offset   = array_key_exists('fixed', $data['offset']) ?
             new MeasurementOffsetOuterType($data['offset']) : new MeasurementOffsetInnerType($data['offset']);
     }
 }

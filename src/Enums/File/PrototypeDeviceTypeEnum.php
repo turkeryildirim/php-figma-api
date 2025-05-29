@@ -10,8 +10,8 @@ enum PrototypeDeviceTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case NONE = 'NONE';
-    case PRESET = 'PRESET';
-    case CUSTOM = 'CUSTOM';
+    case NONE         = 'NONE';
+    case PRESET       = 'PRESET';
+    case CUSTOM       = 'CUSTOM';
     case PRESENTATION = 'PRESENTATION';
 }

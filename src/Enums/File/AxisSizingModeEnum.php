@@ -11,5 +11,5 @@ enum AxisSizingModeEnum: string
     use EnumArrayTrait;
 
     case FIXED = 'FIXED';
-    case AUTO = 'AUTO';
+    case AUTO  = 'AUTO';
 }

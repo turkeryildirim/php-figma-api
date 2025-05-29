@@ -16,12 +16,12 @@ use Psr\Log\LoggerInterface;
 
 final class HttpClient
 {
-    private string $apiKey = '';
+    private string $apiKey      = '';
     private string $bearerToken = '';
     private string $clientId;
     private string $clientSecret;
     private string $baseUrl = 'https://api.figma.com/v1/';
-    private array $header = [];
+    private array $header   = [];
     private ?LoggerInterface $logger;
     private ?CacheInterface $cache;
 
@@ -40,7 +40,7 @@ final class HttpClient
         ?CacheInterface $cache = null,
     ) {
         $this->logger = $logger;
-        $this->cache = $cache;
+        $this->cache  = $cache;
     }
     public function setApiKey(string $apiKey): HttpClient
     {
@@ -172,7 +172,7 @@ final class HttpClient
             }
 
             $content = $response->getBody()->getContents();
-            $type = $response->getHeader('Content-Type');
+            $type    = $response->getHeader('Content-Type');
             if (!empty($type) && stristr($type[0], 'application/json')) {
                 return $this->setEmptyStringToNull(Helper::jsonDecode($content));
             }
@@ -206,7 +206,6 @@ final class HttpClient
     private function fetchFromCache($key)
     {
         return $this->cache?->get($key);
-
     }
     private function removeFromCache($key): void
     {
@@ -231,14 +230,14 @@ final class HttpClient
     }
     private function prepareConfig(): array
     {
-        $config = $this->defaults;
+        $config            = $this->defaults;
         $config['headers'] = array_merge($config['headers'], $this->getHeader());
         return $config;
     }
 
     final public function __injectTestHandler(MockHandler $mock): void
     {
-        $handlerStack = HandlerStack::create($mock);
+        $handlerStack              = HandlerStack::create($mock);
         $this->defaults['handler'] = $handlerStack;
     }
 }

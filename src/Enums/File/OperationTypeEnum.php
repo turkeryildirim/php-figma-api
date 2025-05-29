@@ -10,8 +10,8 @@ enum OperationTypeEnum: string
 {
     use EnumArrayTrait;
 
-    case UNION = 'UNION';
+    case UNION     = 'UNION';
     case INTERSECT = 'INTERSECT';
-    case SUBTRACT = 'SUBTRACT';
-    case EXCLUDE = 'EXCLUDE';
+    case SUBTRACT  = 'SUBTRACT';
+    case EXCLUDE   = 'EXCLUDE';
 }

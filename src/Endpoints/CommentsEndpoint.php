@@ -39,8 +39,8 @@ final class CommentsEndpoint extends BaseEndpoint
     public function storeComment(string $fileKey, string $message, ?string $commentId = null): PostCommentsResponse
     {
         $body = [
-            'message' => $message,
-            'comment_id' => $commentId,
+             'message' => $message,
+             'comment_id' => $commentId,
         ];
         $data = $this->client->post(
             'files/' . $fileKey . '/comments/',

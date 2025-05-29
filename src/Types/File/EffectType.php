@@ -31,10 +31,10 @@ class EffectType extends AbstractType
     {
         $this->runTraitMethods($data);
 
-        $this->type = EffectTypeEnum::from($data['type']);
-        $this->radius = $data['radius'];
+        $this->type                 = EffectTypeEnum::from($data['type']);
+        $this->radius               = $data['radius'];
         $this->showShadowBehindNode = $data['showShadowBehindNode'] ?? false;
-        $this->offset = !empty($data['offset']) ? new VectorType($data['offset']) : null;
-        $this->spread = intval($data['spread']) ?? 0;
+        $this->offset               = !empty($data['offset']) ? new VectorType($data['offset']) : null;
+        $this->spread               = intval($data['spread']) ?? 0;
     }
 }

@@ -12,7 +12,7 @@ enum LayoutAlignEnum: string
 
     case INHERIT = 'INHERIT';
     case STRETCH = 'STRETCH';
-    case MIN = 'MIN';
-    case CENTER = 'CENTER';
-    case MAX = 'MAX';
+    case MIN     = 'MIN';
+    case CENTER  = 'CENTER';
+    case MAX     = 'MAX';
 }

@@ -15,9 +15,9 @@ class StrokeWeightsType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->top = $data['top'];
-        $this->right = $data['right'];
+        $this->top    = $data['top'];
+        $this->right  = $data['right'];
         $this->bottom = $data['bottom'];
-        $this->left = $data['left'];
+        $this->left   = $data['left'];
     }
 }

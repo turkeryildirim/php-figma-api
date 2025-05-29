@@ -20,10 +20,11 @@ final class TeamStylesResponse extends BaseResponse
     public function __construct(array $data)
     {
         $this->status = intval($data['status']);
-        $this->error = boolval($data['error']);
+        $this->error  = boolval($data['error']);
+
         $meta = null;
         if (!empty($data['meta'])) {
-            $meta = [];
+            $meta           = [];
             $meta['cursor'] = null;
             $meta['styles'] = null;
             if (!empty($data['meta']['cursor'])) {
@@ -36,7 +37,6 @@ final class TeamStylesResponse extends BaseResponse
                 }
             }
         }
-
         $this->meta = $meta;
 
         return $this;

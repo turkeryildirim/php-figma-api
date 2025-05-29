@@ -10,8 +10,8 @@ enum PaintSolidScaleModeEnum: string
 {
     use EnumArrayTrait;
 
-    case FILL = 'FILL';
-    case FIT = 'FIT';
-    case TILE = 'TILE';
+    case FILL    = 'FILL';
+    case FIT     = 'FIT';
+    case TILE    = 'TILE';
     case STRETCH = 'STRETCH';
 }

@@ -19,7 +19,8 @@ final class FileStylesResponse extends BaseResponse
     public function __construct(array $data)
     {
         $this->status = intval($data['status']);
-        $this->error = boolval($data['error']);
+        $this->error  = boolval($data['error']);
+
         $meta = null;
         if (!empty($data['meta'])) {
             if (!empty($data['meta']['styles'])) {
@@ -29,7 +30,6 @@ final class FileStylesResponse extends BaseResponse
                 }
             }
         }
-
         $this->meta = $meta;
         return $this;
     }
