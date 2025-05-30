@@ -84,11 +84,11 @@ final class SectionNodeTypeTest extends AbstractBaseTestCase
         ]);
 
         $this->assertEquals('id', $class->id);
-        $this->assertEquals('READY_FOR_DEV', $class->devStatus->type->value);
+        $this->assertEquals('READY_FOR_DEV', $class->devStatus->type);
         $this->assertEquals('description', $class->devStatus->description);
         $this->assertFalse($class->sectionContentsHidden);
         $this->assertEquals('20', $class->strokeWeight);
-        $this->assertEquals('OUTSIDE', $class->strokeAlign->value);
+        $this->assertEquals('OUTSIDE', $class->strokeAlign);
         $this->assertEquals('1', $class->absoluteBoundingBox->x);
         $this->assertEquals('2', $class->absoluteBoundingBox->y);
         $this->assertEquals('10', $class->absoluteBoundingBox->width);
@@ -103,10 +103,10 @@ final class SectionNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->fills[0]->color->g);
         $this->assertEquals('35', $class->fills[0]->color->b);
         $this->assertEquals('45', $class->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode);
         $this->assertEquals('id', $class->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type);
         $this->assertEquals('4', $class->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->fills[0]->gradientStops[0]->position);
@@ -116,7 +116,7 @@ final class SectionNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->fills[0]->scaleMode);
         $this->assertEquals('9', $class->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->fills[0]->rotation);
@@ -130,7 +130,7 @@ final class SectionNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('6', $class->fills[0]->filters[0]->highlights);
         $this->assertEquals('7', $class->fills[0]->filters[0]->shadows);
 
-        $this->assertEquals('GRADIENT_LINEAR', $class->strokes[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->strokes[0]->type);
         $this->assertEquals('7', $class->strokes[0]->opacity);
         $this->assertTrue($class->strokes[0]->visible);
         $this->assertEquals('15', $class->strokes[0]->color->r);
@@ -148,7 +148,7 @@ final class SectionNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->strokes[0]->gradientStops[0]->color->a);
         $this->assertEquals('type', $class->strokes[0]->gradientStops[0]->boundVariables[0]->type);
         $this->assertEquals('id', $class->strokes[0]->gradientStops[0]->boundVariables[0]->id);
-        $this->assertEquals('TILE', $class->strokes[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->strokes[0]->scaleMode);
         $this->assertEquals('9', $class->strokes[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->strokes[0]->scalingFactor);
         $this->assertEquals('19', $class->strokes[0]->rotation);

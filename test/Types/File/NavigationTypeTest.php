@@ -13,11 +13,11 @@ final class NavigationTypeTest extends AbstractBaseTestCase
     public function testWithFullData(): void
     {
         $class = new NavigationType(['type' => 'NAVIGATE']);
-        $this->assertEquals('NAVIGATE', $class->type->value);
+        $this->assertEquals('NAVIGATE', $class->type);
     }
     public function testInvalidType(): void
     {
-        $this->expectException(TypeError::class);
-        new NavigationType(['type' => 'a']);
+        $class = new NavigationType(['type' => 'a']);
+        $this->assertNull($class->type);
     }
 }

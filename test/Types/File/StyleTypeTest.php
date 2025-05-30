@@ -23,7 +23,7 @@ final class StyleTypeTest extends AbstractBaseTestCase
         $this->assertEquals('name', $class->name);
         $this->assertEquals('description', $class->description);
         $this->assertTrue($class->remote);
-        $this->assertEquals('FILL', $class->styleType->value);
+        $this->assertEquals('FILL', $class->styleType);
     }
     public function testWithMinData(): void
     {

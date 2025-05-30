@@ -35,10 +35,10 @@ final class EffectTypeTest extends AbstractBaseTestCase
         $this->assertEquals('20', $class->color->g);
         $this->assertEquals('30', $class->color->b);
         $this->assertEquals('40', $class->color->a);
-        $this->assertEquals('DARKEN', $class->blendMode->value);
+        $this->assertEquals('DARKEN', $class->blendMode);
         $this->assertEquals('id', $class->boundVariables[0]->id);
         $this->assertEquals('type', $class->boundVariables[0]->type);
-        $this->assertEquals('INNER_SHADOW', $class->type->value);
+        $this->assertEquals('INNER_SHADOW', $class->type);
         $this->assertEquals('55', $class->radius);
         $this->assertTrue($class->showShadowBehindNode);
         $this->assertEquals('5', $class->offset->x);
@@ -51,7 +51,7 @@ final class EffectTypeTest extends AbstractBaseTestCase
             'type' => 'INNER_SHADOW',
             'radius' => 55
         ]);
-        $this->assertEquals('INNER_SHADOW', $class->type->value);
+        $this->assertEquals('INNER_SHADOW', $class->type);
         $this->assertEquals('55', $class->radius);
         $this->assertEquals('0', $class->spread);
         $this->assertTrue($class->visible);
@@ -63,19 +63,19 @@ final class EffectTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidType(): void
     {
-        $this->expectException(ValueError::class);
-        new EffectType([
+        $class = new EffectType([
             'type' => 'type',
             'radius' => 55
         ]);
+        $this->assertNull($class->type);
     }
     public function testInvalidRadius(): void
     {
-        $this->expectException(TypeError::class);
-        new EffectType([
+        $class = new EffectType([
             'type' => 'INNER_SHADOW',
             'radius' => 'a'
         ]);
+        $this->assertNull($class->radius);
     }
     public function testInvalidSpread(): void
     {
@@ -97,11 +97,11 @@ final class EffectTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidOffset(): void
     {
-        $this->expectException(TypeError::class);
-        new EffectType([
+        $class = new EffectType([
             'type' => 'INNER_SHADOW',
             'radius' => 55,
             'offset' => 'a'
         ]);
+        $this->assertNull($class->offset);
     }
 }

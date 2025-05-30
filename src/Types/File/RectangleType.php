@@ -14,8 +14,8 @@ class RectangleType extends AbstractType
     use XTrait;
     use YTrait;
 
-    public readonly int|float $width;
-    public readonly int|float $height;
+    public readonly int|float|null $width;
+    public readonly int|float|null $height;
 
     public function __construct(array $data)
     {

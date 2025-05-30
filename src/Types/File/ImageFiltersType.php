@@ -9,13 +9,13 @@ use Turker\FigmaAPI\Util\Helper;
 
 class ImageFiltersType extends AbstractType
 {
-    public readonly int|float $exposure;
-    public readonly int|float $contrast;
-    public readonly int|float $saturation;
-    public readonly int|float $temperature;
-    public readonly int|float $tint;
-    public readonly int|float $highlights;
-    public readonly int|float $shadows;
+    public readonly int|float|null $exposure;
+    public readonly int|float|null $contrast;
+    public readonly int|float|null $saturation;
+    public readonly int|float|null $temperature;
+    public readonly int|float|null $tint;
+    public readonly int|float|null $highlights;
+    public readonly int|float|null $shadows;
 
     public function __construct(array $data)
     {

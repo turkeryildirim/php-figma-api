@@ -20,9 +20,9 @@ final class MeasurementOffsetInnerTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidRelative(): void
     {
-        $this->expectException(TypeError::class);
-        new MeasurementOffsetInnerType([
+        $class = new MeasurementOffsetInnerType([
             'relative' => 'a'
         ]);
+        $this->assertNull($class->relative);
     }
 }

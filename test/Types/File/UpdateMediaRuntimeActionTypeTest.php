@@ -23,7 +23,7 @@ final class UpdateMediaRuntimeActionTypeTest extends AbstractBaseTestCase
         $this->assertEquals('destinationId', $class->destinationId);
         $this->assertEquals('10', $class->amountToSkip);
         $this->assertEquals('20', $class->newTimestamp);
-        $this->assertEquals('TOGGLE_PLAY_PAUSE', $class->mediaAction->value);
+        $this->assertEquals('TOGGLE_PLAY_PAUSE', $class->mediaAction);
     }
     public function testWithMinData(): void
     {

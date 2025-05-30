@@ -21,18 +21,18 @@ final class TriggerTypeTest extends AbstractBaseTestCase
             'device' => 'XBOX_ONE',
             'keyCodes' => [1,2],
         ]);
-        $this->assertEquals('ON_HOVER', $class->type->value);
+        $this->assertEquals('ON_HOVER', $class->type);
         $this->assertEquals('10', $class->timeout);
         $this->assertEquals('10', $class->delay);
         $this->assertEquals('10', $class->mediaHitTime);
-        $this->assertEquals('XBOX_ONE', $class->device->value);
+        $this->assertEquals('XBOX_ONE', $class->device);
         $this->assertEquals('1', $class->keyCodes[0]);
         $this->assertTrue($class->deprecatedVersion);
     }
     public function testWithMinData(): void
     {
         $class = new TriggerType(['type' => 'ON_HOVER']);
-        $this->assertEquals('ON_HOVER', $class->type->value);
+        $this->assertEquals('ON_HOVER', $class->type);
         $this->assertNull($class->timeout);
         $this->assertNull($class->delay);
         $this->assertNull($class->mediaHitTime);
@@ -42,8 +42,8 @@ final class TriggerTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidType(): void
     {
-        $this->expectException(TypeError::class);
-        new TriggerType(['type' => 'type']);
+        $class = new TriggerType(['type' => 'type']);
+        $this->assertNull($class->type);
     }
     public function testInvalidTimeout()
     {

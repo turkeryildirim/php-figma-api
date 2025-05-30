@@ -18,22 +18,22 @@ final class PrototypeDeviceTypeTest extends AbstractBaseTestCase
             'size' => 'HEIGHT',
         ]);
         $this->assertEquals('presetIdentifier', $class->presetIdentifier);
-        $this->assertEquals('PRESET', $class->type->value);
-        $this->assertEquals('CCW_90', $class->rotation->value);
-        $this->assertEquals('HEIGHT', $class->size->value);
+        $this->assertEquals('PRESET', $class->type);
+        $this->assertEquals('CCW_90', $class->rotation);
+        $this->assertEquals('HEIGHT', $class->size);
     }
     public function testWithMinData(): void
     {
         $class = new PrototypeDeviceType([]);
         $this->assertNull($class->presetIdentifier);
-        $this->assertEquals('NONE', $class->type->value);
+        $this->assertEquals('NONE', $class->type);
         $this->assertNull($class->rotation);
         $this->assertNull($class->size);
     }
     public function testInvalidType(): void
     {
         $class = new PrototypeDeviceType(['type' => 'type']);
-        $this->assertEquals('NONE', $class->type->value);
+        $this->assertEquals('NONE', $class->type);
     }
     public function testInvalidRotation(): void
     {

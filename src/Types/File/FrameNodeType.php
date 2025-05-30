@@ -82,35 +82,34 @@ class FrameNodeType extends AbstractType
     public readonly int|float|null $maxWidth;
     public readonly int|float|null $minHeight;
     public readonly int|float|null $maxHeight;
-    public readonly bool $clipsContent;
-    public readonly LayoutModeEnum $layoutMode;
-    public readonly ?LayoutSizingEnum $layoutSizingHorizontal;
-    public readonly ?LayoutSizingEnum $layoutSizingVertical;
-    public readonly ?LayoutWrapEnum $layoutWrap;
-    public readonly AxisSizingModeEnum $primaryAxisSizingMode;
-    public readonly AxisSizingModeEnum $counterAxisSizingMode;
-    public readonly AxisAlignModeEnum $primaryAxisAlignItems;
-    public readonly AxisAlignModeEnum $counterAxisAlignItems;
-    public readonly AxisAlignModeEnum $counterAxisAlignContent;
-    public readonly int|float $paddingLeft;
-    public readonly int|float $paddingRight;
-    public readonly int|float $paddingTop;
-    public readonly int|float $paddingBottom;
-    public readonly int|float $horizontalPadding;
-    public readonly int|float $verticalPadding;
-    public readonly int|float $itemSpacing;
-    public readonly int|float $counterAxisSpacing;
-    public readonly PositionEnum $position;
-    public readonly bool $itemReverseZIndex;
-    public readonly bool $strokesIncludedInLayout;
-    public readonly bool $isMaskOutline;
+    public readonly ?bool $clipsContent;
+    public readonly ?string $layoutMode;
+    public readonly ?string $layoutSizingHorizontal;
+    public readonly ?string $layoutSizingVertical;
+    public readonly ?string $layoutWrap;
+    public readonly ?string $primaryAxisSizingMode;
+    public readonly ?string $counterAxisSizingMode;
+    public readonly ?string $primaryAxisAlignItems;
+    public readonly ?string $counterAxisAlignItems;
+    public readonly ?string $counterAxisAlignContent;
+    public readonly int|float|null $paddingLeft;
+    public readonly int|float|null $paddingRight;
+    public readonly int|float|null $paddingTop;
+    public readonly int|float|null $paddingBottom;
+    public readonly int|float|null $horizontalPadding;
+    public readonly int|float|null $verticalPadding;
+    public readonly int|float|null $itemSpacing;
+    public readonly int|float|null $counterAxisSpacing;
+    public readonly ?string $position;
+    public readonly ?bool $itemReverseZIndex;
+    public readonly ?bool $strokesIncludedInLayout;
+    public readonly ?bool $isMaskOutline;
     /**
      * @var LayoutGridType[]|null
      */
     public readonly ?array $layoutGrids;
-    public readonly ?OverflowDirectionEnum $overflowDirection;
-    public readonly ?MaskTypeEnum $maskType;
-
+    public readonly ?string $overflowDirection;
+    public readonly ?string $maskType;
 
     public function __construct(array $data)
     {
@@ -133,47 +132,73 @@ class FrameNodeType extends AbstractType
         $this->itemSpacing             = Helper::makeInteger($data['itemSpacing'], 0);
         $this->counterAxisSpacing      = Helper::makeInteger($data['counterAxisSpacing'], 0);
 
-        $mode                    = $data['overflowDirection'] ?? 'NONE';
-        $this->overflowDirection = OverflowDirectionEnum::from($mode);
-
-        $mode           = $data['position'] ?? 'AUTO';
-        $this->position = PositionEnum::from($mode);
-
-        $mode = $data['counterAxisAlignContent'] ?? 'AUTO';
-        $this->counterAxisAlignContent = AxisAlignModeEnum::from($mode);
-
-        $mode = $data['primaryAxisAlignItems'] ?? 'MIN';
-        $this->primaryAxisAlignItems = AxisAlignModeEnum::from($mode);
-
-        $mode = $data['counterAxisAlignItems'] ?? 'MIN';
-        $this->counterAxisAlignItems = AxisAlignModeEnum::from($mode);
-
-        $mode             = $data['layoutMode'] ?? 'NONE';
-        $this->layoutMode = LayoutModeEnum::from($mode);
-
-        $mode = $data['primaryAxisSizingMode'] ?? 'AUTO';
-        $this->primaryAxisSizingMode = AxisSizingModeEnum::from($mode);
-
-        $mode = $data['counterAxisSizingMode'] ?? 'AUTO';
-        $this->counterAxisSizingMode = AxisSizingModeEnum::from($mode);
-
-        $this->maskType = ( !empty($data['maskType']) && MaskTypeEnum::hasValue($data['maskType']) )
-            ? MaskTypeEnum::tryFrom($data['maskType']) : null;
-
-        $this->layoutSizingHorizontal = ( !empty($data['layoutSizingHorizontal']) && LayoutSizingEnum::hasValue($data['layoutSizingHorizontal']) )
-            ? LayoutSizingEnum::tryFrom($data['layoutSizingHorizontal']) : null;
-
-        $this->layoutSizingVertical = ( !empty($data['layoutSizingVertical']) && LayoutSizingEnum::hasValue($data['layoutSizingVertical']) )
-            ? LayoutSizingEnum::tryFrom($data['layoutSizingVertical']) : null;
-
-        $this->layoutWrap = ( !empty($data['layoutWrap']) && LayoutWrapEnum::hasValue($data['layoutWrap']) )
-            ? LayoutWrapEnum::tryFrom($data['layoutWrap']) : null;
-
-        $this->targetAspectRatio = !empty($data['targetAspectRatio']) ?
-            new VectorType($data['targetAspectRatio']) : null;
-
-        $this->interactions = Helper::makeArrayOfObjects($data['interactions'], InteractionType::class);
-
-        $this->layoutGrids = Helper::makeArrayOfObjects($data['layoutGrids'], LayoutGridType::class);
+        $this->overflowDirection       = Helper::makeFromEnum(
+            $data['overflowDirection'],
+            OverflowDirectionEnum::class,
+            OverflowDirectionEnum::NONE->value
+        );
+        $this->position                = Helper::makeFromEnum(
+            $data['position'],
+            PositionEnum::class,
+            PositionEnum::AUTO->value
+        );
+        $this->counterAxisAlignContent = Helper::makeFromEnum(
+            $data['counterAxisAlignContent'],
+            AxisAlignModeEnum::class,
+            AxisAlignModeEnum::AUTO->value
+        );
+        $this->primaryAxisAlignItems   = Helper::makeFromEnum(
+            $data['primaryAxisAlignItems'],
+            AxisAlignModeEnum::class,
+            AxisAlignModeEnum::MIN->value
+        );
+        $this->counterAxisAlignItems   = Helper::makeFromEnum(
+            $data['counterAxisAlignItems'],
+            AxisAlignModeEnum::class,
+            AxisAlignModeEnum::MIN->value
+        );
+        $this->layoutMode              = Helper::makeFromEnum(
+            $data['layoutMode'],
+            LayoutModeEnum::class,
+            LayoutModeEnum::NONE->value
+        );
+        $this->primaryAxisSizingMode   = Helper::makeFromEnum(
+            $data['primaryAxisSizingMode'],
+            AxisSizingModeEnum::class,
+            AxisSizingModeEnum::AUTO->value
+        );
+        $this->counterAxisSizingMode   = Helper::makeFromEnum(
+            $data['counterAxisSizingMode'],
+            AxisSizingModeEnum::class,
+            AxisSizingModeEnum::AUTO->value
+        );
+        $this->maskType                = Helper::makeFromEnum(
+            $data['maskType'],
+            MaskTypeEnum::class
+        );
+        $this->layoutSizingHorizontal  = Helper::makeFromEnum(
+            $data['layoutSizingHorizontal'],
+            LayoutSizingEnum::class
+        );
+        $this->layoutSizingVertical    = Helper::makeFromEnum(
+            $data['layoutSizingVertical'],
+            LayoutSizingEnum::class
+        );
+        $this->layoutWrap              = Helper::makeFromEnum(
+            $data['layoutWrap'],
+            LayoutWrapEnum::class
+        );
+        $this->targetAspectRatio       = Helper::makeObject(
+            $data['targetAspectRatio'],
+            VectorType::class
+        );
+        $this->interactions            = Helper::makeArrayOfObjects(
+            $data['interactions'],
+            InteractionType::class
+        );
+        $this->layoutGrids             = Helper::makeArrayOfObjects(
+            $data['layoutGrids'],
+            LayoutGridType::class
+        );
     }
 }

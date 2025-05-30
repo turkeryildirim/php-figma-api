@@ -15,16 +15,14 @@ class UpdateMediaRuntimeActionType extends AbstractType
     use TypeTrait;
     use DestinationIdTrait;
 
-    public readonly ?MediaActionTypeEnum $mediaAction;
+    public readonly ?string $mediaAction;
     public readonly int|float|null $amountToSkip;
     public readonly int|float|null $newTimestamp;
 
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->mediaAction = ( !empty($data['mediaAction']) && MediaActionTypeEnum::hasValue($data['mediaAction']) )
-            ? MediaActionTypeEnum::tryFrom($data['mediaAction']) : null;
-
+        $this->mediaAction  = Helper::makeFromEnum($data['mediaAction'], MediaActionTypeEnum::class);
         $this->amountToSkip = Helper::makeInteger($data['amountToSkip']);
         $this->newTimestamp = Helper::makeInteger($data['newTimestamp']);
     }

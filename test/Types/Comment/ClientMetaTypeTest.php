@@ -30,7 +30,7 @@ final class ClientMetaTypeTest extends AbstractBaseTestCase
         $this->assertEquals('50', $class->clientMeta->nodeOffset->y);
         $this->assertEquals('50', $class->clientMeta->regionHeight);
         $this->assertEquals('25', $class->clientMeta->regionWidth);
-        $this->assertEquals('bottom-right', $class->clientMeta->commentPinCorner->value);
+        $this->assertEquals('bottom-right', $class->clientMeta->commentPinCorner);
     }
     public function testRegionType(): void
     {
@@ -47,7 +47,7 @@ final class ClientMetaTypeTest extends AbstractBaseTestCase
         $this->assertEquals('50', $class->clientMeta->y);
         $this->assertEquals('50', $class->clientMeta->regionHeight);
         $this->assertEquals('25', $class->clientMeta->regionWidth);
-        $this->assertEquals('bottom-right', $class->clientMeta->commentPinCorner->value);
+        $this->assertEquals('bottom-right', $class->clientMeta->commentPinCorner);
     }
     public function testFrameOffsetType(): void
     {

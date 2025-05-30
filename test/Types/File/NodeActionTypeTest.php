@@ -45,12 +45,12 @@ final class NodeActionTypeTest extends AbstractBaseTestCase
         $this->assertTrue($class->preserveScrollPosition);
         $this->assertEquals('5', $class->overlayRelativePosition->x);
         $this->assertEquals('4', $class->overlayRelativePosition->y);
-        $this->assertEquals('OVERLAY', $class->navigation->type->value);
-        $this->assertEquals('MOVE_OUT', $class->transition->type->value);
-        $this->assertEquals('RIGHT', $class->transition->direction->value);
+        $this->assertEquals('OVERLAY', $class->navigation->type);
+        $this->assertEquals('MOVE_OUT', $class->transition->type);
+        $this->assertEquals('RIGHT', $class->transition->direction);
         $this->assertTrue($class->transition->matchLayers);
         $this->assertEquals('20', $class->transition->duration);
-        $this->assertEquals('EASE_OUT', $class->transition->easing->type->value);
+        $this->assertEquals('EASE_OUT', $class->transition->easing->type);
         $this->assertEquals('1', $class->transition->easing->easingFunctionCubicBezier->x1);
         $this->assertEquals('2', $class->transition->easing->easingFunctionCubicBezier->x2);
         $this->assertEquals('3', $class->transition->easing->easingFunctionCubicBezier->y1);
@@ -94,17 +94,17 @@ final class NodeActionTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidOverlayRelativePosition(): void
     {
-        $this->expectException(TypeError::class);
-        new NodeActionType(['type' => 'type','overlayRelativePosition' => 5]);
+        $class = new NodeActionType(['type' => 'type','overlayRelativePosition' => 5]);
+        $this->assertNull($class->overlayRelativePosition);
     }
     public function testInvalidNavigation(): void
     {
-        $this->expectException(TypeError::class);
-        new NodeActionType(['type' => 'type','navigation' => 5]);
+        $class = new NodeActionType(['type' => 'type','navigation' => 5]);
+        $this->assertNull($class->navigation);
     }
     public function testInvalidTransition(): void
     {
-        $this->expectException(TypeError::class);
-        new NodeActionType(['type' => 'type','transition' => 5]);
+        $class = new NodeActionType(['type' => 'type','transition' => 5]);
+        $this->assertNull($class->transition);
     }
 }

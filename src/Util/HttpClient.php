@@ -10,6 +10,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\SimpleCache\CacheInterface;
+use Stringable;
 use Turker\FigmaAPI\Exception\FigmaAPIException;
 use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
@@ -77,19 +78,19 @@ final class HttpClient
         $this->header = array_merge($this->header, $header);
         return $this;
     }
-    public function post(string $endpoint, $body): mixed
+    public function post(string $endpoint, mixed $body): array
     {
         $this->log('info', 'POST request', [$endpoint]);
         $this->removeFromCache($endpoint);
         return $this->request('post', $endpoint, [], $body);
     }
-    public function put(string $endpoint, $body): mixed
+    public function put(string $endpoint, mixed $body): array
     {
         $this->log('info', 'PUT request', [$endpoint]);
         $this->removeFromCache($endpoint);
         return $this->request('put', $endpoint, [], $body);
     }
-    public function delete(string $endpoint, array $queryParams = []): mixed
+    public function delete(string $endpoint, array $queryParams = []): array
     {
         $url = $endpoint . Helper::toHttpQuery($queryParams);
         $this->log('info', 'DELETE request', [$url]);
@@ -113,7 +114,7 @@ final class HttpClient
 
         return $data;
     }
-    private function request(string $method, string $endpoint, array $queryParams = [], $body = null): string|array
+    private function request(string $method, string $endpoint, array $queryParams = [], mixed $body = null): array
     {
         try {
             if (empty($this->getBaseUrl())) {
@@ -158,18 +159,13 @@ final class HttpClient
             }
 
             $content = $response->getBody()->getContents();
-            $type    = $response->getHeader('Content-Type');
-            if (!empty($type) && stristr($type[0], 'application/json')) {
-                return $this->setEmptyStringToNull(Helper::jsonDecode($content));
-            }
-
-            return $content;
+            return $this->setEmptyStringToNull(Helper::jsonDecode($content));
         } catch (ClientExceptionInterface | Exception $exception) {
             $this->log('error', $exception->getMessage(), [$exception]);
             throw new FigmaAPIException($exception->getMessage());
         }
     }
-    private function log($level, $message, $context = []): void
+    private function log(mixed $level, string|Stringable $message, array $context = []): void
     {
         if (null === $this->logger) {
             return;
@@ -177,7 +173,7 @@ final class HttpClient
 
         $this->logger->log($level, 'Figma API: ' . $message, $context);
     }
-    private function storeToCache($key, $data, $ttl = 300): void
+    private function storeToCache(string $key, mixed $data, int $ttl = 300): void
     {
         if (null === $this->cache) {
             return;
@@ -189,11 +185,11 @@ final class HttpClient
 
         $this->cache->set($key, $data, $ttl);
     }
-    private function fetchFromCache($key)
+    private function fetchFromCache(string $key): mixed
     {
         return $this->cache?->get($key);
     }
-    private function removeFromCache($key): void
+    private function removeFromCache(string $key): void
     {
         if (null === $this->cache) {
             return;

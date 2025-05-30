@@ -37,7 +37,7 @@ final class StyleTypeTest extends AbstractBaseTestCase
         $this->assertEquals('created_at', $class->createdAt);
         $this->assertEquals('updated_at', $class->updatedAt);
         $this->assertEquals('sort_position', $class->sortPosition);
-        $this->assertEquals('FILL', $class->styleType->value);
+        $this->assertEquals('FILL', $class->styleType);
 
         $this->assertInstanceOf(UserType::class, $class->user);
         $this->assertEquals('id', $class->user->id);

@@ -8,16 +8,16 @@ use Turker\FigmaAPI\Test\AbstractBaseTestCase;
 use Turker\FigmaAPI\Types\File\BooleanOperationNodeType;
 use TypeError;
 
-final class BoolenOperationNodeType extends AbstractBaseTestCase
+final class BoolenOperationNodeTypeTest extends AbstractBaseTestCase
 {
     public function testWithFullData(): void
     {
-        $class = new BoolenOperationNodeType(['id' => 'id', 'booleanOperation' => 'UNION']);
-        $this->assertEquals('UNION', $class->booleanOperation->value);
+        $class = new BooleanOperationNodeType(['id' => 'id', 'booleanOperation' => 'UNION']);
+        $this->assertEquals('UNION', $class->booleanOperation);
     }
     public function testInvalidBooleanOperation(): void
     {
         $this->expectException(TypeError::class);
-        new BoolenOperationNodeType(['id' => 'id','booleanOperation' => 50]);
+        new BooleanOperationNodeType(['id' => 'id','booleanOperation' => 50]);
     }
 }

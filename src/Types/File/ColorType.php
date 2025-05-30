@@ -9,10 +9,10 @@ use Turker\FigmaAPI\Util\Helper;
 
 class ColorType extends AbstractType
 {
-    public readonly int|float $r;
-    public readonly int|float $g;
-    public readonly int|float $b;
-    public readonly int|float $a;
+    public readonly int|float|null $r;
+    public readonly int|float|null $g;
+    public readonly int|float|null $b;
+    public readonly int|float|null $a;
 
     public function __construct(array $data)
     {

@@ -27,11 +27,11 @@ final class InteractionTypeTest extends AbstractBaseTestCase
                 'url' => 'url'
             ]]
         ]);
-        $this->assertEquals('ON_HOVER', $class->trigger->type->value);
+        $this->assertEquals('ON_HOVER', $class->trigger->type);
         $this->assertEquals('10', $class->trigger->timeout);
         $this->assertEquals('10', $class->trigger->delay);
         $this->assertEquals('10', $class->trigger->mediaHitTime);
-        $this->assertEquals('XBOX_ONE', $class->trigger->device->value);
+        $this->assertEquals('XBOX_ONE', $class->trigger->device);
         $this->assertEquals('1', $class->trigger->keyCodes[0]);
         $this->assertTrue($class->trigger->deprecatedVersion);
         $this->assertEquals('URL', $class->actions[0]->type);
@@ -40,7 +40,7 @@ final class InteractionTypeTest extends AbstractBaseTestCase
     public function testWithMinData(): void
     {
         $class = new InteractionType(['trigger' => ['type' => 'ON_HOVER']]);
-        $this->assertEquals('ON_HOVER', $class->trigger->type->value);
+        $this->assertEquals('ON_HOVER', $class->trigger->type);
         $this->assertNull($class->trigger->timeout);
         $this->assertNull($class->trigger->delay);
         $this->assertNull($class->trigger->mediaHitTime);
@@ -51,12 +51,12 @@ final class InteractionTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidTrigger()
     {
-        $this->expectException(TypeError::class);
-        new InteractionType([
+        $class = new InteractionType([
             'trigger' => [
                 'a' => 'b'
             ]
         ]);
+        $this->assertNull($class->trigger);
     }
     public function testInvalidDevice()
     {

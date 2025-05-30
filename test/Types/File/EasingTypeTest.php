@@ -21,7 +21,7 @@ final class EasingTypeTest extends AbstractBaseTestCase
                 'damping' => 30,
             ],
         ]);
-        $this->assertEquals('EASE_OUT', $class->type->value);
+        $this->assertEquals('EASE_OUT', $class->type);
         $this->assertEquals('1', $class->easingFunctionCubicBezier->x1);
         $this->assertEquals('2', $class->easingFunctionCubicBezier->x2);
         $this->assertEquals('3', $class->easingFunctionCubicBezier->y1);
@@ -33,14 +33,14 @@ final class EasingTypeTest extends AbstractBaseTestCase
     public function testWithMinData(): void
     {
         $class = new EasingType(['type' => 'EASE_OUT']);
-        $this->assertEquals('EASE_OUT', $class->type->value);
+        $this->assertEquals('EASE_OUT', $class->type);
         $this->assertNull($class->easingFunctionCubicBezier);
         $this->assertNull($class->easingFunctionSpring);
     }
     public function testInvalidType(): void
     {
-        $this->expectException(TypeError::class);
-         new EasingType(['type' => 'aa']);
+        $class = new EasingType(['type' => 'aa']);
+        $this->assertNull($class->type);
     }
     public function testInvalidEasingFunctionCubicBezier(): void
     {

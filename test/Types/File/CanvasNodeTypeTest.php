@@ -70,13 +70,13 @@ final class CanvasNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('nodeId', $class->flowStartingPoints->nodeId);
         $this->assertEquals('name', $class->flowStartingPoints->name);
         $this->assertEquals('presetIdentifier', $class->prototypeDevice->presetIdentifier);
-        $this->assertEquals('PRESET', $class->prototypeDevice->type->value);
-        $this->assertEquals('WIDTH', $class->prototypeDevice->size->value);
-        $this->assertEquals('CCW_90', $class->prototypeDevice->rotation->value);
+        $this->assertEquals('PRESET', $class->prototypeDevice->type);
+        $this->assertEquals('WIDTH', $class->prototypeDevice->size);
+        $this->assertEquals('CCW_90', $class->prototypeDevice->rotation);
         $this->assertIsArray($class->measurements);
         $this->assertEquals('id', $class->measurements[0]->id);
         $this->assertEquals('freeText', $class->measurements[0]->freeText);
-        $this->assertEquals('RIGHT', $class->measurements[0]->start->side->value);
+        $this->assertEquals('RIGHT', $class->measurements[0]->start->side);
         $this->assertEquals('node_id', $class->measurements[0]->start->nodeId);
         $this->assertEquals('OUTER', $class->measurements[0]->offset->type);
         $this->assertEquals('10', $class->measurements[0]->offset->fixed);
@@ -101,13 +101,13 @@ final class CanvasNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidFlowStartingPoints(): void
     {
-        $this->expectException(TypeError::class);
-        new CanvasNodeType(['id' => 'id', 'type' => 'type', 'flowStartingPoints' => 50]);
+        $class = new CanvasNodeType(['id' => 'id', 'type' => 'type', 'flowStartingPoints' => 50]);
+        $this->assertNull($class->flowStartingPoints);
     }
     public function testInvalidPrototypeDevice(): void
     {
-        $this->expectException(TypeError::class);
-        new CanvasNodeType(['id' => 'id', 'type' => 'type', 'prototypeDevice' => 50]);
+        $class = new CanvasNodeType(['id' => 'id', 'type' => 'type', 'prototypeDevice' => 50]);
+        $this->assertNull($class->prototypeDevice);
     }
     public function testInvalidMeasurements(): void
     {

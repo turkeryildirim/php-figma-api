@@ -18,11 +18,11 @@ final class MeasurementOffsetOuterTypeTest extends AbstractBaseTestCase
         $this->assertEquals('10', $class->fixed);
         $this->assertEquals('OUTER', $class->type);
     }
-    public function testInvalidRelative(): void
+    public function testInvalidFixed(): void
     {
-        $this->expectException(TypeError::class);
-        new MeasurementOffsetOuterType([
+        $class = new MeasurementOffsetOuterType([
             'fixed' => 'a'
         ]);
+        $this->assertNull($class->fixed);
     }
 }

@@ -17,11 +17,11 @@ class NodeActionType extends AbstractType
 
     public readonly ?NavigationType $navigation;
     public readonly SimpleTransitionType|DirectionalTransitionType|null $transition;
-    public readonly bool $preserveScrollPosition;
+    public readonly ?bool $preserveScrollPosition;
     public readonly ?VectorType $overlayRelativePosition;
-    public readonly bool $resetVideoPosition;
-    public readonly bool $resetScrollPosition;
-    public readonly bool $resetInteractiveComponents;
+    public readonly ?bool $resetVideoPosition;
+    public readonly ?bool $resetScrollPosition;
+    public readonly ?bool $resetInteractiveComponents;
 
     public function __construct(array $data)
     {
@@ -31,18 +31,19 @@ class NodeActionType extends AbstractType
         $this->resetVideoPosition         = Helper::makeBoolean($data['resetVideoPosition'], false);
         $this->preserveScrollPosition     = Helper::makeBoolean($data['preserveScrollPosition'], false);
 
-        $this->overlayRelativePosition = (!empty($data['overlayRelativePosition'])) ?
-            new VectorType($data['overlayRelativePosition']) : null;
+        $this->overlayRelativePosition = Helper::makeObject(
+            $data['overlayRelativePosition'],
+            VectorType::class
+        );
 
-        $this->navigation = (!empty($data['navigation'])) ?
-            new NavigationType($data['navigation']) : null;
+        $this->navigation = Helper::makeObject(
+            $data['navigation'],
+            NavigationType::class
+        );
 
-        $transition = null;
-        if (!empty($data['transition']) && !empty($data['transition']['direction'])) {
-            $transition = new DirectionalTransitionType($data['transition']);
-        } elseif (!empty($data['transition'])) {
-            $transition = new SimpleTransitionType($data['transition']);
-        }
-        $this->transition = $transition;
+        $class = (!empty($data['transition']) && !empty($data['transition']['direction'])) ?
+            DirectionalTransitionType::class : SimpleTransitionType::class;
+
+        $this->transition = Helper::makeObject($data['transition'], $class);
     }
 }

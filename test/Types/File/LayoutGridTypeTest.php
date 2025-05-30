@@ -24,8 +24,8 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
             'count' => 2,
         ]);
         $this->assertFalse($class->visible);
-        $this->assertEquals('MAX', $class->alignment->value);
-        $this->assertEquals('COLUMNS', $class->pattern->value);
+        $this->assertEquals('MAX', $class->alignment);
+        $this->assertEquals('COLUMNS', $class->pattern);
         $this->assertEquals(5, $class->sectionSize);
         $this->assertEquals(4, $class->gutterSize);
         $this->assertEquals(3, $class->offset);
@@ -50,8 +50,8 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
         $this->assertTrue($class->visible);
         $this->assertNull($class->color);
         $this->assertNull($class->boundVariables);
-        $this->assertEquals('MAX', $class->alignment->value);
-        $this->assertEquals('COLUMNS', $class->pattern->value);
+        $this->assertEquals('MAX', $class->alignment);
+        $this->assertEquals('COLUMNS', $class->pattern);
         $this->assertEquals(5, $class->sectionSize);
         $this->assertEquals(4, $class->gutterSize);
         $this->assertEquals(3, $class->offset);
@@ -59,8 +59,7 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidCount(): void
     {
-        $this->expectException(TypeError::class);
-        new LayoutGridType([
+        $class = new LayoutGridType([
             'pattern' => 'COLUMNS',
             'alignment' => 'MAX',
             'sectionSize' => 5,
@@ -68,11 +67,11 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
             'offset' => 3,
             'count' => 'a',
         ]);
+        $this->assertNull($class->count);
     }
     public function testInvalidOffset(): void
     {
-        $this->expectException(TypeError::class);
-        new LayoutGridType([
+        $class = new LayoutGridType([
             'pattern' => 'COLUMNS',
             'alignment' => 'MAX',
             'sectionSize' => 5,
@@ -80,11 +79,11 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
             'offset' => 'a',
             'count' => 1,
         ]);
+        $this->assertNull($class->offset);
     }
     public function testInvalidGutterSize(): void
     {
-        $this->expectException(TypeError::class);
-        new LayoutGridType([
+        $class = new LayoutGridType([
             'pattern' => 'COLUMNS',
             'alignment' => 'MAX',
             'sectionSize' => 5,
@@ -92,11 +91,11 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
             'gutterSize' => 'a',
             'count' => 1,
         ]);
+        $this->assertNull($class->gutterSize);
     }
     public function testInvalidSectionSize(): void
     {
-        $this->expectException(TypeError::class);
-        new LayoutGridType([
+        $class = new LayoutGridType([
             'pattern' => 'COLUMNS',
             'alignment' => 'MAX',
             'gutterSize' => 5,
@@ -104,11 +103,11 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
             'sectionSize' => 'a',
             'count' => 1,
         ]);
+        $this->assertNull($class->sectionSize);
     }
     public function testInvalidAlignment(): void
     {
-        $this->expectException(TypeError::class);
-        new LayoutGridType([
+        $class = new LayoutGridType([
             'pattern' => 'COLUMNS',
             'alignment' => 'a',
             'gutterSize' => 5,
@@ -116,11 +115,11 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
             'sectionSize' => 2,
             'count' => 1,
         ]);
+        $this->assertNull($class->alignment);
     }
     public function testInvalidPattern(): void
     {
-        $this->expectException(TypeError::class);
-        new LayoutGridType([
+        $class = new LayoutGridType([
             'pattern' => 'a',
             'alignment' => 'MAX',
             'gutterSize' => 5,
@@ -128,5 +127,6 @@ final class LayoutGridTypeTest extends AbstractBaseTestCase
             'sectionSize' => 2,
             'count' => 1,
         ]);
+        $this->assertNull($class->pattern);
     }
 }

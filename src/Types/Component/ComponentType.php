@@ -14,6 +14,7 @@ use Turker\FigmaAPI\Traits\ThumbnailUrlTrait;
 use Turker\FigmaAPI\Traits\UpdatedAtTrait;
 use Turker\FigmaAPI\Traits\UserTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class ComponentType extends AbstractType
 {
@@ -27,11 +28,14 @@ class ComponentType extends AbstractType
     use UpdatedAtTrait;
     use UserTrait;
 
-    public readonly FrameInfoType $containingFrame;
+    public readonly ?FrameInfoType $containingFrame;
 
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->containingFrame = new FrameInfoType($data['containing_frame']);
+        $this->containingFrame = Helper::makeObject(
+            $data['containing_frame'],
+            FrameInfoType::class
+        );
     }
 }

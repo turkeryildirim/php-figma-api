@@ -32,13 +32,13 @@ final class ComponentPropertyTypeTest extends AbstractBaseTestCase
         $this->assertIsArray($class->preferredValues);
         $this->assertIsArray($class->boundVariables);
         $this->assertEquals('value', $class->value);
-        $this->assertEquals('TEXT', $class->type->value);
+        $this->assertEquals('TEXT', $class->type);
         $this->assertInstanceOf(
             InstanceSwapPreferredValueType::class,
             $class->preferredValues[0]
         );
         $this->assertEquals('key', $class->preferredValues[0]->key);
-        $this->assertEquals('COMPONENT', $class->preferredValues[0]->type->value);
+        $this->assertEquals('COMPONENT', $class->preferredValues[0]->type);
         $this->assertInstanceOf(
             VariableAliasType::class,
             $class->boundVariables[0]
@@ -54,15 +54,15 @@ final class ComponentPropertyTypeTest extends AbstractBaseTestCase
         ]);
         $this->assertNull($class->boundVariables);
         $this->assertNull($class->preferredValues);
-        $this->assertEquals('TEXT', $class->type->value);
+        $this->assertEquals('TEXT', $class->type);
     }
     public function testInvalidType()
     {
-        $this->expectException(ValueError::class);
-        new ComponentPropertyType([
+        $class = new ComponentPropertyType([
             'type' => 'type',
             'value' => 'value',
         ]);
+        $this->assertNull($class->type);
     }
     public function testInvalidValue()
     {

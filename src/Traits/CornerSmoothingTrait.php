@@ -8,7 +8,7 @@ use Turker\FigmaAPI\Util\Helper;
 
 trait CornerSmoothingTrait
 {
-    public readonly int|float $cornerSmoothing;
+    public readonly int|float|null $cornerSmoothing;
     final protected function __cornerSmoothing(array $data): void
     {
         $this->cornerSmoothing = Helper::makeInteger($data['cornerSmoothing'], 0);

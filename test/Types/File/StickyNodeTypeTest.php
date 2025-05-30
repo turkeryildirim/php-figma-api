@@ -66,7 +66,7 @@ final class StickyNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('id', $class->id);
         $this->assertTrue($class->authorVisible);
         $this->assertTrue($class->locked);
-        $this->assertEquals('NORMAL', $class->blendMode->value);
+        $this->assertEquals('NORMAL', $class->blendMode);
         $this->assertEquals('characters', $class->characters);
         $this->assertEquals('2', $class->relativeTransform[0][1]);
         $this->assertEquals('7', $class->opacity);
@@ -84,10 +84,10 @@ final class StickyNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('20', $class->effects[0]->color->g);
         $this->assertEquals('30', $class->effects[0]->color->b);
         $this->assertEquals('40', $class->effects[0]->color->a);
-        $this->assertEquals('DARKEN', $class->effects[0]->blendMode->value);
+        $this->assertEquals('DARKEN', $class->effects[0]->blendMode);
         $this->assertEquals('id', $class->effects[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->effects[0]->boundVariables[0]->type);
-        $this->assertEquals('INNER_SHADOW', $class->effects[0]->type->value);
+        $this->assertEquals('INNER_SHADOW', $class->effects[0]->type);
         $this->assertEquals('55', $class->effects[0]->radius);
         $this->assertTrue($class->effects[0]->showShadowBehindNode);
         $this->assertEquals('5', $class->effects[0]->offset->x);
@@ -99,10 +99,10 @@ final class StickyNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->fills[0]->color->g);
         $this->assertEquals('35', $class->fills[0]->color->b);
         $this->assertEquals('45', $class->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode);
         $this->assertEquals('id', $class->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type);
         $this->assertEquals('4', $class->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->fills[0]->gradientStops[0]->position);
@@ -112,7 +112,7 @@ final class StickyNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->fills[0]->scaleMode);
         $this->assertEquals('9', $class->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->fills[0]->rotation);

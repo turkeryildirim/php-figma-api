@@ -193,17 +193,17 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertTrue($class->itemReverseZIndex);
         $this->assertTrue($class->clipsContent);
         $this->assertTrue($class->isMaskOutline);
-        $this->assertEquals('HORIZONTAL_SCROLLING', $class->overflowDirection->value);
-        $this->assertEquals('ABSOLUTE', $class->position->value);
-        $this->assertEquals('CENTER', $class->primaryAxisAlignItems->value);
-        $this->assertEquals('CENTER', $class->counterAxisAlignContent->value);
-        $this->assertEquals('HORIZONTAL', $class->layoutMode->value);
-        $this->assertEquals('FIXED', $class->primaryAxisSizingMode->value);
-        $this->assertEquals('FIXED', $class->counterAxisSizingMode->value);
-        $this->assertEquals('VECTOR', $class->maskType->value);
-        $this->assertEquals('HUG', $class->layoutSizingHorizontal->value);
-        $this->assertEquals('HUG', $class->layoutSizingVertical->value);
-        $this->assertEquals('NO_WRAP', $class->layoutWrap->value);
+        $this->assertEquals('HORIZONTAL_SCROLLING', $class->overflowDirection);
+        $this->assertEquals('ABSOLUTE', $class->position);
+        $this->assertEquals('CENTER', $class->primaryAxisAlignItems);
+        $this->assertEquals('CENTER', $class->counterAxisAlignContent);
+        $this->assertEquals('HORIZONTAL', $class->layoutMode);
+        $this->assertEquals('FIXED', $class->primaryAxisSizingMode);
+        $this->assertEquals('FIXED', $class->counterAxisSizingMode);
+        $this->assertEquals('VECTOR', $class->maskType);
+        $this->assertEquals('HUG', $class->layoutSizingHorizontal);
+        $this->assertEquals('HUG', $class->layoutSizingVertical);
+        $this->assertEquals('NO_WRAP', $class->layoutWrap);
         $this->assertEquals('5', $class->targetAspectRatio->x);
         $this->assertEquals('5', $class->targetAspectRatio->y);
 
@@ -211,14 +211,14 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('10', $class->layoutGrids[0]->offset);
         $this->assertEquals('10', $class->layoutGrids[0]->gutterSize);
         $this->assertEquals('10', $class->layoutGrids[0]->sectionSize);
-        $this->assertEquals('COLUMNS', $class->layoutGrids[0]->pattern->value);
-        $this->assertEquals('CENTER', $class->layoutGrids[0]->alignment->value);
+        $this->assertEquals('COLUMNS', $class->layoutGrids[0]->pattern);
+        $this->assertEquals('CENTER', $class->layoutGrids[0]->alignment);
 
-        $this->assertEquals('ON_HOVER', $class->interactions[0]->trigger->type->value);
+        $this->assertEquals('ON_HOVER', $class->interactions[0]->trigger->type);
         $this->assertEquals('10', $class->interactions[0]->trigger->timeout);
         $this->assertEquals('10', $class->interactions[0]->trigger->delay);
         $this->assertEquals('10', $class->interactions[0]->trigger->mediaHitTime);
-        $this->assertEquals('XBOX_ONE', $class->interactions[0]->trigger->device->value);
+        $this->assertEquals('XBOX_ONE', $class->interactions[0]->trigger->device);
         $this->assertEquals('1', $class->interactions[0]->trigger->keyCodes[0]);
         $this->assertTrue($class->interactions[0]->trigger->deprecatedVersion);
         $this->assertEquals('URL', $class->interactions[0]->actions[0]->type);
@@ -239,11 +239,11 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->size->y);
         $this->assertEquals('20', $class->strokeWeight);
         $this->assertEquals('33', $class->strokeDashes[0]);
-        $this->assertEquals('OUTSIDE', $class->strokeAlign->value);
+        $this->assertEquals('OUTSIDE', $class->strokeAlign);
         $this->assertEquals('2', $class->relativeTransform[0][1]);
-        $this->assertEquals('NORMAL', $class->blendMode->value);
-        $this->assertEquals('CENTER', $class->layoutAlign->value);
-        $this->assertEquals('BOTTOM', $class->constraints->vertical->value);
+        $this->assertEquals('NORMAL', $class->blendMode);
+        $this->assertEquals('CENTER', $class->layoutAlign);
+        $this->assertEquals('BOTTOM', $class->constraints->vertical);
         $this->assertEquals('1', $class->absoluteBoundingBox->x);
         $this->assertEquals('2', $class->absoluteBoundingBox->y);
         $this->assertEquals('10', $class->absoluteBoundingBox->width);
@@ -258,10 +258,10 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('20', $class->effects[0]->color->g);
         $this->assertEquals('30', $class->effects[0]->color->b);
         $this->assertEquals('40', $class->effects[0]->color->a);
-        $this->assertEquals('DARKEN', $class->effects[0]->blendMode->value);
+        $this->assertEquals('DARKEN', $class->effects[0]->blendMode);
         $this->assertEquals('id', $class->effects[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->effects[0]->boundVariables[0]->type);
-        $this->assertEquals('INNER_SHADOW', $class->effects[0]->type->value);
+        $this->assertEquals('INNER_SHADOW', $class->effects[0]->type);
         $this->assertEquals('55', $class->effects[0]->radius);
         $this->assertTrue($class->effects[0]->showShadowBehindNode);
         $this->assertEquals('5', $class->effects[0]->offset->x);
@@ -273,10 +273,10 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->fills[0]->color->g);
         $this->assertEquals('35', $class->fills[0]->color->b);
         $this->assertEquals('45', $class->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode);
         $this->assertEquals('id', $class->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type);
         $this->assertEquals('4', $class->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->fills[0]->gradientStops[0]->position);
@@ -286,7 +286,7 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->fills[0]->scaleMode);
         $this->assertEquals('9', $class->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->fills[0]->rotation);
@@ -305,9 +305,9 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('description', $class->styles[0]->description);
 
         $this->assertFalse($class->styles[0]->remote);
-        $this->assertEquals('GRID', $class->styles[0]->styleType->value);
+        $this->assertEquals('GRID', $class->styles[0]->styleType);
 
-        $this->assertEquals('EASE_OUT', $class->transitionEasing->type->value);
+        $this->assertEquals('EASE_OUT', $class->transitionEasing->type);
         $this->assertEquals('1', $class->transitionEasing->easingFunctionCubicBezier->x1);
         $this->assertEquals('2', $class->transitionEasing->easingFunctionCubicBezier->x2);
         $this->assertEquals('3', $class->transitionEasing->easingFunctionCubicBezier->y1);
@@ -316,7 +316,7 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('20', $class->transitionEasing->easingFunctionSpring->stiffness);
         $this->assertEquals('30', $class->transitionEasing->easingFunctionSpring->damping);
 
-        $this->assertEquals('GRADIENT_LINEAR', $class->strokes[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->strokes[0]->type);
         $this->assertEquals('7', $class->strokes[0]->opacity);
         $this->assertTrue($class->strokes[0]->visible);
         $this->assertEquals('15', $class->strokes[0]->color->r);
@@ -334,7 +334,7 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->strokes[0]->gradientStops[0]->color->a);
         $this->assertEquals('type', $class->strokes[0]->gradientStops[0]->boundVariables[0]->type);
         $this->assertEquals('id', $class->strokes[0]->gradientStops[0]->boundVariables[0]->id);
-        $this->assertEquals('TILE', $class->strokes[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->strokes[0]->scaleMode);
         $this->assertEquals('9', $class->strokes[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->strokes[0]->scalingFactor);
         $this->assertEquals('19', $class->strokes[0]->rotation);
@@ -348,7 +348,7 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('6', $class->strokes[0]->filters[0]->highlights);
         $this->assertEquals('7', $class->strokes[0]->filters[0]->shadows);
 
-        $this->assertEquals('READY_FOR_DEV', $class->devStatus->type->value);
+        $this->assertEquals('READY_FOR_DEV', $class->devStatus->type);
         $this->assertEquals('description', $class->devStatus->description);
     }
     public function testWithMinData()
@@ -396,14 +396,14 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
         $this->assertNull($class->maxHeight);
         $this->assertNull($class->minWidth);
         $this->assertNull($class->maxWidth);
-        $this->assertEquals('NONE', $class->overflowDirection->value);
-        $this->assertEquals('AUTO', $class->position->value);
-        $this->assertEquals('AUTO', $class->counterAxisAlignContent->value);
-        $this->assertEquals('MIN', $class->primaryAxisAlignItems->value);
-        $this->assertEquals('MIN', $class->counterAxisAlignItems->value);
-        $this->assertEquals('NONE', $class->layoutMode->value);
-        $this->assertEquals('AUTO', $class->primaryAxisSizingMode->value);
-        $this->assertEquals('AUTO', $class->counterAxisSizingMode->value);
+        $this->assertEquals('NONE', $class->overflowDirection);
+        $this->assertEquals('AUTO', $class->position);
+        $this->assertEquals('AUTO', $class->counterAxisAlignContent);
+        $this->assertEquals('MIN', $class->primaryAxisAlignItems);
+        $this->assertEquals('MIN', $class->counterAxisAlignItems);
+        $this->assertEquals('NONE', $class->layoutMode);
+        $this->assertEquals('AUTO', $class->primaryAxisSizingMode);
+        $this->assertEquals('AUTO', $class->counterAxisSizingMode);
         $this->assertNull($class->maskType);
         $this->assertNull($class->layoutSizingHorizontal);
         $this->assertNull($class->layoutSizingVertical);
@@ -556,67 +556,67 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidOverflowDirection()
     {
-        $this->expectException(ValueError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'overflowDirection' => 'a',
         ]);
+        $this->assertEquals('NONE', $class->overflowDirection);
     }
     public function testInvalidPosition()
     {
-        $this->expectException(ValueError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'position' => 'a',
         ]);
+        $this->assertEquals('AUTO', $class->position);
     }
     public function testInvalidCounterAxisAlignContent()
     {
-        $this->expectException(ValueError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'counterAxisAlignContent' => 'a',
         ]);
+        $this->assertEquals('AUTO', $class->counterAxisAlignContent);
     }
     public function testInvalidPrimaryAxisAlignItems()
     {
-        $this->expectException(ValueError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'primaryAxisAlignItems' => 'a',
         ]);
+        $this->assertEquals('MIN', $class->primaryAxisAlignItems);
     }
     public function testInvalidCounterAxisAlignItems()
     {
-        $this->expectException(ValueError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'counterAxisAlignItems' => 'a',
         ]);
+        $this->assertEquals('MIN', $class->counterAxisAlignItems);
     }
     public function testInvalidLayoutMode()
     {
-        $this->expectException(ValueError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'layoutMode' => 'a',
         ]);
+        $this->assertEquals('NONE', $class->layoutMode);
     }
     public function testInvalidPrimaryAxisSizingMode()
     {
-        $this->expectException(ValueError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'primaryAxisSizingMode' => 'a',
         ]);
+        $this->assertEquals('AUTO', $class->primaryAxisSizingMode);
     }
     public function testInvalidCounterAxisSizingMode()
     {
-        $this->expectException(ValueError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'counterAxisSizingMode' => 'a',
         ]);
+        $this->assertEquals('AUTO', $class->counterAxisSizingMode);
     }
     public function testInvalidMaskType()
     {
@@ -652,10 +652,10 @@ final class FrameNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidTargetAspectRatio()
     {
-        $this->expectException(TypeError::class);
-        new FrameNodeType([
+        $class = new FrameNodeType([
             'id' => 'id',
             'targetAspectRatio' => 'a',
         ]);
+        $this->assertNull($class->targetAspectRatio);
     }
 }

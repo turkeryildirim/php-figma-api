@@ -26,8 +26,8 @@ final class SimpleTransitionTypeTest extends AbstractBaseTestCase
             ],
         ]);
         $this->assertEquals('10', $class->duration);
-        $this->assertEquals('SMART_ANIMATE', $class->type->value);
-        $this->assertEquals('EASE_OUT', $class->easing->type->value);
+        $this->assertEquals('SMART_ANIMATE', $class->type);
+        $this->assertEquals('EASE_OUT', $class->easing->type);
         $this->assertEquals('1', $class->easing->easingFunctionCubicBezier->x1);
         $this->assertEquals('2', $class->easing->easingFunctionCubicBezier->x2);
         $this->assertEquals('3', $class->easing->easingFunctionCubicBezier->y1);
@@ -41,11 +41,11 @@ final class SimpleTransitionTypeTest extends AbstractBaseTestCase
         $class = new SimpleTransitionType(['type' => 'SMART_ANIMATE']);
         $this->assertNull($class->duration);
         $this->assertNull($class->easing);
-        $this->assertEquals('SMART_ANIMATE', $class->type->value);
+        $this->assertEquals('SMART_ANIMATE', $class->type);
     }
     public function testInvalidType(): void
     {
-        $this->expectException(TypeError::class);
-        new SimpleTransitionType(['type' => 'type']);
+        $class = new SimpleTransitionType(['type' => 'type']);
+        $this->assertNull($class->type);
     }
 }

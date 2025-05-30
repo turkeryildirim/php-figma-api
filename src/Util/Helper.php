@@ -31,11 +31,11 @@ final class Helper
 
         return null;
     }
-    public static function jsonEncode($content, int $flags = 0, int $depth = 512): ?string
+    public static function jsonEncode(mixed $content, int $flags = 0, int $depth = 512): ?string
     {
+        /** @phpstan-ignore-next-line */
         $json = json_encode($content, $flags, $depth);
-        if (JSON_ERROR_NONE === json_last_error()) {
-            /** @var string */
+        if (JSON_ERROR_NONE === json_last_error() && false !== $json) {
             return $json;
         }
         return null;
@@ -46,6 +46,7 @@ final class Helper
         int $depth = 512,
         int $flags = 0
     ): array {
+        /** @phpstan-ignore-next-line */
         $json = json_decode($json, $associative, $depth, $flags);
         if (JSON_ERROR_NONE === json_last_error()) {
             /** @var array */
@@ -69,14 +70,14 @@ final class Helper
 
         return array_chunk($identityMatrixString, 3);
     }
-    public static function makeInteger($value, $default = null): int|float|null
+    public static function makeInteger(mixed $value, mixed $default = null): int|float|null
     {
         if (is_numeric($value)) {
             return floatval($value);
         }
         return $default;
     }
-    public static function makeBoolean($value, $default = null): ?bool
+    public static function makeBoolean(mixed $value, mixed $default = null): ?bool
     {
         if (is_bool($value)) {
             return boolval($value);
@@ -92,7 +93,7 @@ final class Helper
         }
         return $default;
     }
-    public static function makeArrayOfObjects($data, string $class, bool $preserveKeys = false): ?array
+    public static function makeArrayOfObjects(mixed $data, string $class, bool $preserveKeys = false): ?array
     {
         if (empty($data) || !is_array($data) || empty($class)) {
             return null;
@@ -108,5 +109,31 @@ final class Helper
         }
 
         return $array;
+    }
+    public static function makeObject(mixed $data, string $class): mixed
+    {
+        if (empty($data) || !is_array($data) || empty($class)) {
+            return null;
+        }
+
+        $build     = new $class($data);
+        $classVars = get_object_vars($build);
+        foreach ($classVars as $var) {
+            if (!empty($var)) {
+                return $build;
+            }
+        }
+        return null;
+    }
+    public static function makeFromEnum(?string $data, string $class, ?string $default = null): ?string
+    {
+        if (empty($data) || empty($class) || !enum_exists($class)) {
+            return null;
+        }
+        if (! $class::hasValue($data)) {
+            return $default;
+        }
+        $value = $class::tryFrom($data);
+        return $value->value;
     }
 }

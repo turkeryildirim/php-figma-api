@@ -30,10 +30,10 @@ final class DirectionalTransitionTypeTest extends AbstractBaseTestCase
         ]);
         $this->assertInstanceOf(EasingType::class, $class->easing);
         $this->assertEquals('30', $class->duration);
-        $this->assertEquals('MOVE_IN', $class->type->value);
-        $this->assertEquals('RIGHT', $class->direction->value);
+        $this->assertEquals('MOVE_IN', $class->type);
+        $this->assertEquals('RIGHT', $class->direction);
         $this->assertTrue($class->matchLayers);
-        $this->assertEquals('EASE_OUT', $class->easing->type->value);
+        $this->assertEquals('EASE_OUT', $class->easing->type);
         $this->assertEquals('1', $class->easing->easingFunctionCubicBezier->x1);
         $this->assertEquals('2', $class->easing->easingFunctionCubicBezier->x2);
         $this->assertEquals('3', $class->easing->easingFunctionCubicBezier->y1);
@@ -51,24 +51,24 @@ final class DirectionalTransitionTypeTest extends AbstractBaseTestCase
         $this->assertNull($class->easing);
         $this->assertNull($class->duration);
         $this->assertFalse($class->matchLayers);
-        $this->assertEquals('MOVE_IN', $class->type->value);
-        $this->assertEquals('RIGHT', $class->direction->value);
+        $this->assertEquals('MOVE_IN', $class->type);
+        $this->assertEquals('RIGHT', $class->direction);
     }
     public function testInvalidType(): void
     {
-        $this->expectException(TypeError::class);
-        new DirectionalTransitionType([
+        $class = new DirectionalTransitionType([
             'type' => 'a',
             'direction' => 'RIGHT'
         ]);
+        $this->assertNull($class->type);
     }
     public function testInvalidDirection(): void
     {
-        $this->expectException(TypeError::class);
-        new DirectionalTransitionType([
+        $class = new DirectionalTransitionType([
             'type' => 'MOVE_IN',
             'direction' => 'a'
         ]);
+        $this->assertNull($class->direction);
     }
     public function testInvalidMatchLayers(): void
     {

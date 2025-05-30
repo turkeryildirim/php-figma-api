@@ -25,14 +25,14 @@ final class ComponentPropertyDefinitionTypeTest extends AbstractBaseTestCase
         ]);
         $this->assertIsArray($class->variantOptions);
         $this->assertEquals('defaultValue', $class->defaultValue);
-        $this->assertEquals('TEXT', $class->type->value);
+        $this->assertEquals('TEXT', $class->type);
         $this->assertIsArray($class->preferredValues);
         $this->assertInstanceOf(
             InstanceSwapPreferredValueType::class,
             $class->preferredValues[0]
         );
         $this->assertEquals('key', $class->preferredValues[0]->key);
-        $this->assertEquals('COMPONENT', $class->preferredValues[0]->type->value);
+        $this->assertEquals('COMPONENT', $class->preferredValues[0]->type);
     }
     public function testWithMinData(): void
     {
@@ -42,14 +42,14 @@ final class ComponentPropertyDefinitionTypeTest extends AbstractBaseTestCase
         $this->assertNull($class->variantOptions);
         $this->assertNull($class->preferredValues);
         $this->assertNull($class->defaultValue);
-        $this->assertEquals('TEXT', $class->type->value);
+        $this->assertEquals('TEXT', $class->type);
     }
     public function testInvalidType()
     {
-        $this->expectException(ValueError::class);
-        new ComponentPropertyDefinitionType([
+        $class = new ComponentPropertyDefinitionType([
             'type' => 'type'
         ]);
+        $this->assertNull($class->type);
     }
     public function testInvalidVariantOptions()
     {

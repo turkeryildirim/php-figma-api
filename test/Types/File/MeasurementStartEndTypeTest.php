@@ -16,7 +16,7 @@ final class MeasurementStartEndTypeTest extends AbstractBaseTestCase
             'side' => 'RIGHT',
         ]);
         $this->assertEquals('node_id', $class->nodeId);
-        $this->assertEquals('RIGHT', $class->side->value);
+        $this->assertEquals('RIGHT', $class->side);
     }
     public function testWithMinData(): void
     {

@@ -202,13 +202,13 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->size->y);
         $this->assertEquals('20', $class->strokeWeight);
         $this->assertEquals('33', $class->strokeDashes[0]);
-        $this->assertEquals('SQUARE', $class->strokeCap->value);
-        $this->assertEquals('BEVEL', $class->strokeJoin->value);
-        $this->assertEquals('OUTSIDE', $class->strokeAlign->value);
+        $this->assertEquals('SQUARE', $class->strokeCap);
+        $this->assertEquals('BEVEL', $class->strokeJoin);
+        $this->assertEquals('OUTSIDE', $class->strokeAlign);
         $this->assertEquals('2', $class->relativeTransform[0][1]);
-        $this->assertEquals('NORMAL', $class->blendMode->value);
-        $this->assertEquals('CENTER', $class->layoutAlign->value);
-        $this->assertEquals('BOTTOM', $class->constraints->vertical->value);
+        $this->assertEquals('NORMAL', $class->blendMode);
+        $this->assertEquals('CENTER', $class->layoutAlign);
+        $this->assertEquals('BOTTOM', $class->constraints->vertical);
         $this->assertEquals('1', $class->absoluteBoundingBox->x);
         $this->assertEquals('2', $class->absoluteBoundingBox->y);
         $this->assertEquals('10', $class->absoluteBoundingBox->width);
@@ -223,10 +223,10 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('20', $class->effects[0]->color->g);
         $this->assertEquals('30', $class->effects[0]->color->b);
         $this->assertEquals('40', $class->effects[0]->color->a);
-        $this->assertEquals('DARKEN', $class->effects[0]->blendMode->value);
+        $this->assertEquals('DARKEN', $class->effects[0]->blendMode);
         $this->assertEquals('id', $class->effects[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->effects[0]->boundVariables[0]->type);
-        $this->assertEquals('INNER_SHADOW', $class->effects[0]->type->value);
+        $this->assertEquals('INNER_SHADOW', $class->effects[0]->type);
         $this->assertEquals('55', $class->effects[0]->radius);
         $this->assertTrue($class->effects[0]->showShadowBehindNode);
         $this->assertEquals('5', $class->effects[0]->offset->x);
@@ -238,10 +238,10 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->fills[0]->color->g);
         $this->assertEquals('35', $class->fills[0]->color->b);
         $this->assertEquals('45', $class->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode);
         $this->assertEquals('id', $class->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type);
         $this->assertEquals('4', $class->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->fills[0]->gradientStops[0]->position);
@@ -251,7 +251,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->fills[0]->scaleMode);
         $this->assertEquals('9', $class->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->fills[0]->rotation);
@@ -270,9 +270,9 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('description', $class->styles[0]->description);
 
         $this->assertFalse($class->styles[0]->remote);
-        $this->assertEquals('GRID', $class->styles[0]->styleType->value);
+        $this->assertEquals('GRID', $class->styles[0]->styleType);
 
-        $this->assertEquals('EASE_OUT', $class->transitionEasing->type->value);
+        $this->assertEquals('EASE_OUT', $class->transitionEasing->type);
         $this->assertEquals('1', $class->transitionEasing->easingFunctionCubicBezier->x1);
         $this->assertEquals('2', $class->transitionEasing->easingFunctionCubicBezier->x2);
         $this->assertEquals('3', $class->transitionEasing->easingFunctionCubicBezier->y1);
@@ -281,7 +281,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('20', $class->transitionEasing->easingFunctionSpring->stiffness);
         $this->assertEquals('30', $class->transitionEasing->easingFunctionSpring->damping);
 
-        $this->assertEquals('GRADIENT_LINEAR', $class->strokes[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->strokes[0]->type);
         $this->assertEquals('7', $class->strokes[0]->opacity);
         $this->assertTrue($class->strokes[0]->visible);
         $this->assertEquals('15', $class->strokes[0]->color->r);
@@ -299,7 +299,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->strokes[0]->gradientStops[0]->color->a);
         $this->assertEquals('type', $class->strokes[0]->gradientStops[0]->boundVariables[0]->type);
         $this->assertEquals('id', $class->strokes[0]->gradientStops[0]->boundVariables[0]->id);
-        $this->assertEquals('TILE', $class->strokes[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->strokes[0]->scaleMode);
         $this->assertEquals('9', $class->strokes[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->strokes[0]->scalingFactor);
         $this->assertEquals('19', $class->strokes[0]->rotation);
@@ -332,10 +332,10 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->fillOverrideTable[0]->fills[0]->color->g);
         $this->assertEquals('35', $class->fillOverrideTable[0]->fills[0]->color->b);
         $this->assertEquals('45', $class->fillOverrideTable[0]->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->fillOverrideTable[0]->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->fillOverrideTable[0]->fills[0]->blendMode);
         $this->assertEquals('id', $class->fillOverrideTable[0]->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fillOverrideTable[0]->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->fillOverrideTable[0]->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->fillOverrideTable[0]->fills[0]->type);
         $this->assertEquals('4', $class->fillOverrideTable[0]->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->fillOverrideTable[0]->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->fillOverrideTable[0]->fills[0]->gradientStops[0]->position);
@@ -345,7 +345,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->fillOverrideTable[0]->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->fillOverrideTable[0]->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fillOverrideTable[0]->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->fillOverrideTable[0]->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->fillOverrideTable[0]->fills[0]->scaleMode);
         $this->assertEquals('9', $class->fillOverrideTable[0]->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->fillOverrideTable[0]->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->fillOverrideTable[0]->fills[0]->rotation);
@@ -359,7 +359,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('6', $class->fillOverrideTable[0]->fills[0]->filters[0]->highlights);
         $this->assertEquals('7', $class->fillOverrideTable[0]->fills[0]->filters[0]->shadows);
     }
-    public function testWithMinData()
+    public function testWithMinData(): void
     {
         $class = new VectorNodeType(['id' => 'id', 'layoutGrow' => 10]);
         $this->assertEquals('id', $class->id);
@@ -393,7 +393,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         $this->assertNull($class->individualStrokeWeights);
         $this->assertNull($class->fillOverrideTable);
     }
-    public function testInvalidLayoutGrow()
+    public function testInvalidLayoutGrow(): void
     {
         $class = new VectorNodeType([
             'id' => 'id',
@@ -401,7 +401,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
         ]);
         $this->assertEquals('0', $class->layoutGrow);
     }
-    public function testInvalidFillGeometry()
+    public function testInvalidFillGeometry(): void
     {
         $this->expectException(TypeError::class);
         new VectorNodeType([
@@ -410,7 +410,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
             'layoutGrow' => 10
         ]);
     }
-    public function testInvalidFillOverrideTable()
+    public function testInvalidFillOverrideTable(): void
     {
         $this->expectException(TypeError::class);
         new VectorNodeType([
@@ -419,16 +419,16 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
             'layoutGrow' => 10
         ]);
     }
-    public function testInvalidIndividualStrokeWeights()
+    public function testInvalidIndividualStrokeWeights(): void
     {
-        $this->expectException(TypeError::class);
-        new VectorNodeType([
+        $class = new VectorNodeType([
             'individualStrokeWeights' => ['a' => 'b'],
             'id' => 'id',
             'layoutGrow' => 10
         ]);
+        $this->assertNull($class->individualStrokeWeights);
     }
-    public function testInvalidStrokeMiterAngle()
+    public function testInvalidStrokeMiterAngle(): void
     {
         $this->expectException(TypeError::class);
         new VectorNodeType([
@@ -437,7 +437,7 @@ final class VectorNodeTypeTest extends AbstractBaseTestCase
             'layoutGrow' => 10
         ]);
     }
-    public function testInvalidStrokeGeometry()
+    public function testInvalidStrokeGeometry(): void
     {
         $this->expectException(TypeError::class);
         new VectorNodeType([

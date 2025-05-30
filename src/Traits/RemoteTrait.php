@@ -8,7 +8,7 @@ use Turker\FigmaAPI\Util\Helper;
 
 trait RemoteTrait
 {
-    public readonly bool $remote;
+    public readonly ?bool $remote;
     final protected function __remote(array $data): void
     {
         $this->remote = Helper::makeBoolean($data['remote'], false);

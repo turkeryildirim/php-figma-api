@@ -104,12 +104,12 @@ final class ComponentTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidContainingFrame()
     {
-        $this->expectException(TypeError::class);
-        new ComponentType([
+        $class = new ComponentType([
             'key' => 'key',
             'created_at' => 'created_at',
             'user' => ['id' => 'id'],
             'containing_frame' => 'a'
         ]);
+        $this->assertNull($class->containingFrame);
     }
 }

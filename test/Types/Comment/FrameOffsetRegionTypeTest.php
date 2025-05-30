@@ -27,10 +27,11 @@ final class FrameOffsetRegionTypeTest extends AbstractBaseTestCase
         $this->assertEquals('50', $class->nodeOffset->y);
         $this->assertEquals('50', $class->regionHeight);
         $this->assertEquals('25', $class->regionWidth);
-        $this->assertEquals('bottom-right', $class->commentPinCorner->value);
+        $this->assertEquals('bottom-right', $class->commentPinCorner);
     }
     public function testWithMinData(): void
     {
+
         $class = new FrameOffsetRegionType([]);
         $this->assertNull($class->nodeId);
         $this->assertNull($class->nodeOffset);

@@ -9,7 +9,7 @@ use Turker\FigmaAPI\Util\Helper;
 
 final class DeleteReactionsResponse extends BaseResponse
 {
-    public readonly bool $status;
+    public readonly ?bool $status;
 
     public function __construct(array $data)
     {

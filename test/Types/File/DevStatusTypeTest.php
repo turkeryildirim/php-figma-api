@@ -16,7 +16,7 @@ final class DevStatusTypeTest extends AbstractBaseTestCase
             'type' => 'READY_FOR_DEV',
             'description' => 'description'
         ]);
-        $this->assertEquals('READY_FOR_DEV', $class->type->value);
+        $this->assertEquals('READY_FOR_DEV', $class->type);
         $this->assertEquals('description', $class->description);
     }
     public function testWithMinData()
@@ -24,12 +24,12 @@ final class DevStatusTypeTest extends AbstractBaseTestCase
         $class = new DevStatusType([
             'type' => 'READY_FOR_DEV'
         ]);
-        $this->assertEquals('READY_FOR_DEV', $class->type->value);
+        $this->assertEquals('READY_FOR_DEV', $class->type);
         $this->assertNull($class->description);
     }
     public function testInvalidType()
     {
-        $this->expectException(ValueError::class);
-        new DevStatusType(['type' => 'a']);
+        $class = new DevStatusType(['type' => 'a']);
+        $this->assertNull($class->type);
     }
 }

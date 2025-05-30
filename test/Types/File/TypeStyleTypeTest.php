@@ -87,16 +87,16 @@ final class TypeStyleTypeTest extends AbstractBaseTestCase
         $this->assertEquals('10', $class->letterSpacing);
         $this->assertEquals('10', $class->lineHeightPercent);
         $this->assertEquals('10', $class->lineHeightPercentFontSize);
-        $this->assertEquals('LOWER', $class->textCase->value);
-        $this->assertEquals('STRIKETHROUGH', $class->textDecoration->value);
-        $this->assertEquals('WIDTH_AND_HEIGHT', $class->textAutoResize->value);
-        $this->assertEquals('DISABLED', $class->textTruncation->value);
-        $this->assertEquals('JUSTIFIED', $class->textAlignHorizontal->value);
-        $this->assertEquals('BOTTOM', $class->textAlignVertical->value);
-        $this->assertEquals('NODE', $class->hyperlink->value);
-        $this->assertEquals('PIXELS', $class->lineHeightUnit->value);
-        $this->assertEquals('NORMAL', $class->semanticWeight->value);
-        $this->assertEquals('ITALIC', $class->semanticItalic->value);
+        $this->assertEquals('LOWER', $class->textCase);
+        $this->assertEquals('STRIKETHROUGH', $class->textDecoration);
+        $this->assertEquals('WIDTH_AND_HEIGHT', $class->textAutoResize);
+        $this->assertEquals('DISABLED', $class->textTruncation);
+        $this->assertEquals('JUSTIFIED', $class->textAlignHorizontal);
+        $this->assertEquals('BOTTOM', $class->textAlignVertical);
+        $this->assertEquals('NODE', $class->hyperlink);
+        $this->assertEquals('PIXELS', $class->lineHeightUnit);
+        $this->assertEquals('NORMAL', $class->semanticWeight);
+        $this->assertEquals('ITALIC', $class->semanticItalic);
         $this->assertEquals('type', $class->boundVariables[0]->type);
         $this->assertEquals('id', $class->boundVariables[0]->id);
         $this->assertFalse($class->fills[0]->visible);
@@ -104,10 +104,10 @@ final class TypeStyleTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->fills[0]->color->g);
         $this->assertEquals('35', $class->fills[0]->color->b);
         $this->assertEquals('45', $class->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->fills[0]->blendMode);
         $this->assertEquals('id', $class->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->fills[0]->type);
         $this->assertEquals('4', $class->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->fills[0]->gradientStops[0]->position);
@@ -117,7 +117,7 @@ final class TypeStyleTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->fills[0]->scaleMode);
         $this->assertEquals('9', $class->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->fills[0]->rotation);
@@ -164,10 +164,10 @@ final class TypeStyleTypeTest extends AbstractBaseTestCase
         $this->assertNull($class->semanticItalic);
         $this->assertNull($class->boundVariables);
         $this->assertNull($class->fills);
-        $this->assertEquals('ORIGINAL', $class->textCase->value);
-        $this->assertEquals('NONE', $class->textDecoration->value);
-        $this->assertEquals('NONE', $class->textAutoResize->value);
-        $this->assertEquals('DISABLED', $class->textTruncation->value);
+        $this->assertEquals('ORIGINAL', $class->textCase);
+        $this->assertEquals('NONE', $class->textDecoration);
+        $this->assertEquals('NONE', $class->textAutoResize);
+        $this->assertEquals('DISABLED', $class->textTruncation);
     }
     public function testInvalidFontFamily(): void
     {
@@ -332,14 +332,14 @@ final class TypeStyleTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidTextCase()
     {
-        $class = new TypeStyleType([
+        $this->expectException(TypeError::class);
+        new TypeStyleType([
             'fontFamily' => 'fontFamily',
             'lineHeightPx' => 10,
             'fontWeight' => 10,
             'fontSize' => 10,
             'textCase' => 10,
         ]);
-        $this->assertEquals('ORIGINAL', $class->textCase->value);
     }
     public function testInvalidTextAutoResize()
     {
@@ -350,7 +350,7 @@ final class TypeStyleTypeTest extends AbstractBaseTestCase
             'fontSize' => 10,
             'textAutoResize' => 'a',
         ]);
-        $this->assertEquals('NONE', $class->textAutoResize->value);
+        $this->assertEquals('NONE', $class->textAutoResize);
     }
     public function testInvalidTextTruncation()
     {
@@ -361,7 +361,7 @@ final class TypeStyleTypeTest extends AbstractBaseTestCase
             'fontSize' => 10,
             'textTruncation' => 'a',
         ]);
-        $this->assertEquals('DISABLED', $class->textTruncation->value);
+        $this->assertEquals('DISABLED', $class->textTruncation);
     }
     public function testInvalidTextAlignHorizontal()
     {

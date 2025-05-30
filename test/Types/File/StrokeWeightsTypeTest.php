@@ -25,42 +25,42 @@ final class StrokeWeightsTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidTop(): void
     {
-        $this->expectException(TypeError::class);
-        new StrokeWeightsType([
+        $class = new StrokeWeightsType([
             'top' => 'a',
             'right' => 20,
             'bottom' => 30,
             'left' => 40,
         ]);
+        $this->assertNull($class->top);
     }
     public function testInvalidRight(): void
     {
-        $this->expectException(TypeError::class);
-        new StrokeWeightsType([
+        $class = new StrokeWeightsType([
             'right' => 'a',
             'top' => 20,
             'bottom' => 30,
             'left' => 40,
         ]);
+        $this->assertNull($class->right);
     }
     public function testInvalidBottom(): void
     {
-        $this->expectException(TypeError::class);
-        new StrokeWeightsType([
+        $class = new StrokeWeightsType([
             'bottom' => 'a',
             'right' => 20,
             'top' => 30,
             'left' => 40,
         ]);
+        $this->assertNull($class->bottom);
     }
     public function testInvalidLeft(): void
     {
-        $this->expectException(TypeError::class);
-        new StrokeWeightsType([
+        $class = new StrokeWeightsType([
             'left' => 'a',
             'right' => 20,
             'bottom' => 30,
             'top' => 40,
         ]);
+        $this->assertNull($class->left);
     }
 }

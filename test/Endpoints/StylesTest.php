@@ -77,7 +77,7 @@ final class StylesTest extends AbstractBaseTestCase
         $this->assertEquals('sort_position', $data->sortPosition);
         $this->assertEquals('created_at', $data->createdAt);
         $this->assertEquals('updated_at', $data->updatedAt);
-        $this->assertEquals('FILL', $data->styleType->value);
+        $this->assertEquals('FILL', $data->styleType);
 
         $this->assertNull($data->user->email);
         $this->assertEquals('id', $data->user->id);

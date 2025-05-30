@@ -17,14 +17,14 @@ final class InstanceSwapPreferredValueTypeTest extends AbstractBaseTestCase
             'type' => 'COMPONENT_SET'
         ]);
         $this->assertEquals('key', $class->key);
-        $this->assertEquals('COMPONENT_SET', $class->type->value);
+        $this->assertEquals('COMPONENT_SET', $class->type);
     }
     public function testInvalidType(): void
     {
-        $this->expectException(ValueError::class);
-        new InstanceSwapPreferredValueType([
+        $class = new InstanceSwapPreferredValueType([
             'type' => 'a',
             'key' => 'key'
         ]);
+        $this->assertNull($class->type);
     }
 }

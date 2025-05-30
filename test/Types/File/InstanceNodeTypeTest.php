@@ -41,11 +41,11 @@ final class InstanceNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('b', $class->exposedInstances[1]);
         $this->assertTrue($class->isExposedInstance);
         $this->assertEquals('value', $class->componentProperties[0]->value);
-        $this->assertEquals('INSTANCE_SWAP', $class->componentProperties[0]->type->value);
+        $this->assertEquals('INSTANCE_SWAP', $class->componentProperties[0]->type);
         $this->assertEquals('id', $class->componentProperties[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->componentProperties[0]->boundVariables[0]->type);
         $this->assertEquals('key', $class->componentProperties[0]->preferredValues[0]->key);
-        $this->assertEquals('COMPONENT', $class->componentProperties[0]->preferredValues[0]->type->value);
+        $this->assertEquals('COMPONENT', $class->componentProperties[0]->preferredValues[0]->type);
         $this->assertEquals('id', $class->overrides[0]->id);
         $this->assertEquals('b', $class->overrides[0]->overriddenFields[1]);
     }

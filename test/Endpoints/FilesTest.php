@@ -88,7 +88,7 @@ final class FilesTest extends AbstractBaseTestCase
         $this->assertEquals('name', $data->file->styles[0]->name);
         $this->assertEquals('description', $data->file->styles[0]->description);
         $this->assertFalse($data->file->styles[0]->remote);
-        $this->assertEquals('GRID', $data->file->styles[0]->styleType->value);
+        $this->assertEquals('GRID', $data->file->styles[0]->styleType);
     }
     public function testFetchFileNodes(): void
     {
@@ -129,7 +129,7 @@ final class FilesTest extends AbstractBaseTestCase
         $this->assertEquals('name', $data->nodes[0]->styles[0]->name);
         $this->assertEquals('description', $data->nodes[0]->styles[0]->description);
         $this->assertFalse($data->nodes[0]->styles[0]->remote);
-        $this->assertEquals('GRID', $data->nodes[0]->styles[0]->styleType->value);
+        $this->assertEquals('GRID', $data->nodes[0]->styles[0]->styleType);
     }
     public function testFetchImages(): void
     {

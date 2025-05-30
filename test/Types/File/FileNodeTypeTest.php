@@ -45,7 +45,7 @@ final class FileNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('name', $class->styles[0]->name);
         $this->assertEquals('description', $class->styles[0]->description);
         $this->assertFalse($class->styles[0]->remote);
-        $this->assertEquals('GRID', $class->styles[0]->styleType->value);
+        $this->assertEquals('GRID', $class->styles[0]->styleType);
 
         $this->assertEquals('id', $class->document->id);
         $this->assertEquals('name', $class->document->name);

@@ -46,12 +46,12 @@ final class PaintTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->color->g);
         $this->assertEquals('35', $class->color->b);
         $this->assertEquals('45', $class->color->a);
-        $this->assertEquals('MULTIPLY', $class->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->blendMode);
         $this->assertEquals('20', $class->opacity);
         $this->assertEquals('id', $class->boundVariables[0]->id);
         $this->assertEquals('type', $class->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_RADIAL', $class->type->value);
-        $this->assertEquals('TILE', $class->scaleMode->value);
+        $this->assertEquals('GRADIENT_RADIAL', $class->type);
+        $this->assertEquals('TILE', $class->scaleMode);
         $this->assertEquals('imageRef', $class->imageRef);
         $this->assertEquals('gifRef', $class->gifRef);
         $this->assertEquals('9', $class->imageTransform[0][0]);
@@ -81,7 +81,7 @@ final class PaintTypeTest extends AbstractBaseTestCase
             'scalingFactor' => 5,
             'rotation' => 5
         ]);
-        $this->assertEquals('GRADIENT_RADIAL', $class->type->value);
+        $this->assertEquals('GRADIENT_RADIAL', $class->type);
         $this->assertEquals('5', $class->scalingFactor);
         $this->assertEquals('5', $class->rotation);
         $this->assertEquals('1', $class->opacity);

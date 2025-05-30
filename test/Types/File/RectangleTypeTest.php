@@ -36,18 +36,18 @@ final class RectangleTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidWidth(): void
     {
-        $this->expectException(TypeError::class);
-        new RectangleType([
+        $class = new RectangleType([
             'width' => 'a',
             'height' => 40,
         ]);
+        $this->assertNull($class->width);
     }
     public function testInvalidHeight(): void
     {
-        $this->expectException(TypeError::class);
-        new RectangleType([
+        $class = new RectangleType([
             'height' => 'a',
             'width' => 40,
         ]);
+        $this->assertNull($class->height);
     }
 }

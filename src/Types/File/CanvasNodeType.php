@@ -37,11 +37,15 @@ class CanvasNodeType extends AbstractType
 
         $this->prototypeStartNodeID = $data['prototypeStartNodeID'] ?? null;
 
-        $this->flowStartingPoints = (!empty($data['flowStartingPoints'])) ?
-            new FlowStartingPointsType($data['flowStartingPoints']) : null;
+        $this->flowStartingPoints = Helper::makeObject(
+            $data['flowStartingPoints'],
+            FlowStartingPointsType::class
+        );
 
-        $this->prototypeDevice = (!empty($data['prototypeDevice'])) ?
-            new PrototypeDeviceType($data['prototypeDevice']) : null;
+        $this->prototypeDevice = Helper::makeObject(
+            $data['prototypeDevice'],
+            PrototypeDeviceType::class
+        );
 
         $this->measurements = Helper::makeArrayOfObjects($data['measurements'], MeasurementType::class);
     }

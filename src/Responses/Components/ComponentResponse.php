@@ -10,21 +10,14 @@ use Turker\FigmaAPI\Util\Helper;
 
 final class ComponentResponse extends BaseResponse
 {
-    public readonly int|float $status;
-    public readonly bool $error;
+    public readonly int|float|null $status;
+    public readonly ?bool $error;
     public readonly ?ComponentType $meta;
 
     public function __construct(array $data)
     {
         $this->status = Helper::makeInteger($data['status']);
         $this->error  = Helper::makeBoolean($data['error']);
-
-        $meta = null;
-        if (!empty($data['meta'])) {
-            $meta = new ComponentType($data['meta']);
-        }
-
-        $this->meta = $meta;
-        return $this;
+        $this->meta   = Helper::makeObject($data['meta'], ComponentType::class);
     }
 }

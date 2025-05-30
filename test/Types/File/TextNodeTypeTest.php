@@ -138,7 +138,7 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('characters', $class->characters);
         $this->assertEquals('a', $class->characterStyleOverrides[0]);
         $this->assertEquals('a', $class->lineIndentations[0]);
-        $this->assertEquals('UNORDERED', $class->lineTypes->value);
+        $this->assertEquals('UNORDERED', $class->lineTypes);
         $this->assertTrue($class->style->italic);
         $this->assertTrue($class->style->isOverrideOverTextStyle);
         $this->assertEquals('v1', $class->style->opentypeFlags['k1']);
@@ -155,15 +155,15 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('10', $class->style->letterSpacing);
         $this->assertEquals('10', $class->style->lineHeightPercent);
         $this->assertEquals('10', $class->style->lineHeightPercentFontSize);
-        $this->assertEquals('LOWER', $class->style->textCase->value);
-        $this->assertEquals('STRIKETHROUGH', $class->style->textDecoration->value);
-        $this->assertEquals('WIDTH_AND_HEIGHT', $class->style->textAutoResize->value);
-        $this->assertEquals('DISABLED', $class->style->textTruncation->value);
-        $this->assertEquals('JUSTIFIED', $class->style->textAlignHorizontal->value);
-        $this->assertEquals('BOTTOM', $class->style->textAlignVertical->value);
-        $this->assertEquals('NODE', $class->style->hyperlink->value);
-        $this->assertEquals('PIXELS', $class->style->lineHeightUnit->value);
-        $this->assertEquals('NORMAL', $class->style->semanticWeight->value);
+        $this->assertEquals('LOWER', $class->style->textCase);
+        $this->assertEquals('STRIKETHROUGH', $class->style->textDecoration);
+        $this->assertEquals('WIDTH_AND_HEIGHT', $class->style->textAutoResize);
+        $this->assertEquals('DISABLED', $class->style->textTruncation);
+        $this->assertEquals('JUSTIFIED', $class->style->textAlignHorizontal);
+        $this->assertEquals('BOTTOM', $class->style->textAlignVertical);
+        $this->assertEquals('NODE', $class->style->hyperlink);
+        $this->assertEquals('PIXELS', $class->style->lineHeightUnit);
+        $this->assertEquals('NORMAL', $class->style->semanticWeight);
         $this->assertEquals('type', $class->style->boundVariables[0]->type);
         $this->assertEquals('id', $class->style->boundVariables[0]->id);
         $this->assertFalse($class->style->fills[0]->visible);
@@ -171,10 +171,10 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->style->fills[0]->color->g);
         $this->assertEquals('35', $class->style->fills[0]->color->b);
         $this->assertEquals('45', $class->style->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->style->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->style->fills[0]->blendMode);
         $this->assertEquals('id', $class->style->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->style->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->style->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->style->fills[0]->type);
         $this->assertEquals('4', $class->style->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->style->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->style->fills[0]->gradientStops[0]->position);
@@ -184,7 +184,7 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->style->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->style->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->style->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->style->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->style->fills[0]->scaleMode);
         $this->assertEquals('9', $class->style->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->style->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->style->fills[0]->rotation);
@@ -215,15 +215,15 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('10', $class->styleOverrideTable['key']->letterSpacing);
         $this->assertEquals('10', $class->styleOverrideTable['key']->lineHeightPercent);
         $this->assertEquals('10', $class->styleOverrideTable['key']->lineHeightPercentFontSize);
-        $this->assertEquals('LOWER', $class->styleOverrideTable['key']->textCase->value);
-        $this->assertEquals('STRIKETHROUGH', $class->styleOverrideTable['key']->textDecoration->value);
-        $this->assertEquals('WIDTH_AND_HEIGHT', $class->styleOverrideTable['key']->textAutoResize->value);
-        $this->assertEquals('DISABLED', $class->styleOverrideTable['key']->textTruncation->value);
-        $this->assertEquals('JUSTIFIED', $class->styleOverrideTable['key']->textAlignHorizontal->value);
-        $this->assertEquals('BOTTOM', $class->styleOverrideTable['key']->textAlignVertical->value);
-        $this->assertEquals('NODE', $class->styleOverrideTable['key']->hyperlink->value);
-        $this->assertEquals('PIXELS', $class->styleOverrideTable['key']->lineHeightUnit->value);
-        $this->assertEquals('NORMAL', $class->styleOverrideTable['key']->semanticWeight->value);
+        $this->assertEquals('LOWER', $class->styleOverrideTable['key']->textCase);
+        $this->assertEquals('STRIKETHROUGH', $class->styleOverrideTable['key']->textDecoration);
+        $this->assertEquals('WIDTH_AND_HEIGHT', $class->styleOverrideTable['key']->textAutoResize);
+        $this->assertEquals('DISABLED', $class->styleOverrideTable['key']->textTruncation);
+        $this->assertEquals('JUSTIFIED', $class->styleOverrideTable['key']->textAlignHorizontal);
+        $this->assertEquals('BOTTOM', $class->styleOverrideTable['key']->textAlignVertical);
+        $this->assertEquals('NODE', $class->styleOverrideTable['key']->hyperlink);
+        $this->assertEquals('PIXELS', $class->styleOverrideTable['key']->lineHeightUnit);
+        $this->assertEquals('NORMAL', $class->styleOverrideTable['key']->semanticWeight);
         $this->assertEquals('type', $class->styleOverrideTable['key']->boundVariables[0]->type);
         $this->assertEquals('id', $class->styleOverrideTable['key']->boundVariables[0]->id);
         $this->assertFalse($class->styleOverrideTable['key']->fills[0]->visible);
@@ -231,10 +231,10 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->styleOverrideTable['key']->fills[0]->color->g);
         $this->assertEquals('35', $class->styleOverrideTable['key']->fills[0]->color->b);
         $this->assertEquals('45', $class->styleOverrideTable['key']->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->styleOverrideTable['key']->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->styleOverrideTable['key']->fills[0]->blendMode);
         $this->assertEquals('id', $class->styleOverrideTable['key']->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->styleOverrideTable['key']->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->styleOverrideTable['key']->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->styleOverrideTable['key']->fills[0]->type);
         $this->assertEquals('4', $class->styleOverrideTable['key']->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->styleOverrideTable['key']->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->styleOverrideTable['key']->fills[0]->gradientStops[0]->position);
@@ -244,7 +244,7 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->styleOverrideTable['key']->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->styleOverrideTable['key']->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->styleOverrideTable['key']->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->styleOverrideTable['key']->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->styleOverrideTable['key']->fills[0]->scaleMode);
         $this->assertEquals('9', $class->styleOverrideTable['key']->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->styleOverrideTable['key']->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->styleOverrideTable['key']->fills[0]->rotation);
@@ -343,15 +343,15 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('10', $class->style->letterSpacing);
         $this->assertEquals('10', $class->style->lineHeightPercent);
         $this->assertEquals('10', $class->style->lineHeightPercentFontSize);
-        $this->assertEquals('LOWER', $class->style->textCase->value);
-        $this->assertEquals('STRIKETHROUGH', $class->style->textDecoration->value);
-        $this->assertEquals('WIDTH_AND_HEIGHT', $class->style->textAutoResize->value);
-        $this->assertEquals('DISABLED', $class->style->textTruncation->value);
-        $this->assertEquals('JUSTIFIED', $class->style->textAlignHorizontal->value);
-        $this->assertEquals('BOTTOM', $class->style->textAlignVertical->value);
-        $this->assertEquals('NODE', $class->style->hyperlink->value);
-        $this->assertEquals('PIXELS', $class->style->lineHeightUnit->value);
-        $this->assertEquals('NORMAL', $class->style->semanticWeight->value);
+        $this->assertEquals('LOWER', $class->style->textCase);
+        $this->assertEquals('STRIKETHROUGH', $class->style->textDecoration);
+        $this->assertEquals('WIDTH_AND_HEIGHT', $class->style->textAutoResize);
+        $this->assertEquals('DISABLED', $class->style->textTruncation);
+        $this->assertEquals('JUSTIFIED', $class->style->textAlignHorizontal);
+        $this->assertEquals('BOTTOM', $class->style->textAlignVertical);
+        $this->assertEquals('NODE', $class->style->hyperlink);
+        $this->assertEquals('PIXELS', $class->style->lineHeightUnit);
+        $this->assertEquals('NORMAL', $class->style->semanticWeight);
         $this->assertEquals('type', $class->style->boundVariables[0]->type);
         $this->assertEquals('id', $class->style->boundVariables[0]->id);
         $this->assertFalse($class->style->fills[0]->visible);
@@ -359,10 +359,10 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('25', $class->style->fills[0]->color->g);
         $this->assertEquals('35', $class->style->fills[0]->color->b);
         $this->assertEquals('45', $class->style->fills[0]->color->a);
-        $this->assertEquals('MULTIPLY', $class->style->fills[0]->blendMode->value);
+        $this->assertEquals('MULTIPLY', $class->style->fills[0]->blendMode);
         $this->assertEquals('id', $class->style->fills[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->style->fills[0]->boundVariables[0]->type);
-        $this->assertEquals('GRADIENT_LINEAR', $class->style->fills[0]->type->value);
+        $this->assertEquals('GRADIENT_LINEAR', $class->style->fills[0]->type);
         $this->assertEquals('4', $class->style->fills[0]->gradientHandlePositions[0]->x);
         $this->assertEquals('3', $class->style->fills[0]->gradientHandlePositions[0]->y);
         $this->assertEquals('10', $class->style->fills[0]->gradientStops[0]->position);
@@ -372,7 +372,7 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
         $this->assertEquals('4', $class->style->fills[0]->gradientStops[0]->color->a);
         $this->assertEquals('id', $class->style->fills[0]->gradientStops[0]->boundVariables[0]->id);
         $this->assertEquals('type', $class->style->fills[0]->gradientStops[0]->boundVariables[0]->type);
-        $this->assertEquals('TILE', $class->style->fills[0]->scaleMode->value);
+        $this->assertEquals('TILE', $class->style->fills[0]->scaleMode);
         $this->assertEquals('9', $class->style->fills[0]->imageTransform[0][0]);
         $this->assertEquals('26', $class->style->fills[0]->scalingFactor);
         $this->assertEquals('19', $class->style->fills[0]->rotation);
@@ -388,12 +388,12 @@ final class TextNodeTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidStyle(): void
     {
-        $this->expectException(TypeError::class);
-        new TextNodeType([
+        $class = new TextNodeType([
             'id' => 'id',
             'characters' => 'characters',
             'style' => ['a'],
         ]);
+        $this->assertNull($class->style->fontFamily);
     }
     public function testInvalidCharacterStyleOverrides(): void
     {

@@ -22,7 +22,7 @@ final class ConnectorEndpointTypeTest extends AbstractBaseTestCase
         $this->assertInstanceOf(VectorType::class, $class->position);
         $this->assertEquals('10', $class->position->x);
         $this->assertEquals('20', $class->position->y);
-        $this->assertEquals('AUTO', $class->magnet->value);
+        $this->assertEquals('AUTO', $class->magnet);
     }
     public function testInvalidEndpointNodeId(): void
     {
@@ -44,11 +44,11 @@ final class ConnectorEndpointTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidMagnet(): void
     {
-        $this->expectException(TypeError::class);
-        new ConnectorEndpointType([
+        $class = new ConnectorEndpointType([
             'endpointNodeId' => 'endpointNodeId',
             'position' => ['x' => 10, 'y' => 20],
             'magnet' => 'magnet',
         ]);
+        $this->assertNull($class->magnet);
     }
 }

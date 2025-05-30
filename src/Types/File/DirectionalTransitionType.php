@@ -16,15 +16,15 @@ class DirectionalTransitionType extends AbstractType
     use DurationTrait;
     use EasingTrait;
 
-    public readonly DirectionalTransitionTypeEnum $type;
-    public readonly DirectionEnum $direction;
-    public readonly bool $matchLayers;
+    public readonly ?string $type;
+    public readonly ?string $direction;
+    public readonly ?bool $matchLayers;
 
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->type        = DirectionalTransitionTypeEnum::tryFrom($data['type']);
-        $this->direction   = DirectionEnum::tryFrom($data['direction']);
+        $this->type        = Helper::makeFromEnum($data['type'], DirectionalTransitionTypeEnum::class);
+        $this->direction   = Helper::makeFromEnum($data['direction'], DirectionEnum::class);
         $this->matchLayers = Helper::makeBoolean($data['matchLayers'], false);
     }
 }

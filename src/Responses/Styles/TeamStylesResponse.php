@@ -11,8 +11,8 @@ use Turker\FigmaAPI\Util\Helper;
 
 final class TeamStylesResponse extends BaseResponse
 {
-    public readonly int|float $status;
-    public readonly bool $error;
+    public readonly int|float|null $status;
+    public readonly ?bool $error;
     /**
      * @var array{cursor: CursorType, styles: StyleType[]}|null $meta
      */
@@ -33,7 +33,5 @@ final class TeamStylesResponse extends BaseResponse
             $meta['styles'] = Helper::makeArrayOfObjects($data['meta']['styles'], StyleType::class);
         }
         $this->meta = $meta;
-
-        return $this;
     }
 }

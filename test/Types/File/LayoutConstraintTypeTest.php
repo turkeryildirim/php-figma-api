@@ -15,15 +15,15 @@ final class LayoutConstraintTypeTest extends AbstractBaseTestCase
             'vertical' => 'BOTTOM',
             'horizontal' => 'CENTER'
         ]);
-        $this->assertEquals('BOTTOM', $class->vertical->value);
-        $this->assertEquals('CENTER', $class->horizontal->value);
+        $this->assertEquals('BOTTOM', $class->vertical);
+        $this->assertEquals('CENTER', $class->horizontal);
     }
     public function testOnlyVerticalData(): void
     {
         $class = new LayoutConstraintType([
             'vertical' => 'BOTTOM'
         ]);
-        $this->assertEquals('BOTTOM', $class->vertical->value);
+        $this->assertEquals('BOTTOM', $class->vertical);
         $this->assertNull($class->horizontal);
     }
     public function testOnlyHorizontalData(): void
@@ -31,7 +31,7 @@ final class LayoutConstraintTypeTest extends AbstractBaseTestCase
         $class = new LayoutConstraintType([
             'horizontal' => 'CENTER'
         ]);
-        $this->assertEquals('CENTER', $class->horizontal->value);
+        $this->assertEquals('CENTER', $class->horizontal);
         $this->assertNull($class->vertical);
     }
     public function testInvalidVertical(): void

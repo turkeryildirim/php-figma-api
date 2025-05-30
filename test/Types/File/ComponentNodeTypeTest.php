@@ -33,14 +33,14 @@ final class ComponentNodeTypeTest extends AbstractBaseTestCase
         );
         $this->assertIsArray($class->componentPropertyDefinitions[0]->variantOptions);
         $this->assertEquals('defaultValue', $class->componentPropertyDefinitions[0]->defaultValue);
-        $this->assertEquals('TEXT', $class->componentPropertyDefinitions[0]->type->value);
+        $this->assertEquals('TEXT', $class->componentPropertyDefinitions[0]->type);
         $this->assertIsArray($class->componentPropertyDefinitions[0]->preferredValues);
         $this->assertInstanceOf(
             InstanceSwapPreferredValueType::class,
             $class->componentPropertyDefinitions[0]->preferredValues[0]
         );
         $this->assertEquals('key', $class->componentPropertyDefinitions[0]->preferredValues[0]->key);
-        $this->assertEquals('COMPONENT', $class->componentPropertyDefinitions[0]->preferredValues[0]->type->value);
+        $this->assertEquals('COMPONENT', $class->componentPropertyDefinitions[0]->preferredValues[0]->type);
     }
     public function testInvalidComponentPropertyDefinitions()
     {

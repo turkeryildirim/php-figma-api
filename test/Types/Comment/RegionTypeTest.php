@@ -25,7 +25,7 @@ final class RegionTypeTest extends AbstractBaseTestCase
         $this->assertEquals('120', $class->y);
         $this->assertEquals('50', $class->regionHeight);
         $this->assertEquals('25', $class->regionWidth);
-        $this->assertEquals('bottom-right', $class->commentPinCorner->value);
+        $this->assertEquals('bottom-right', $class->commentPinCorner);
     }
     public function testWithMinData(): void
     {

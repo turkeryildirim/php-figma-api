@@ -16,18 +16,8 @@ final class ColorStopTypeTest extends AbstractBaseTestCase
     {
         $class = new ColorStopType([
             'position' => 10,
-            'color' => [
-                'r' => 1,
-                'g' => 2,
-                'b' => 3,
-                'a' => 4
-              ],
-            'boundVariables' => [
-                [
-                    'id' => 'id',
-                    'type' => 'type',
-                ]
-            ]
+            'color' => ['r' => 1, 'g' => 2, 'b' => 3, 'a' => 4],
+            'boundVariables' => [['id' => 'id', 'type' => 'type',]]
         ]);
         $this->assertEquals('10', $class->position);
         $this->assertIsArray($class->boundVariables);
@@ -52,7 +42,7 @@ final class ColorStopTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidPosition(): void
     {
-        $this->expectException(TypeError::class);
-        new ColorStopType(['position' => 'position']);
+        $class = new ColorStopType(['position' => 'position']);
+        $this->assertNull($class->color);
     }
 }

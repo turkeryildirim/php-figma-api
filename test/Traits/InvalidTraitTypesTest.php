@@ -328,8 +328,8 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidLayoutAlign(): void
     {
+        $this->expectException(TypeError::class);
         $this->__layoutAlign(['layoutAlign' => 10]);
-        $this->assertNull($this->layoutAlign);
     }
     public function testInvalidLastModified(): void
     {
@@ -363,13 +363,13 @@ final class InvalidTraitTypesTest extends AbstractBaseTestCase
     }
     public function testInvalidEasing2(): void
     {
-        $this->expectException(TypeError::class);
         $this->__easing(['easing' => 'easing']);
+        $this->assertNull($this->easing);
     }
     public function testInvalidEasing(): void
     {
-        $this->expectException(TypeError::class);
         $this->__easing(['easing' => ['a']]);
+        $this->assertNull($this->easing);
     }
     public function testInvalidDuration(): void
     {

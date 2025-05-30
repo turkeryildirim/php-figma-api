@@ -10,7 +10,7 @@ use Turker\FigmaAPI\Util\Helper;
 class MeasurementOffsetInnerType extends AbstractType
 {
     public readonly string $type;
-    public readonly int|float $relative;
+    public readonly int|float|null $relative;
 
     public function __construct(array $data)
     {

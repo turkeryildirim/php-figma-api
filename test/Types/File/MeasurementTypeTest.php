@@ -26,7 +26,7 @@ final class MeasurementTypeTest extends AbstractBaseTestCase
         $this->assertEquals('id', $class->id);
         $this->assertEquals('freeText', $class->freeText);
         $this->assertEquals('node_id', $class->start->nodeId);
-        $this->assertEquals('RIGHT', $class->start->side->value);
+        $this->assertEquals('RIGHT', $class->start->side);
         $this->assertEquals('OUTER', $class->offset->type);
         $this->assertEquals('5', $class->offset->fixed);
     }
@@ -46,19 +46,20 @@ final class MeasurementTypeTest extends AbstractBaseTestCase
     }
     public function testInvalidOffset(): void
     {
-        $this->expectException(TypeError::class);
-        new MeasurementType([
+        $class = new MeasurementType([
             'id' => 'id',
-            'freeText' => 5,
-            'offset' => ['fixed' => 5]
+            'freeText' => "asd",
+            'offset' => ['a' => 'b']
         ]);
+        $this->assertObjectNotHasProperty('fixed', $class);
     }
     public function testInvalidFreeText(): void
     {
         $this->expectException(TypeError::class);
         new MeasurementType([
             'id' => 'id',
-            'offset' => ['a']
+            'freeText' => 5,
+            'offset' => ['fixed' => 5]
         ]);
     }
     public function testInvalidSide(): void

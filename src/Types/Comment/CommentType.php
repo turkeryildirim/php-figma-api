@@ -23,7 +23,7 @@ class CommentType extends AbstractType
 
     public readonly ?string $uuid;
     public readonly ?string $message;
-    public readonly int|float $orderId;
+    public readonly int|float|null $orderId;
     public readonly ?string $parentId;
     public readonly ?string $resolvedAt;
     public readonly VectorType|FrameOffsetType|RegionType|FrameOffsetRegionType $clientMeta;

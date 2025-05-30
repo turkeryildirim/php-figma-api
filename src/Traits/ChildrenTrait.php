@@ -31,7 +31,7 @@ use Turker\FigmaAPI\Types\File\WashiTapeNodeType;
 trait ChildrenTrait
 {
     /**
-     * @var GroupNodeType[]|StarNodeType[]|RectangleNodeType[]|TextNodeType[]|ComponentNodeType[]|ComponentSetNodeType[]|EllipseNodeType[]|DocumentNodeType[]|InstanceNodeType[]|TableNodeType[]|StickyNodeType[]|WashiTapeNodeType[]|LineNodeType[]|ShapeNodeType[]|ConnectorNodeType[]|RegularPolygonNodeType[]|TableCellNodeType[]|FrameNodeType[]|BooleanOperationNodeType[]|SliceNodeType[]|SectionNodeType[]|CanvasNodeType[]|VectorNodeType[]||null
+     * @var GroupNodeType[]|StarNodeType[]|RectangleNodeType[]|TextNodeType[]|ComponentNodeType[]|ComponentSetNodeType[]|EllipseNodeType[]|DocumentNodeType[]|InstanceNodeType[]|TableNodeType[]|StickyNodeType[]|WashiTapeNodeType[]|LineNodeType[]|ShapeNodeType[]|ConnectorNodeType[]|RegularPolygonNodeType[]|TableCellNodeType[]|FrameNodeType[]|BooleanOperationNodeType[]|SliceNodeType[]|SectionNodeType[]|CanvasNodeType[]|VectorNodeType[]|null
      */
     public readonly ?array $children;
     final protected function __children(array $data): void
@@ -45,7 +45,7 @@ trait ChildrenTrait
         $this->children = $children;
     }
 
-    private function match($data): GroupNodeType|
+    private function match(array $data): GroupNodeType|
         StarNodeType|
         RectangleNodeType|
         TextNodeType|
@@ -67,8 +67,7 @@ trait ChildrenTrait
         SliceNodeType|
         SectionNodeType|
         CanvasNodeType|
-        VectorNodeType|
-        null
+        VectorNodeType
     {
         return match ($data['type']) {
             'DOCUMENT' =>  new DocumentNodeType($data),
@@ -93,8 +92,7 @@ trait ChildrenTrait
             'STICKY' => new StickyNodeType($data),
             'SHAPE_WITH_TEXT' => new ShapeNodeType($data),
             'CONNECTOR' => new ConnectorNodeType($data),
-            'WASHI_TAPE' => new WashiTapeNodeType($data),
-            default => null,
+            'WASHI_TAPE' => new WashiTapeNodeType($data)
         };
     }
 }

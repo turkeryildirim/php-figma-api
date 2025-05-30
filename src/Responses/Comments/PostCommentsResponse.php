@@ -17,6 +17,5 @@ final class PostCommentsResponse extends BaseResponse
     public function __construct(array $data)
     {
         $this->comment = new CommentType($data);
-        return $this;
     }
 }

@@ -13,6 +13,5 @@ final class FilesResponse extends BaseResponse
     public function __construct(array $data)
     {
         $this->file = new FileType($data);
-        return $this;
     }
 }
