@@ -16,10 +16,7 @@ use Psr\Log\LoggerInterface;
 
 final class HttpClient
 {
-    private string $apiKey      = '';
-    private string $bearerToken = '';
-    private string $clientId;
-    private string $clientSecret;
+    private string $apiKey  = '';
     private string $baseUrl = 'https://api.figma.com/v1/';
     private array $header   = [];
     private ?LoggerInterface $logger;
@@ -29,7 +26,7 @@ final class HttpClient
         'base_uri' => 'https://api.figma.com/v1/',
         'headers' => [
             'Content-Type' => 'application/json',
-            'User-Agent' => 'PHP Library for Figma'
+            'User-Agent' => 'PHP Library for Figma Rest API'
         ],
         'http_errors' => false,
         'verify' => false,
@@ -54,18 +51,6 @@ final class HttpClient
     public function getApiKey(): string
     {
         return $this->apiKey;
-    }
-    public function setBearerToken(string $bearerToken): HttpClient
-    {
-        if ($bearerToken !== $this->getBearerToken()) {
-            $this->addHeader(['Authorization' => 'Bearer ' . $bearerToken]);
-            $this->bearerToken = $bearerToken;
-        }
-        return $this;
-    }
-    public function getBearerToken(): string
-    {
-        return $this->bearerToken;
     }
     public function setBaseUrl(string $baseUrl): HttpClient
     {
@@ -115,10 +100,11 @@ final class HttpClient
     {
         $url = $endpoint . Helper::toHttpQuery($queryParams);
         $this->log('info', 'GET request', [$url]);
-        $key = md5($url);
-        if (null !== $this->fetchFromCache($key)) {
+        $key   = md5($url);
+        $cache = $this->fetchFromCache($key);
+        if (null !== $cache) {
             $this->log('info', 'GET request data returned from cache', [$key]);
-            return $this->fetchFromCache($key);
+            return $cache;
         }
 
         $data = $this->request('get', $endpoint, $queryParams);
@@ -127,15 +113,15 @@ final class HttpClient
 
         return $data;
     }
-    private function request(string $method, string $endpoint, array $queryParams = [], $body = null): mixed
+    private function request(string $method, string $endpoint, array $queryParams = [], $body = null): string|array
     {
         try {
             if (empty($this->getBaseUrl())) {
                 throw new Exception('Base URL must be set');
             }
 
-            if (empty($this->getApiKey()) && empty($this->getBearerToken())) {
-                throw new Exception('API key or Bearer token must be set');
+            if (empty($this->getApiKey())) {
+                throw new Exception('API key must be set');
             }
 
             if (in_array($method, ['post', 'put']) && empty($body)) {
