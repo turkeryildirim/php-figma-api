@@ -58,7 +58,7 @@ class VectorNodeType extends AbstractType
     use EffectsTrait;
     use FillsTrait;
 
-    public readonly int|float $layoutGrow;
+    public readonly int|float|null $layoutGrow;
     /**
      * @var PathType[]|null
      */
@@ -83,8 +83,10 @@ class VectorNodeType extends AbstractType
         $this->layoutGrow       = Helper::makeInteger($data['layoutGrow'], 0);
         $this->strokeMiterAngle = $data['strokeMiterAngle'] ?? null;
 
-        $this->individualStrokeWeights = !empty($data['individualStrokeWeights']) ?
-            new StrokeWeightsType($data['individualStrokeWeights']) : null;
+        $this->individualStrokeWeights = Helper::makeObject(
+            $data['individualStrokeWeights'],
+            StrokeWeightsType::class
+        );
 
         $this->fillGeometry = Helper::makeArrayOfObjects($data['fillGeometry'], PathType::class);
 

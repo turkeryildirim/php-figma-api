@@ -3,9 +3,7 @@
     <description>The coding standard for PHP library for Figma API.</description>
 
     <file>./src</file>
-
-    <exclude-pattern>*/tests/*</exclude-pattern>
-    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <file>./tests</file>
 
     <arg name="extensions" value="php" />
     <arg name="basepath" value="."/>

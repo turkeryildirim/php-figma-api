@@ -14,7 +14,8 @@ abstract class AbstractType
     {
         $rc           = new ReflectionClass($this);
         $traits       = $rc->getTraits();
-        $parentTraits = $rc->getParentClass()->getTraits();
+        $parentClass  = $rc->getParentClass();
+        $parentTraits = (false !== $parentClass) ? $parentClass->getTraits() : [];
         $allTraits    = array_merge($traits, $parentTraits);
         if (empty($allTraits)) {
             return;

@@ -11,11 +11,11 @@ use Turker\FigmaAPI\Util\Helper;
 
 class TriggerType extends AbstractType
 {
-    public readonly TriggerTypeEnum $type;
+    public readonly ?string $type;
     public readonly int|float|null $timeout;
     public readonly int|float|null $delay;
-    public readonly bool $deprecatedVersion;
-    public readonly ?DeviceTypeEnum $device;
+    public readonly ?bool $deprecatedVersion;
+    public readonly ?string $device;
     /**
      * @var int[]|float[]|null
      */
@@ -24,13 +24,12 @@ class TriggerType extends AbstractType
 
     public function __construct(array $data)
     {
-        $this->type              = TriggerTypeEnum::tryFrom($data['type']);
+        $this->type              = Helper::makeFromEnum($data['type'], TriggerTypeEnum::class);
+        $this->device            = Helper::makeFromEnum($data['device'], DeviceTypeEnum::class);
         $this->timeout           = Helper::makeInteger($data['timeout']);
         $this->delay             = Helper::makeInteger($data['delay']);
         $this->deprecatedVersion = Helper::makeBoolean($data['deprecatedVersion'], false);
         $this->mediaHitTime      = Helper::makeInteger($data['mediaHitTime']);
-        $this->device            = ( !empty($data['device']) && DeviceTypeEnum::hasValue($data['device']) )
-            ? DeviceTypeEnum::tryFrom($data['device']) : null;
         $this->keyCodes          = $data['keyCodes'] ?? null;
     }
 }

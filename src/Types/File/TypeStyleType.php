@@ -24,35 +24,35 @@ class TypeStyleType extends AbstractType
     use BoundVariablesTrait;
     use FillsTrait;
 
-    public readonly string $fontFamily;
+    public readonly ?string $fontFamily;
     public readonly ?string $fontPostScriptName;
     public readonly ?string $fontStyle;
-    public readonly int|float $paragraphSpacing;
-    public readonly int|float $paragraphIndent;
-    public readonly int|float $listSpacing;
-    public readonly bool $italic;
-    public readonly int|float $fontWeight;
-    public readonly int|float $fontSize;
-    public readonly TextCaseEnum $textCase;
-    public readonly TextDecorationEnum $textDecoration;
-    public readonly TextAutoResizeEnum $textAutoResize;
-    public readonly TextTruncationEnum $textTruncation;
+    public readonly int|float|null $paragraphSpacing;
+    public readonly int|float|null $paragraphIndent;
+    public readonly int|float|null $listSpacing;
+    public readonly ?bool $italic;
+    public readonly int|float|null $fontWeight;
+    public readonly int|float|null $fontSize;
+    public readonly ?string $textCase;
+    public readonly ?string $textDecoration;
+    public readonly ?string $textAutoResize;
+    public readonly ?string $textTruncation;
     public readonly int|float|null $maxLines;
-    public readonly ?TextAlignHorizontalEnum $textAlignHorizontal;
-    public readonly ?TextAlignVerticalEnum $textAlignVertical;
+    public readonly ?string $textAlignHorizontal;
+    public readonly ?string $textAlignVertical;
     public readonly int|float|null $letterSpacing;
-    public readonly ?HyperlinkTypeEnum $hyperlink;
+    public readonly ?string $hyperlink;
     /**
      * @var int[]|null
      */
     public readonly ?array $opentypeFlags;
-    public readonly int|float $lineHeightPx;
-    public readonly int|float $lineHeightPercent;
+    public readonly int|float|null $lineHeightPx;
+    public readonly int|float|null $lineHeightPercent;
     public readonly int|float|null $lineHeightPercentFontSize;
-    public readonly ?LineHeightUnitEnum $lineHeightUnit;
-    public readonly bool $isOverrideOverTextStyle;
-    public readonly ?SemanticWeightEnum $semanticWeight;
-    public readonly ?SemanticItalicEnum $semanticItalic;
+    public readonly ?string $lineHeightUnit;
+    public readonly ?bool $isOverrideOverTextStyle;
+    public readonly ?string $semanticWeight;
+    public readonly ?string $semanticItalic;
 
 
     public function __construct(array $data)
@@ -74,35 +74,60 @@ class TypeStyleType extends AbstractType
         $this->lineHeightPercentFontSize = Helper::makeInteger($data['lineHeightPercentFontSize']);
         $this->isOverrideOverTextStyle   = Helper::makeBoolean($data['isOverrideOverTextStyle'], false);
 
-        $this->textCase = ( !empty($data['textCase']) && TextCaseEnum::hasValue($data['textCase']) )
-            ? TextCaseEnum::tryFrom($data['textCase']) : TextCaseEnum::ORIGINAL;
 
-        $this->textDecoration = ( !empty($data['textDecoration']) && TextDecorationEnum::hasValue($data['textDecoration']) )
-            ? TextDecorationEnum::tryFrom($data['textDecoration']) : TextDecorationEnum::NONE;
+        $this->textCase = Helper::makeFromEnum(
+            $data['textCase'] ?? null,
+            TextCaseEnum::class,
+            TextCaseEnum::ORIGINAL->value,
+        );
 
-        $this->textAutoResize = ( !empty($data['textAutoResize']) && TextAutoResizeEnum::hasValue($data['textAutoResize']) )
-            ? TextAutoResizeEnum::tryFrom($data['textAutoResize']) : TextAutoResizeEnum::NONE;
+        $this->textDecoration = Helper::makeFromEnum(
+            $data['textDecoration'],
+            TextDecorationEnum::class,
+            TextDecorationEnum::NONE->value
+        );
 
-        $this->textTruncation = ( !empty($data['textTruncation']) && TextTruncationEnum::hasValue($data['textTruncation']) )
-            ? TextTruncationEnum::tryFrom($data['textTruncation']) : TextTruncationEnum::DISABLED;
+        $this->textAutoResize = Helper::makeFromEnum(
+            $data['textAutoResize'],
+            TextAutoResizeEnum::class,
+            TextAutoResizeEnum::NONE->value
+        );
 
-        $this->textAlignHorizontal = ( !empty($data['textAlignHorizontal']) && TextAlignHorizontalEnum::hasValue($data['textAlignHorizontal']) )
-            ? TextAlignHorizontalEnum::tryFrom($data['textAlignHorizontal']) : null;
+        $this->textTruncation = Helper::makeFromEnum(
+            $data['textTruncation'],
+            TextTruncationEnum::class,
+            TextTruncationEnum::DISABLED->value
+        );
 
-        $this->textAlignVertical = ( !empty($data['textAlignVertical']) && TextAlignVerticalEnum::hasValue($data['textAlignVertical']) )
-            ? TextAlignVerticalEnum::tryFrom($data['textAlignVertical']) : null;
+        $this->textAlignHorizontal = Helper::makeFromEnum(
+            $data['textAlignHorizontal'],
+            TextAlignHorizontalEnum::class
+        );
 
-        $this->hyperlink = ( !empty($data['hyperlink']) && HyperlinkTypeEnum::hasValue($data['hyperlink']) )
-            ? HyperlinkTypeEnum::tryFrom($data['hyperlink']) : null;
+        $this->textAlignVertical = Helper::makeFromEnum(
+            $data['textAlignVertical'],
+            TextAlignVerticalEnum::class
+        );
 
-        $this->lineHeightUnit = ( !empty($data['lineHeightUnit']) && LineHeightUnitEnum::hasValue($data['lineHeightUnit']) )
-            ? LineHeightUnitEnum::tryFrom($data['lineHeightUnit']) : null;
+        $this->hyperlink = Helper::makeFromEnum(
+            $data['hyperlink'],
+            HyperlinkTypeEnum::class
+        );
 
-        $this->semanticWeight = ( !empty($data['semanticWeight']) && SemanticWeightEnum::hasValue($data['semanticWeight']) )
-            ? SemanticWeightEnum::tryFrom($data['semanticWeight']) : null;
+        $this->lineHeightUnit = Helper::makeFromEnum(
+            $data['lineHeightUnit'],
+            LineHeightUnitEnum::class
+        );
 
-        $this->semanticItalic = ( !empty($data['semanticItalic']) && SemanticItalicEnum::hasValue($data['semanticItalic']) )
-            ? SemanticItalicEnum::tryFrom($data['semanticItalic']) : null;
+        $this->semanticWeight = Helper::makeFromEnum(
+            $data['semanticWeight'],
+            SemanticWeightEnum::class
+        );
+
+        $this->semanticItalic = Helper::makeFromEnum(
+            $data['semanticItalic'],
+            SemanticItalicEnum::class
+        );
 
         $opentypeFlags = null;
         if (!empty($data['opentypeFlags']) && is_array($data['opentypeFlags'])) {

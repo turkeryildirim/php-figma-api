@@ -29,6 +29,7 @@ use Turker\FigmaAPI\Traits\StrokesTrait;
 use Turker\FigmaAPI\Traits\StrokeWeightTrait;
 use Turker\FigmaAPI\Traits\StylesTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class ConnectorNodeType extends AbstractType
 {
@@ -55,31 +56,47 @@ class ConnectorNodeType extends AbstractType
     use RelativeTransformTrait;
     use StylesTrait;
 
-    public readonly ConnectorEndpointType $connectorStart;
-    public readonly ConnectorEndpointType $connectorEnd;
-    public readonly ConnectorStrokeCapEnum $connectorStartStrokeCap;
-    public readonly ConnectorStrokeCapEnum $connectorEndStrokeCap;
-    public readonly ?ConnectorLineTypeEnum $connectorLineType;
+    public readonly ?ConnectorEndpointType $connectorStart;
+    public readonly ?ConnectorEndpointType $connectorEnd;
+    public readonly ?string $connectorStartStrokeCap;
+    public readonly ?string $connectorEndStrokeCap;
+    public readonly ?string $connectorLineType;
     public readonly ?ConnectorTextBackgroundType $textBackground;
 
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
 
-        $this->connectorStartStrokeCap = ( !empty($data['connectorStartStrokeCap']) && ConnectorStrokeCapEnum::hasValue($data['connectorStartStrokeCap']) )
-            ? ConnectorStrokeCapEnum::tryFrom($data['connectorStartStrokeCap']) : ConnectorStrokeCapEnum::from('NONE');
+        $this->connectorStartStrokeCap = Helper::makeFromEnum(
+            $data['connectorStartStrokeCap'],
+            ConnectorStrokeCapEnum::class,
+            ConnectorStrokeCapEnum::NONE->value
+        );
 
-        $this->connectorEndStrokeCap = ( !empty($data['connectorEndStrokeCap']) && ConnectorStrokeCapEnum::hasValue($data['connectorEndStrokeCap']) )
-            ? ConnectorStrokeCapEnum::tryFrom($data['connectorEndStrokeCap']) : ConnectorStrokeCapEnum::from('NONE');
+        $this->connectorEndStrokeCap = Helper::makeFromEnum(
+            $data['connectorEndStrokeCap'],
+            ConnectorStrokeCapEnum::class,
+            ConnectorStrokeCapEnum::NONE->value
+        );
 
-        $this->connectorLineType = (!empty($data['connectorLineType'])) ?
-            ConnectorLineTypeEnum::tryFrom($data['connectorLineType']) : null;
+        $this->connectorLineType = Helper::makeFromEnum(
+            $data['connectorLineType'],
+            ConnectorLineTypeEnum::class
+        );
 
-        $this->connectorStart = new ConnectorEndpointType($data['connectorStart']);
+        $this->connectorStart = Helper::makeObject(
+            $data['connectorStart'],
+            ConnectorEndpointType::class
+        );
 
-        $this->connectorEnd = new ConnectorEndpointType($data['connectorEnd']);
+        $this->connectorEnd = Helper::makeObject(
+            $data['connectorEnd'],
+            ConnectorEndpointType::class
+        );
 
-        $this->textBackground = !empty($data['textBackground']) ?
-            new ConnectorTextBackgroundType($data['textBackground']) : null;
+        $this->textBackground = Helper::makeObject(
+            $data['textBackground'],
+            ConnectorTextBackgroundType::class
+        );
     }
 }

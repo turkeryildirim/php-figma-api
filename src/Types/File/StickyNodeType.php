@@ -30,7 +30,7 @@ class StickyNodeType extends AbstractType
     use OpacityTrait;
     use RelativeTransformTrait;
 
-    public readonly bool $authorVisible;
+    public readonly ?bool $authorVisible;
 
     public function __construct(array $data)
     {

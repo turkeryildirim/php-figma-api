@@ -28,6 +28,7 @@ use Turker\FigmaAPI\Traits\StrokesTrait;
 use Turker\FigmaAPI\Traits\StrokeWeightTrait;
 use Turker\FigmaAPI\Traits\StylesTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class ShapeNodeType extends AbstractType
 {
@@ -54,13 +55,11 @@ class ShapeNodeType extends AbstractType
     use RelativeTransformTrait;
     use StylesTrait;
 
-    public readonly ?ShapeTypeEnum $shapeType;
+    public readonly ?string $shapeType;
 
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-
-        $this->shapeType = ( !empty($data['shapeType']) && ShapeTypeEnum::hasValue($data['shapeType']) )
-            ? ShapeTypeEnum::tryFrom($data['shapeType']) : null;
+        $this->shapeType = Helper::makeFromEnum($data['shapeType'], ShapeTypeEnum::class);
     }
 }

@@ -8,7 +8,7 @@ use Turker\FigmaAPI\Util\Helper;
 
 trait OpacityTrait
 {
-    public readonly int|float $opacity;
+    public readonly int|float|null $opacity;
     final protected function __opacity(array $data): void
     {
         $this->opacity = Helper::makeInteger($data['opacity'], 1);

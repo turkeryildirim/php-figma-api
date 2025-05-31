@@ -11,13 +11,12 @@ use Turker\FigmaAPI\Util\Helper;
 
 final class FileComponentsResponse extends BaseResponse
 {
-    public readonly int|float $status;
-    public readonly bool $error;
+    public readonly int|float|null $status;
+    public readonly ?bool $error;
     public readonly ?array $meta;
 
     public function __construct(array $data)
     {
-
         $this->status = Helper::makeInteger($data['status']);
         $this->error  = Helper::makeBoolean($data['error']);
 
@@ -31,6 +30,5 @@ final class FileComponentsResponse extends BaseResponse
         }
 
         $this->meta = $meta;
-        return $this;
     }
 }

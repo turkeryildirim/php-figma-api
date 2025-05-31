@@ -9,10 +9,10 @@ use Turker\FigmaAPI\Util\Helper;
 
 class StrokeWeightsType extends AbstractType
 {
-    public readonly int|float $top;
-    public readonly int|float $right;
-    public readonly int|float $bottom;
-    public readonly int|float $left;
+    public readonly int|float|null $top;
+    public readonly int|float|null $right;
+    public readonly int|float|null $bottom;
+    public readonly int|float|null $left;
 
     public function __construct(array $data)
     {

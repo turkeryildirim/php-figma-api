@@ -9,7 +9,7 @@ use Turker\FigmaAPI\Util\Helper;
 class InstanceNodeType extends FrameNodeType
 {
     public readonly string $componentId;
-    public readonly bool $isExposedInstance;
+    public readonly ?bool $isExposedInstance;
     /**
      * @var string[]|null
      */

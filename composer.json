@@ -1,59 +1,56 @@
 {
-  "name": "turkeryildirim/figma-api",
-  "type": "library",
-  "description": "PHP library for Figma API",
-  "keywords": [
-    "php",
-    "figma",
-    "api",
-    "library",
-    "rest"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Türker Yıldırım",
-      "email": "me@turkeryildirim.com",
-      "homepage": "https://turkeryildirim.com/"
+    "name": "turkeryildirim/figma-api",
+    "type": "library",
+    "description": "PHP library for Figma API",
+    "keywords": [
+        "php",
+        "figma",
+        "api",
+        "library",
+        "rest"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Türker Yıldırım",
+            "email": "me@turkeryildirim.com",
+            "homepage": "https://turkeryildirim.com/"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.1",
+        "ext-curl": ">=7.60.0",
+        "guzzlehttp/guzzle": "^7.9",
+        "monolog/monolog": "^3.8",
+        "psr/simple-cache": "^3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.52",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^10.5",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Turker\\FigmaAPI\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Turker\\FigmaAPI\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "lint": "vendor/bin/phpcs",
+        "lint-fix": "vendor/bin/phpcbf",
+        "analyse": "vendor/bin/phpstan"
     }
-  ],
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
-  "minimum-stability": "stable",
-  "prefer-stable": true,
-  "require": {
-    "php": ">=8.1",
-    "ext-curl": ">=7.60.0",
-    "guzzlehttp/guzzle": "^7.9",
-    "monolog/monolog": "^3.8",
-    "psr/simple-cache": "^3.0"
-  },
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.52",
-    "phpunit/phpunit": "^10.5",
-    "squizlabs/php_codesniffer": "*"
-  },
-  "autoload": {
-    "psr-4": {
-      "Turker\\FigmaAPI\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Turker\\FigmaAPI\\Test\\": "test/"
-    }
-  },
-  "scripts": {
-    "test": "vendor/bin/phpunit"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Turker\\FigmaAPI\\LaravelServiceProvider"
-      ]
-    }
-  }
 }

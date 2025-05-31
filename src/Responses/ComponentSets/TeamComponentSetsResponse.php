@@ -11,8 +11,8 @@ use Turker\FigmaAPI\Util\Helper;
 
 final class TeamComponentSetsResponse extends BaseResponse
 {
-    public readonly int|float $status;
-    public readonly bool $error;
+    public readonly int|float|null $status;
+    public readonly ?bool $error;
     /**
      * @var array{cursor: CursorType, componentSets: ComponentSetType[]}|null $meta
      */
@@ -33,6 +33,5 @@ final class TeamComponentSetsResponse extends BaseResponse
         }
 
         $this->meta = $meta;
-        return $this;
     }
 }

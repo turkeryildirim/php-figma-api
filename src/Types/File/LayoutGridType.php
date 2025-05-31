@@ -16,12 +16,12 @@ class LayoutGridType extends AbstractType
     use ColorTrait;
     use BoundVariablesTrait;
 
-    public readonly LayoutGridPatternEnum $pattern;
-    public readonly int|float $sectionSize;
-    public readonly LayoutGridAlignmentEnum $alignment;
-    public readonly int|float $gutterSize;
-    public readonly int|float $offset;
-    public readonly int|float $count;
+    public readonly ?string $pattern;
+    public readonly int|float|null $sectionSize;
+    public readonly ?string $alignment;
+    public readonly int|float|null $gutterSize;
+    public readonly int|float|null $offset;
+    public readonly int|float|null $count;
 
     public function __construct(array $data)
     {
@@ -31,7 +31,7 @@ class LayoutGridType extends AbstractType
         $this->offset      = Helper::makeInteger($data['offset']);
         $this->gutterSize  = Helper::makeInteger($data['gutterSize']);
         $this->sectionSize = Helper::makeInteger($data['sectionSize']);
-        $this->pattern     = LayoutGridPatternEnum::tryFrom($data['pattern']);
-        $this->alignment   = LayoutGridAlignmentEnum::tryFrom($data['alignment']);
+        $this->pattern     = Helper::makeFromEnum($data['pattern'], LayoutGridPatternEnum::class);
+        $this->alignment   = Helper::makeFromEnum($data['alignment'], LayoutGridAlignmentEnum::class);
     }
 }

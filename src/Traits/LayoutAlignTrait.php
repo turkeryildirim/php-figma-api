@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Traits;
 
 use Turker\FigmaAPI\Enums\File\LayoutAlignEnum;
+use Turker\FigmaAPI\Util\Helper;
 
 trait LayoutAlignTrait
 {
-    public readonly ?LayoutAlignEnum $layoutAlign;
+    public readonly ?string $layoutAlign;
     final protected function __layoutAlign(array $data): void
     {
-        $this->layoutAlign = ( !empty($data['layoutAlign']) && LayoutAlignEnum::hasValue($data['layoutAlign']) )
-            ? LayoutAlignEnum::tryFrom($data['layoutAlign']) : null;
+        $this->layoutAlign = Helper::makeFromEnum($data['layoutAlign'], LayoutAlignEnum::class);
     }
 }

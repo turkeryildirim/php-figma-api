@@ -6,6 +6,7 @@ namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Traits\IdTrait;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class MeasurementType extends AbstractType
 {
@@ -19,8 +20,15 @@ class MeasurementType extends AbstractType
     {
         $this->runTraitMethods($data);
         $this->freeText = $data['freeText'] ?? null;
-        $this->start    = (!empty($data['start'])) ? new MeasurementStartEndType($data['start']) : null;
-        $this->offset   = array_key_exists('fixed', $data['offset']) ?
-            new MeasurementOffsetOuterType($data['offset']) : new MeasurementOffsetInnerType($data['offset']);
+
+        $this->start = Helper::makeObject(
+            $data['start'],
+            MeasurementStartEndType::class
+        );
+
+        $class = array_key_exists('fixed', $data['offset']) ?
+            MeasurementOffsetOuterType::class : MeasurementOffsetInnerType::class;
+
+        $this->offset = Helper::makeObject($data['offset'], $class);
     }
 }

@@ -10,8 +10,8 @@ use Turker\FigmaAPI\Util\Helper;
 
 final class FileComponentSetsResponse extends BaseResponse
 {
-    public readonly int|float $status;
-    public readonly bool $error;
+    public readonly int|float|null $status;
+    public readonly ?bool $error;
     /**
      * @var array{componentSets: ComponentSetType[]}|null $meta
      */
@@ -28,6 +28,5 @@ final class FileComponentSetsResponse extends BaseResponse
         }
 
         $this->meta = $meta;
-        return $this;
     }
 }

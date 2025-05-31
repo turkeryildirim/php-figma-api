@@ -23,7 +23,7 @@ class PaintType extends AbstractType
     use OpacityTrait;
     use BoundVariablesTrait;
 
-    public readonly PaintTypeEnum $type;
+    public readonly ?string $type;
      /**
      * @var VectorType[]|null
      */
@@ -32,7 +32,7 @@ class PaintType extends AbstractType
      * @var ColorStopType[]|null
      */
     public readonly ?array $gradientStops;
-    public readonly ?PaintSolidScaleModeEnum $scaleMode;
+    public readonly ?string $scaleMode;
     public readonly ?array $imageTransform;
     public readonly int|float|null $scalingFactor;
     public readonly int|float|null $rotation;
@@ -47,14 +47,13 @@ class PaintType extends AbstractType
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
-        $this->type = PaintTypeEnum::from($data['type']);
+        $this->type = Helper::makeFromEnum($data['type'], PaintTypeEnum::class);
 
         $this->gradientHandlePositions = Helper::makeArrayOfObjects($data['gradientHandlePositions'], VectorType::class);
 
         $this->gradientStops = Helper::makeArrayOfObjects($data['gradientStops'], ColorStopType::class);
 
-        $this->scaleMode = ( !empty($data['scaleMode']) && PaintSolidScaleModeEnum::hasValue($data['scaleMode']) )
-            ? PaintSolidScaleModeEnum::tryFrom($data['scaleMode']) : null;
+        $this->scaleMode = Helper::makeFromEnum($data['scaleMode'], PaintSolidScaleModeEnum::class);
 
         $this->imageTransform = !empty($data['imageTransform']) ?
             Helper::toArrayMatrix($data['imageTransform']) : null;

@@ -1,0 +1,13 @@
+parameters:
+	level: 8
+	paths:
+		- src
+	ignoreErrors:
+		-
+			identifier: property.uninitializedReadonly
+		-
+			identifier: property.readOnlyAssignNotInConstructor
+		-
+			identifier: missingType.iterableValue
+		-
+			identifier: match.unhandled

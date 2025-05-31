@@ -14,7 +14,7 @@ class ColorStopType extends AbstractType
     use ColorTrait;
     use BoundVariablesTrait;
 
-    public readonly int|float $position;
+    public readonly int|float|null $position;
 
     public function __construct(array $data)
     {

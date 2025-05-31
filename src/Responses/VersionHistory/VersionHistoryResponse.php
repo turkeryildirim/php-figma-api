@@ -27,7 +27,5 @@ final class VersionHistoryResponse extends BaseResponse
             $pagination = new PaginationType($data['pagination']);
         }
         $this->pagination = $pagination;
-
-        return $this;
     }
 }

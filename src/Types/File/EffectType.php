@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Turker\FigmaAPI\Types\File;
 
-use Turker\FigmaAPI\Enums\File\BlendModeEnum;
 use Turker\FigmaAPI\Enums\File\EffectTypeEnum;
 use Turker\FigmaAPI\Traits\BlendModeTrait;
 use Turker\FigmaAPI\Traits\BoundVariablesTrait;
@@ -21,21 +20,21 @@ class EffectType extends AbstractType
     use BlendModeTrait;
     use BoundVariablesTrait;
 
-    public readonly EffectTypeEnum $type;
-    public readonly int|float $radius;
-    public readonly bool $showShadowBehindNode;
-    public readonly ?BlendModeEnum $blendMode;
+    public readonly ?string $type;
+    public readonly int|float|null $radius;
+    public readonly ?bool $showShadowBehindNode;
+    public readonly ?string $blendMode;
     public readonly ?VectorType $offset;
-    public readonly int|float $spread;
+    public readonly int|float|null $spread;
 
     public function __construct(array $data)
     {
         $this->runTraitMethods($data);
 
-        $this->type                 = EffectTypeEnum::from($data['type']);
+        $this->type                 = Helper::makeFromEnum($data['type'], EffectTypeEnum::class);
         $this->radius               = Helper::makeInteger($data['radius']);
         $this->showShadowBehindNode = Helper::makeBoolean($data['showShadowBehindNode'], false);
-        $this->offset               = !empty($data['offset']) ? new VectorType($data['offset']) : null;
+        $this->offset               = Helper::makeObject($data['offset'], VectorType::class);
         $this->spread               = Helper::makeInteger($data['spread'], 0);
     }
 }

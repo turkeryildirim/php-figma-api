@@ -10,8 +10,8 @@ use Turker\FigmaAPI\Util\Helper;
 
 final class StyleResponse extends BaseResponse
 {
-    public readonly int|float $status;
-    public readonly bool $error;
+    public readonly int|float|null $status;
+    public readonly ?bool $error;
     public readonly ?StyleType $meta;
 
     public function __construct(array $data)
@@ -24,6 +24,5 @@ final class StyleResponse extends BaseResponse
             $meta = new StyleType($data['meta']);
         }
         $this->meta = $meta;
-        return $this;
     }
 }

@@ -12,22 +12,21 @@ class TextNodeType extends VectorNodeType
 {
     use CharactersTrait;
 
-    public readonly TypeStyleType $style;
+    public readonly ?TypeStyleType $style;
     public readonly ?array $characterStyleOverrides;
     public readonly ?array $styleOverrideTable;
-    public readonly ?LineTypesEnum $lineTypes;
+    public readonly ?string $lineTypes;
     public readonly ?array $lineIndentations;
     public function __construct(array $data)
     {
         parent::__construct($data);
 
-        $this->style                   = new TypeStyleType($data['style']);
+        $this->style                   = Helper::makeObject($data['style'], TypeStyleType::class);
         $this->characterStyleOverrides = $data['characterStyleOverrides'] ?? null;
         $this->lineIndentations        = $data['lineIndentations'] ?? null;
 
         $this->styleOverrideTable = Helper::makeArrayOfObjects($data['styleOverrideTable'], TypeStyleType::class, true);
 
-        $this->lineTypes = ( !empty($data['lineTypes']) && LineTypesEnum::hasValue($data['lineTypes']) )
-            ? LineTypesEnum::tryFrom($data['lineTypes']) : null;
+        $this->lineTypes = Helper::makeFromEnum($data['lineTypes'], LineTypesEnum::class);
     }
 }

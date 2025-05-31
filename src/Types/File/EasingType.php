@@ -6,21 +6,26 @@ namespace Turker\FigmaAPI\Types\File;
 
 use Turker\FigmaAPI\Enums\File\EasingTypeEnum;
 use Turker\FigmaAPI\Types\AbstractType;
+use Turker\FigmaAPI\Util\Helper;
 
 class EasingType extends AbstractType
 {
-    public readonly EasingTypeEnum $type;
+    public readonly ?string $type;
     public readonly ?EasingFunctionCubicBezierType $easingFunctionCubicBezier;
     public readonly ?EasingFunctionSpringType $easingFunctionSpring;
 
     public function __construct(array $data)
     {
-        $this->type = EasingTypeEnum::tryFrom($data['type']);
+        $this->type = Helper::makeFromEnum($data['type'], EasingTypeEnum::class);
 
-        $this->easingFunctionCubicBezier = (!empty($data['easingFunctionCubicBezier'])) ?
-            new EasingFunctionCubicBezierType($data['easingFunctionCubicBezier']) : null;
+        $this->easingFunctionCubicBezier = Helper::makeObject(
+            $data['easingFunctionCubicBezier'],
+            EasingFunctionCubicBezierType::class
+        );
 
-        $this->easingFunctionSpring = (!empty($data['easingFunctionSpring'])) ?
-            new EasingFunctionSpringType($data['easingFunctionSpring']) : null;
+        $this->easingFunctionSpring = Helper::makeObject(
+            $data['easingFunctionSpring'],
+            EasingFunctionSpringType::class
+        );
     }
 }

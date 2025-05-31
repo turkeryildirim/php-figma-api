@@ -28,7 +28,7 @@ class SectionNodeType extends AbstractType
     use AbsoluteRenderBoundsTrait;
     use AbsoluteBoundingBoxTrait;
 
-    public readonly bool $sectionContentsHidden;
+    public readonly ?bool $sectionContentsHidden;
     public readonly ?array $children;
 
     public function __construct(array $data)

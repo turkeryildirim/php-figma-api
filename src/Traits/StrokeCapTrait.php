@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Turker\FigmaAPI\Traits;
 
 use Turker\FigmaAPI\Enums\File\StrokeCapEnum;
+use Turker\FigmaAPI\Util\Helper;
 
 trait StrokeCapTrait
 {
-    public readonly ?StrokeCapEnum $strokeCap;
+    public readonly ?string $strokeCap;
     final protected function __strokeCap(array $data): void
     {
-        $this->strokeCap = ( !empty($data['strokeCap']) && StrokeCapEnum::hasValue($data['strokeCap']) )
-            ? StrokeCapEnum::tryFrom($data['strokeCap']) : null;
+        $this->strokeCap = Helper::makeFromEnum($data['strokeCap'], StrokeCapEnum::class);
     }
 }

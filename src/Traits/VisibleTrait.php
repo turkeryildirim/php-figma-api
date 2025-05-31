@@ -8,7 +8,7 @@ use Turker\FigmaAPI\Util\Helper;
 
 trait VisibleTrait
 {
-    public readonly bool $visible;
+    public readonly ?bool $visible;
     final protected function __visible(array $data): void
     {
         $this->visible = Helper::makeBoolean($data['visible'], true);

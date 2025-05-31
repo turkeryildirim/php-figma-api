@@ -8,6 +8,7 @@ use Turker\FigmaAPI\Traits\NameTrait;
 use Turker\FigmaAPI\Traits\ThumbnailUrlTrait;
 use Turker\FigmaAPI\Types\AbstractType;
 use Turker\FigmaAPI\Types\User\UserType;
+use Turker\FigmaAPI\Util\Helper;
 
 class FileMetaType extends AbstractType
 {
@@ -33,7 +34,7 @@ class FileMetaType extends AbstractType
         $this->version       = $data['version'] ?? null;
         $this->linkAccess    = $data['link_access'] ?? null;
         $this->url           = $data['url'] ?? null;
-        $this->creator       = !empty($data['creator']) ? new UserType($data['creator']) : null;
-        $this->lastTouchedBy = !empty($data['last_touched_by']) ? new UserType($data['last_touched_by']) : null;
+        $this->creator       = Helper::makeObject($data['creator'], UserType::class);
+        $this->lastTouchedBy = Helper::makeObject($data['last_touched_by'], UserType::class);
     }
 }

@@ -54,7 +54,7 @@ final class Logger implements LoggerInterface
     {
         $this->logger->emergency($message, $context);
     }
-    public function log($level, string|Stringable $message, array $context = []): void
+    public function log(mixed $level, string|Stringable $message, array $context = []): void
     {
         $this->logger->log($level, $message, $context);
     }
