@@ -44,10 +44,13 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Turker\\FigmaAPI\\Test\\": "test/"
+            "Turker\\FigmaAPI\\Tests\\": "tests/"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit",
+        "lint": "vendor/bin/phpcs",
+        "lint-fix": "vendor/bin/phpcbf",
+        "analyse": "vendor/bin/phpstan"
     }
 }

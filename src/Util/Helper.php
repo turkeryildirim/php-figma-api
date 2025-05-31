@@ -70,17 +70,17 @@ final class Helper
 
         return array_chunk($identityMatrixString, 3);
     }
-    public static function makeInteger(mixed $value, mixed $default = null): int|float|null
+    public static function makeInteger(mixed $value, int|float|null $default = null): int|float|null
     {
         if (is_numeric($value)) {
-            return floatval($value);
+            return is_int($value) ? $value : floatval($value);
         }
         return $default;
     }
-    public static function makeBoolean(mixed $value, mixed $default = null): ?bool
+    public static function makeBoolean(mixed $value, bool|null $default = null): ?bool
     {
         if (is_bool($value)) {
-            return boolval($value);
+            return $value;
         }
         if (is_string($value)) {
             $value = trim($value);
@@ -102,13 +102,18 @@ final class Helper
         $array = [];
         foreach ($data as $key => $sub) {
             if (!$preserveKeys) {
-                $array[] = new $class($sub);
+                $array[] = self::makeObject($sub, $class);
             } else {
-                $array[$key] = new $class($sub);
+                $array[$key] = self::makeObject($sub, $class);
             }
         }
 
-        return $array;
+        foreach ($array as $var) {
+            if (!empty($var) || is_int($var) || is_float($var)) {
+                return $array;
+            }
+        }
+        return null;
     }
     public static function makeObject(mixed $data, string $class): mixed
     {
@@ -119,7 +124,7 @@ final class Helper
         $build     = new $class($data);
         $classVars = get_object_vars($build);
         foreach ($classVars as $var) {
-            if (!empty($var)) {
+            if (!empty($var) || is_int($var) || is_float($var)) {
                 return $build;
             }
         }
@@ -127,10 +132,7 @@ final class Helper
     }
     public static function makeFromEnum(?string $data, string $class, ?string $default = null): ?string
     {
-        if (empty($data) || empty($class) || !enum_exists($class)) {
-            return null;
-        }
-        if (! $class::hasValue($data)) {
+        if (empty($data) || empty($class) || !enum_exists($class) || ! $class::hasValue($data)) {
             return $default;
         }
         $value = $class::tryFrom($data);

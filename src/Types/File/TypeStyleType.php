@@ -76,9 +76,9 @@ class TypeStyleType extends AbstractType
 
 
         $this->textCase = Helper::makeFromEnum(
-            $data['textCase'],
+            $data['textCase'] ?? null,
             TextCaseEnum::class,
-            TextCaseEnum::ORIGINAL->value
+            TextCaseEnum::ORIGINAL->value,
         );
 
         $this->textDecoration = Helper::makeFromEnum(
