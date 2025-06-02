@@ -42,11 +42,8 @@ final class HttpClient
     }
     public function setApiKey(string $apiKey): HttpClient
     {
-        if ($apiKey !== $this->getApiKey()) {
-            $this->addHeader(['X-Figma-Token' => $apiKey]);
-            $this->apiKey = $apiKey;
-        }
-
+        $this->addHeader(['X-Figma-Token' => $apiKey]);
+        $this->apiKey = $apiKey;
         return $this;
     }
     public function getApiKey(): string
@@ -55,9 +52,7 @@ final class HttpClient
     }
     public function setBaseUrl(string $baseUrl): HttpClient
     {
-        if ($baseUrl !== $this->getBaseUrl()) {
-            $this->baseUrl = rtrim($baseUrl, '/');
-        }
+        $this->baseUrl = rtrim($baseUrl, '/');
         return $this;
     }
     public function getBaseUrl(): string
@@ -92,14 +87,14 @@ final class HttpClient
     }
     public function delete(string $endpoint, array $queryParams = []): array
     {
-        $url = $endpoint . Helper::toHttpQuery($queryParams);
+        $url = $this->buildUrl($endpoint, $queryParams);
         $this->log('info', 'DELETE request', [$url]);
         $this->removeFromCache($url);
         return $this->request('delete', $endpoint, $queryParams);
     }
     public function get(string $endpoint, array $queryParams = []): mixed
     {
-        $url = $endpoint . Helper::toHttpQuery($queryParams);
+        $url = $this->buildUrl($endpoint, $queryParams);
         $this->log('info', 'GET request', [$url]);
         $key   = md5($url);
         $cache = $this->fetchFromCache($key);
@@ -135,7 +130,7 @@ final class HttpClient
 
             $client = new Client($this->prepareConfig());
 
-            $uri = $this->getBaseUrl() . $endpoint . Helper::toHttpQuery($queryParams);
+            $uri = $this->buildUrl($endpoint, $queryParams);
 
             $request = new Request($method, $uri, $this->getHeader(), $body);
 
@@ -216,7 +211,14 @@ final class HttpClient
         $config['headers'] = array_merge($config['headers'], $this->getHeader());
         return $config;
     }
-
+    private function buildUrl(string $endpoint, array $queryParams = []): string
+    {
+        $url = $this->getBaseUrl() . $endpoint;
+        if (!empty($queryParams)) {
+            $url .= Helper::toHttpQuery($queryParams);
+        }
+        return $url;
+    }
     final public function __injectTestHandler(MockHandler $mock): void
     {
         $handlerStack              = HandlerStack::create($mock);
